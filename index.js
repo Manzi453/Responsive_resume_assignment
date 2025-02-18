@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelector(".nav-links");
     const navItems = document.querySelectorAll(".nav-links a");
 
+    const navbarHeight = document.querySelector(".navbar").offsetHeight; // Get navbar height
+
     menuToggle.addEventListener("click", () => {
         navLinks.classList.toggle("show");
     });
@@ -13,10 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const targetId = item.getAttribute("href").substring(1);
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: "smooth" });
+                // Scroll with offset to account for fixed navbar height
+                window.scrollTo({
+                    top: targetSection.offsetTop - navbarHeight,  // Scroll position with navbar height offset
+                    behavior: "smooth"
+                });
             }
         });
     });
-
-   
 });
+
