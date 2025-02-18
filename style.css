@@ -10,7 +10,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color:whitesmoke;
     padding-top: 60px; /* Prevent content from being hidden behind the navbar */
 }
 
@@ -214,7 +214,6 @@ aside p {
     color: #444;
     list-style: none;
 }
-
 /* Social Icons */
 .social-icons {
     display: flex;
@@ -227,11 +226,85 @@ aside p {
     font-size: 2rem;
     text-decoration: none;
     color: #666;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.social-icons a:hover {
+/* Unique Hover Colors */
+.social-icons a[href*="instagram.com"]:hover {
+    color: #E4405F; /* Instagram Pink-Red */
     transform: scale(1.2);
+}
+
+.social-icons a[href*="linkedin.com"]:hover {
+    color: #0077B5; /* LinkedIn Blue */
+    transform: scale(1.2);
+}
+
+.social-icons a[href*="github.com"]:hover {
+    color: #171515; /* GitHub Black */
+    transform: scale(1.2);
+}
+/* Skills & Languages Section */
+.skills-languages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.skills, .languages {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.skills h2, .languages h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Skill Cards */
+.skill-card, .language-card {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.skill-card:hover, .language-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Experience & Education */
+.experience-container, .education-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.experience-card, .education-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.experience-card:hover, .education-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer Styles */
