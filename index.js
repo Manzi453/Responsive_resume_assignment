@@ -3,25 +3,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelector(".nav-links");
     const navItems = document.querySelectorAll(".nav-links a");
 
-    const navbarHeight = document.querySelector(".navbar").offsetHeight; // Get navbar height
-
     menuToggle.addEventListener("click", () => {
         navLinks.classList.toggle("show");
     });
 
+    // Smooth Scroll on Navbar Links Click
     navItems.forEach(item => {
-        item.addEventListener("click", (event) => {
+        item.addEventListener("click", function(event) {
             event.preventDefault();
-            const targetId = item.getAttribute("href").substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                // Scroll with offset to account for fixed navbar height
-                window.scrollTo({
-                    top: targetSection.offsetTop - navbarHeight,  // Scroll position with navbar height offset
-                    behavior: "smooth"
-                });
-            }
+            const targetId = this.getAttribute("href").slice(1);
+            const targetElement = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop - 50, // Adjust for navbar height
+                behavior: 'smooth'
+            });
         });
     });
-});
 
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(44, 62, 80, 0.9)';
+        } else {
+            navbar.style.background = 'var(--primary-color)';
+        }
+    });
+});
