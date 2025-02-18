@@ -1,0 +1,139 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    padding-top: 60px; /* Prevent content from being hidden behind the navbar */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Adjust the background color as needed */
+    z-index: 1000; /* Ensure the navbar is above other content */
+    padding: 10px 0; /* Adjust padding for spacing */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Menu Toggle (Hamburger Icon) */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.picture img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    margin-top: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+aside {
+    max-width: 500px;
+    padding: 20px;
+}
+
+/* Projects Section */
+.project-container {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.project-card {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.social-icons a {
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        width: 200px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    /* Add space at the top to prevent content being hidden behind the fixed navbar */
+    body {
+        padding-top: 100px; /* Adjust this value based on the navbar height */
+    }
+}.logo{
+    color: aliceblue;
+}
