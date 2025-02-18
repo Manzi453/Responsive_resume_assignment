@@ -7,10 +7,10 @@
 
 /* Body Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: gray;
+    background-color: #f5f5f5;
     padding-top: 60px; /* Prevent content from being hidden behind the navbar */
 }
 
@@ -20,9 +20,9 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333; /* Adjust the background color as needed */
-    z-index: 1000; /* Ensure the navbar is above other content */
-    padding: 10px 0; /* Adjust padding for spacing */
+    background-color: #333;
+    z-index: 1000;
+    padding: 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,25 +35,18 @@ body {
     display: flex;
     gap: 20px;
 }
-.nav-links a:hover,
-.nav-links a:focus {
-    text-decoration: underline; /* Add the underline when hovered or focused */
-    color: #e4405f; /* Optional: change color on hover for extra effect */
-}
-
-/* Optional: Add a bottom border underline on active or clicked link */
-.nav-links a.active {
-    border-bottom: 2px solid #e4405f; /* Underline for active link */
-    color: #e4405f; /* Change color of active link */
-}
 .nav-links a {
     text-decoration: none;
     color: white;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
 }
-.nav-links a:hover{
-    box-shadow: 20px;
+
+.nav-links a:hover {
     color: yellow;
+    text-decoration: underline;
 }
+
 /* Menu Toggle (Hamburger Icon) */
 .menu-toggle {
     display: none;
@@ -68,77 +61,187 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    text-align: center;
 }
 
+/* Profile Image */
 .picture img {
-    width: 300px;
-    height: 300px;
-    border-radius: 100%;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
     margin-top: 1em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-.picture img a:hover{
-    color: azure;
-    box-shadow: 20px;
+
+.picture img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.2);
 }
+
+/* About Section */
 aside {
-    max-width: 500px;
-    padding: 50px;
+    max-width: 600px;
+    padding: 40px;
+    text-align: left;
+}
+
+aside h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+}
+
+aside p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
 }
 
 /* Projects Section */
 .project-container {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap into the next row if necessary */
-    justify-content: center; /* Align the items centrally */
-    gap: 20px; /* Space between the cards */
-    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
 }
 
 .project-card {
     background: white;
-    padding: 15px;
+    padding: 20px;
     margin: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 250px; /* Set width for the cards */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
     text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Skills and Experience Section */
+.skills-experience {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.skills, .experience {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skills h2, .experience h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.skills ul, .experience ul {
+    list-style: none;
+}
+
+.skills li, .experience li {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Education Section */
+.education {
+    text-align: center;
+    padding: 40px;
+}
+
+.education h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.education-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.education-card h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.education-card p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Contact Section */
+.contact {
+    padding: 40px;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.contact ul {
+    font-size: 1.2em;
+    color: #444;
+    list-style: none;
 }
 
 /* Social Icons */
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     padding: 20px;
 }
 
 .social-icons a {
     font-size: 2rem;
-    color: hwb(260 27% 71%);
+    text-decoration: none;
+    color: #666;
+    transition: transform 0.3s ease-in-out;
 }
-.social-icons .inst:hover{
-    
-    color: red;
-box-shadow: 20px;
+
+.social-icons a:hover {
+    transform: scale(1.2);
 }
-.social-icons .link:hover{
-    
-    color: #70e6de;
-box-shadow: 20px;
-}
-.social-icons .git:hover{
-    
-    color:whitesmoke;
-box-shadow: 20px;
-}
+
 /* Footer Styles */
 .footer {
     text-align: center;
     background-color: #333;
     color: white;
-    padding: 10px;
+    padding: 15px;
     margin-top: 20px;
+    font-size: 1.1em;
 }
 
 /* Responsive Design */
@@ -163,24 +266,20 @@ box-shadow: 20px;
         display: flex;
     }
 
-    /* Add space at the top to prevent content being hidden behind the fixed navbar */
     body {
-        padding-top: 100px; /* Adjust this value based on the navbar height */
+        padding-top: 100px;
     }
 
-    /* Make project cards stack vertically on small screens */
     .project-container {
         flex-direction: column;
         align-items: center;
     }
-}
 
-.logo {
-    color: aliceblue;
-}
-.contact{
-    padding-left: 20px;
-}
-h1{
-    size: 200px;
+    .skills, .experience {
+        width: 100%;
+    }
+
+    .education-card {
+        width: 80%;
+    }
 }
