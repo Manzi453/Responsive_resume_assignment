@@ -426,7 +426,7 @@ form button:hover {
         align-items: center;
     }
 
-    .skills, .experience, .education-card, .language-card, .languages {
+    .skills, .experience, .education-card, .language-card, .languages ,.contact {
         width: 90%; /* Adjust width to maintain content properly */
         max-width: 400px; /* Prevent excessive stretching */
         padding: 20px;
