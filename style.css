@@ -397,7 +397,7 @@ form button:hover {
 
  /* Responsive Design */
 @media (max-width: 768px) {
-    .menu-toggle {
+    .menu-toggle, .social-icons{
         display: block;
     }
 
