@@ -173,9 +173,9 @@ const Contact = () => {
       )}
       <label 
         htmlFor={name} 
-        className="block text-gray-700 font-semibold mb-2 text-sm"
+        className="block text-gray-200 font-semibold mb-2 text-sm"
       >
-        {label} {required && <span className="text-red-500">*</span>}
+        {label} {required && <span className="text-red-400">*</span>}
       </label>
       {rows ? (
         <textarea
@@ -185,10 +185,10 @@ const Contact = () => {
           onChange={handleChange}
           rows={rows}
           required={required}
-          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none ${
+          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none bg-gray-700/50 text-white placeholder-gray-400 ${
             formErrors[name] 
               ? 'border-red-500 focus:ring-red-500' 
-              : 'border-gray-300 focus:ring-blue-500'
+              : 'border-gray-600 focus:ring-cyan-500'
           } ${Icon ? 'pl-12' : ''}`}
           placeholder={placeholder}
         />
@@ -200,10 +200,10 @@ const Contact = () => {
           value={formData[name]}
           onChange={handleChange}
           required={required}
-          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 ${
+          className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 bg-gray-700/50 text-white placeholder-gray-400 ${
             formErrors[name] 
               ? 'border-red-500 focus:ring-red-500' 
-              : 'border-gray-300 focus:ring-blue-500'
+              : 'border-gray-600 focus:ring-cyan-500'
           } ${Icon ? 'pl-12' : ''}`}
           placeholder={placeholder}
         />
@@ -220,10 +220,10 @@ const Contact = () => {
   return (
     <>
       {/* Contact Form */}
-      <section id="contact-form" className="section-padding bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+      <section id="contact-form" className="section-padding bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute top-20 right-20 w-64 h-64 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-200 rounded-full filter blur-3xl opacity-20"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-500 rounded-full filter blur-3xl opacity-10"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           {/* Header */}
@@ -234,14 +234,14 @@ const Contact = () => {
               opacity: isVisible ? 1 : 0
             }}
           >
-            <div className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
+            <div className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-700/30">
               <FaEnvelope className="inline mr-2" />
               Get In Touch
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
               <span className="gradient-text">Let's Connect</span>
             </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
               Have a project in mind or want to collaborate? I'd love to hear from you! 
               Send me a message and I'll get back to you as soon as possible.
             </p>
@@ -279,7 +279,7 @@ const Contact = () => {
           {/* Contact Form */}
           <form 
             onSubmit={handleSubmit} 
-            className="max-w-2xl mx-auto bg-white p-8 lg:p-12 rounded-2xl shadow-xl border border-gray-100"
+            className="max-w-2xl mx-auto bg-gray-800/50 backdrop-blur-sm p-8 lg:p-12 rounded-2xl shadow-xl border border-gray-700"
             style={{
               animationDelay: '200ms',
               animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
@@ -326,7 +326,7 @@ const Contact = () => {
             </div>
 
             <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-2 text-sm text-gray-600">
+              <div className="flex items-center gap-2 text-sm text-gray-400">
                 <FaClock />
                 <span>I typically respond within 24 hours</span>
               </div>
@@ -335,7 +335,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+              className="w-full btn-primary flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center gap-2">
                 {isSubmitting ? (
@@ -357,22 +357,22 @@ const Contact = () => {
       </section>
 
       {/* Contact Info & Social */}
-      <section id="contact" className="section-padding bg-white relative overflow-hidden">
+      <section id="contact" className="section-padding bg-gray-800 relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute top-10 left-10 w-72 h-72 bg-purple-200 rounded-full filter blur-3xl opacity-20"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-cyan-600 rounded-full filter blur-3xl opacity-10"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-4">
+            <div className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-700/30">
               <FaPhone className="inline mr-2" />
               Contact Information
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
               <span className="gradient-text">Reach Out Anytime</span>
             </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
               Multiple ways to connect - choose what works best for you. 
               I'm always open to discussing new projects, creative ideas, or opportunities.
             </p>
@@ -384,7 +384,7 @@ const Contact = () => {
               <a
                 key={index}
                 href={info.href}
-                className={`group bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center border border-gray-100 ${
+                className={`group bg-gradient-to-br from-gray-700/50 to-gray-800/50 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center border border-gray-600 backdrop-blur-sm ${
                   info.href !== '#' ? 'cursor-pointer' : 'cursor-default'
                 }`}
                 style={{
@@ -393,20 +393,20 @@ const Contact = () => {
                   opacity: isVisible ? 1 : 0
                 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <info.icon />
                 </div>
-                <h3 className="font-bold text-gray-800 text-lg mb-2">{info.label}</h3>
-                <p className="text-gray-600 font-medium mb-2">{info.text}</p>
-                <p className="text-sm text-gray-500">{info.description}</p>
+                <h3 className="font-bold text-white text-lg mb-2">{info.label}</h3>
+                <p className="text-gray-300 font-medium mb-2">{info.text}</p>
+                <p className="text-sm text-gray-400">{info.description}</p>
               </a>
             ))}
           </div>
 
           {/* Social Media */}
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Connect With Me</h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">Connect With Me</h3>
+            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Follow me on social media for updates, insights, and professional networking
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-3xl mx-auto">
@@ -423,7 +423,7 @@ const Contact = () => {
                     opacity: isVisible ? 1 : 0
                   }}
                 >
-                  <div className="relative overflow-hidden bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                  <div className="relative overflow-hidden bg-gray-700/50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-600 backdrop-blur-sm">
                     {/* Gradient background on hover */}
                     <div className={`absolute inset-0 bg-gradient-to-r ${social.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                     
@@ -432,7 +432,7 @@ const Contact = () => {
                       <div className={`w-12 h-12 bg-gradient-to-r ${social.color} rounded-full flex items-center justify-center text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`}>
                         <social.icon className="text-xl" />
                       </div>
-                      <p className="text-sm font-medium text-gray-800 group-hover:text-white transition-colors duration-300">
+                      <p className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
                         {social.label}
                       </p>
                     </div>

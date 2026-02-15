@@ -26,11 +26,11 @@ const Education = () => {
       location: 'Kigali, Rwanda',
       period: '2023 - 2027 (Expected)',
       status: 'Current',
-      gpa: '3.8/4.0',
+      gpa: '4.0/5.0',
       highlights: [
         'Focus on Software Engineering and Computer Science',
         'Leadership and Entrepreneurship Program',
-        'Dean\'s List (2023, 2024)'
+        'Start/End (2024, 2027)'
       ],
       achievements: [
         'Academic Excellence Scholarship',

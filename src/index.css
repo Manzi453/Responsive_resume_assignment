@@ -33,15 +33,15 @@
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent;
   }
   
   .card-hover {
-    @apply transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl;
+    @apply transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20;
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-8 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg;
+    @apply bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-semibold py-3 px-8 rounded-full hover:from-cyan-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/25;
   }
   
   .section-padding {
@@ -50,7 +50,7 @@
   
   /* Glass morphism effect */
   .glass {
-    @apply bg-white/20 backdrop-blur-lg border border-white/20;
+    @apply bg-gray-900/20 backdrop-blur-lg border border-gray-700/30;
   }
   
   /* Floating animation */
@@ -66,13 +66,13 @@
   /* Glow effect */
   .glow {
     @apply shadow-lg;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
   }
   
   /* Text gradient on hover */
   .text-gradient-hover {
     @apply transition-all duration-300;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -91,7 +91,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
     animation: shimmer 2s infinite;
   }
 }
