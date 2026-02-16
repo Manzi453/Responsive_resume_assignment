@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaMobile, FaCloud, FaLock, FaRocket, FaLeaf, FaTerminal, FaShoppingCart, FaTasks, FaGlobe, FaUsers, FaCalendarAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaMobile, FaGraduationCap, FaLock, FaRocket, FaLeaf, FaTerminal, FaShoppingCart, FaTasks, FaGlobe, FaUsers, FaCalendarAlt } from 'react-icons/fa';
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -55,40 +55,32 @@ const Projects = () => {
       liveVisitors: '500+',
       lastUpdated: '2024-02-01'
     },
-    // {
-    //   title: 'E-Commerce Platform',
-    //   description: 'Full-stack e-commerce solution with secure payment processing, inventory management, and real-time analytics. Built with scalability and security in mind.',
-    //   longDescription: 'Enterprise-grade e-commerce platform featuring advanced product management, secure checkout process, and comprehensive analytics dashboard.',
-    //   link: null,
-    //   linkText: 'Coming Soon',
-    //   tags: ['Full-Stack', 'Security', 'Scalability', 'E-Commerce'],
-    //   icon: FaShoppingCart,
-    //   color: 'from-purple-500 to-pink-500',
-    //   category: 'fullstack',
-    //   featured: false,
-    //   status: 'development',
-    //   technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'Redis'],
-    //   highlights: ['Secure payments', 'Real-time inventory', 'Advanced analytics'],
-    //   progress: 75,
-    //   estimatedLaunch: '2024-06-01'
-    // },
-    // {
-    //   title: 'Task Management System',
-    //   description: 'Collaborative project management tool with real-time updates, team collaboration features, and advanced project tracking capabilities.',
-    //   longDescription: 'Modern task management application designed for teams, featuring real-time collaboration, project timelines, and comprehensive reporting.',
-    //   link: null,
-    //   linkText: 'In Development',
-    //   tags: ['React', 'Node.js', 'MongoDB', 'Real-time'],
-    //   icon: FaTasks,
-    //   color: 'from-blue-500 to-cyan-500',
-    //   category: 'fullstack',
-    //   featured: false,
-    //   status: 'development',
-    //   technologies: ['React', 'Socket.io', 'Express.js', 'MongoDB', 'JWT'],
-    //   highlights: ['Real-time collaboration', 'Team management', 'Advanced reporting'],
-    //   progress: 60,
-    //   estimatedLaunch: '2024-07-15'
-    // },
+    {
+      title: 'Academic ALU Platform',
+      description: 'Academic management and assessment platform designed to support students and instructors with course tracking, evaluations, and academic resources.',
+      longDescription:
+          'Academic ALU is a web-based academic platform that streamlines course management, assessments, and student support. The system focuses on usability, scalability, and structured academic workflows.',
+      link: 'https://github.com/Manzi453/academic_alu',
+      linkText: 'View on GitHub',
+      tags: ['Education', 'Academic', 'Web App', 'Full-Stack'],
+      icon: FaGraduationCap,
+      color: 'from-blue-500 to-indigo-600',
+      category: 'fullstack',
+      featured: false,
+      status: 'development',
+      technologies: [
+        'Flutter',
+        'Dart',
+
+      ],
+      highlights: [
+        'Academic assessment management',
+        'Structured course workflows',
+        'Student-focused UI'
+      ],
+      progress: 70,
+      estimatedLaunch: '2024-06-01'
+    },
     // {
     //   title: 'Weather Dashboard',
     //   description: 'Interactive weather application with detailed forecasts, historical data analysis, and beautiful data visualizations using modern charting libraries.',
