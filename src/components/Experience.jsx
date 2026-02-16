@@ -23,16 +23,17 @@ const Experience = () => {
     {
       title: 'Software Engineer Intern',
       company: 'Banque Populaire du Rwanda Plc (BPR)',
-      period: '2024',
-      duration: '6 months',
+      period: '2025',
+      duration: '3 months',
       location: 'Kigali, Rwanda',
-      description: 'Developed and maintained banking software solutions, participated in code reviews, and collaborated with cross-functional teams to deliver high-quality financial applications.',
+      description: 'During this period, I worked on an academic project for RwandaBill, which I developed independently under guidance. The project involved applying Java (Spring Boot) and PostgreSQL on the backend, and React with Tailwind CSS on the frontend, while leveraging foundational knowledge of Docker and Kubernetes concepts gained during training.',
       achievements: [
-        'Contributed to 3 major banking application features',
-        'Improved application performance by 25%',
-        'Participated in agile development processes'
+        'Designed and fully implemented the RwandaBill application by integrating React, Tailwind CSS, and Java (Spring Boot)',
+        'Developed backend services and database interactions using PostgreSQL for a school-based billing system',
+        'Applied containerization and deployment concepts learned during training to understand application deployment workflows'
       ],
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
+
+      technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
       type: 'internship',
       icon: FaBuilding,
       color: 'from-blue-500 to-cyan-500'
@@ -43,13 +44,14 @@ const Experience = () => {
       period: '2024',
       duration: '3 months',
       location: 'Kigali, Rwanda',
-      description: 'Worked on business continuity planning software, implemented new features for risk assessment modules, and assisted in system architecture improvements.',
+      description: 'Supported the maintenance of business continuity planning software by observing development workflows, assisting with troubleshooting, and gaining exposure to risk assessment modules and system architecture practices.',
       achievements: [
-        'Developed risk assessment dashboard',
-        'Implemented automated reporting system',
-        'Enhanced data visualization components'
+        'Assisted in troubleshooting application issues and resolving minor bugs',
+        'Observed and supported ongoing development of risk assessment features',
+        'Provided general IT support and maintenance assistance to the development team'
       ],
-      technologies: ['Vue.js', 'Python', 'MongoDB', 'AWS'],
+
+      technologies: ['React', 'Python','Linux'],
       type: 'internship',
       icon: FaBriefcase,
       color: 'from-green-500 to-emerald-500'
@@ -66,7 +68,7 @@ const Experience = () => {
         'Completed 10+ hands-on projects',
         'Received certification of excellence'
       ],
-      technologies: ['JavaScript', 'React', 'Node.js', 'Git'],
+      technologies: ['JavaScript', 'PHP', 'HTML','CSS', 'Git'],
       type: 'training',
       icon: FaGraduationCap,
       color: 'from-purple-500 to-pink-500'

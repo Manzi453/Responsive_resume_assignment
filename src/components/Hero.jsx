@@ -16,7 +16,7 @@ const Hero = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             <div className="relative">
               <img
-                src="/cv pic .jpg"
+                src=""
                 alt="Profile Picture"
                 className="w-72 h-72 lg:w-96 lg:h-96 rounded-full shadow-2xl border-4 border-gray-800 transform transition-all duration-500 group-hover:scale-105"
               />
@@ -42,7 +42,8 @@ const Hero = () => {
             {/* Title */}
             <div className="mb-6">
               <h2 className="text-2xl lg:text-3xl font-semibold text-gray-200 animate-slide-up animation-delay-400">
-                Full Stack Developer
+                Software Engineer
+
               </h2>
               <div className="flex items-center justify-center lg:justify-start gap-2 mt-2">
                 <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
@@ -70,20 +71,20 @@ const Hero = () => {
                   View Projects
                 </span>
               </a>
-              <a 
-                href="#" 
-                className="relative group overflow-hidden border-2 border-gray-500 text-gray-400 font-semibold py-3 px-8 rounded-full hover:bg-gray-500 hover:text-white transition-all duration-300 transform hover:scale-105"
-                onClick={(e) => {
-                  e.preventDefault();
-                  // Add download CV functionality
-                  alert('CV download functionality to be implemented');
-                }}
-              >
-                <span className="flex items-center justify-center gap-2">
-                  <FaDownload />
-                  Download CV
-                </span>
-              </a>
+              {/*<a */}
+              {/*  href="#" */}
+              {/*  className="relative group overflow-hidden border-2 border-gray-500 text-gray-400 font-semibold py-3 px-8 rounded-full hover:bg-gray-500 hover:text-white transition-all duration-300 transform hover:scale-105"*/}
+              {/*  onClick={(e) => {*/}
+              {/*    e.preventDefault();*/}
+              {/*    // Add download CV functionality*/}
+              {/*    alert('CV download functionality to be implemented');*/}
+              {/*  }}*/}
+              {/*>*/}
+                {/*<span className="flex items-center justify-center gap-2">*/}
+                {/*  <FaDownload />*/}
+                {/*  Download CV*/}
+              {/*  /!*</span>*!/*/}
+              {/*</a>*/}
             </div>
             
             {/* Social Links */}
@@ -104,20 +105,20 @@ const Hero = () => {
               >
                 <FaLinkedin className="text-xl" />
               </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-800 text-gray-300 rounded-full flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12 border border-gray-700"
-              >
-                <FaTwitter className="text-xl" />
-              </a>
-              <a 
-                href="mailto:manziivan453@gmail.com"
-                className="w-12 h-12 bg-gray-800 text-gray-300 rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12 border border-gray-700"
-              >
-                <FaEnvelope className="text-xl" />
-              </a>
+              {/*<a */}
+              {/*  href="https://twitter.com" */}
+              {/*  target="_blank" */}
+              {/*  rel="noopener noreferrer"*/}
+              {/*  className="w-12 h-12 bg-gray-800 text-gray-300 rounded-full flex items-center justify-center hover:bg-sky-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12 border border-gray-700"*/}
+              {/*>*/}
+              {/*  <FaTwitter className="text-xl" />*/}
+              {/*</a>*/}
+              {/*<a */}
+              {/*  href="mailto:manziivan453@gmail.com"*/}
+              {/*  className="w-12 h-12 bg-gray-800 text-gray-300 rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12 border border-gray-700"*/}
+              {/*>*/}
+              {/*  <FaEnvelope className="text-xl" />*/}
+              {/*</a>*/}
             </div>
           </aside>
         </div>

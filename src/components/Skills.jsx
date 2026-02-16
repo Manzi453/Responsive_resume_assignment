@@ -25,42 +25,42 @@ const Skills = () => {
       level: 90, 
       icon: FaCode,
       color: 'from-blue-500 to-cyan-500',
-      technologies: ['React', 'Vue.js', 'TypeScript', 'Tailwind CSS']
+      technologies: ['React', 'HTML', 'CSS', 'TypeScript', 'Tailwind CSS']
     },
     { 
       name: 'Backend Development', 
-      level: 85, 
+      level: 75,
       icon: FaDatabase,
       color: 'from-green-500 to-emerald-500',
-      technologies: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB']
+      technologies: ['Spring Boot', 'Java', 'Python', 'PostgreSQL']
     },
-    { 
-      name: 'React Ecosystem', 
-      level: 88, 
-      icon: FaReact,
-      color: 'from-cyan-500 to-blue-500',
-      technologies: ['React Hooks', 'Redux', 'Next.js', 'React Native']
-    },
-    { 
-      name: 'Python Development', 
-      level: 82, 
-      icon: FaPython,
-      color: 'from-yellow-500 to-orange-500',
-      technologies: ['Django', 'FastAPI', 'Data Analysis', 'Automation']
-    },
-    { 
+    // {
+    //   name: 'React Ecosystem',
+    //   level: 88,
+    //   icon: FaReact,
+    //   color: 'from-cyan-500 to-blue-500',
+    //   technologies: ['React Hooks', ]
+    // },
+    // {
+    //   name: 'Python Development',
+    //   level: 82,
+    //   icon: FaPython,
+    //   color: 'from-yellow-500 to-orange-500',
+    //   technologies: ['Django', 'FastAPI', 'Data Analysis', 'Automation']
+    // },
+    {
       name: 'DevOps & Cloud', 
-      level: 75, 
+      level: 65,
       icon: FaDocker,
       color: 'from-purple-500 to-pink-500',
-      technologies: ['Docker', 'AWS', 'CI/CD', 'Kubernetes']
+      technologies: ['Docker', 'CI/CD', 'Kubernetes']
     },
     { 
       name: 'Version Control', 
       level: 92, 
       icon: FaGitAlt,
       color: 'from-gray-700 to-gray-900',
-      technologies: ['Git', 'GitHub', 'GitLab', 'Bitbucket']
+      technologies: ['Git', 'GitHub', ]
     }
   ];
 
@@ -83,12 +83,12 @@ const Skills = () => {
       flag: '🇷🇼',
       proficiency: 'Native Speaker'
     },
-    { 
-      name: 'Swahili', 
-      level: 80, 
-      flag: '🇰🇪',
-      proficiency: 'Professional Working Proficiency'
-    }
+    // {
+    //   name: 'Swahili',
+    //   level: 80,
+    //   flag: '🇰🇪',
+    //   proficiency: 'Professional Working Proficiency'
+    // }
   ];
 
   const SkillCard = ({ skill, index }) => {
