@@ -10,8 +10,12 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
   const [formErrors, setFormErrors] = useState({});
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => setIsMounted(true), []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -389,8 +393,7 @@ const Contact = () => {
                 }`}
                 style={{
                   animationDelay: `${index * 150}ms`,
-                  animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
-                  opacity: isVisible ? 1 : 0
+                  animation: 'slide-up 0.8s ease-out forwards'
                 }}
               >
                 <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -419,8 +422,7 @@ const Contact = () => {
                   className="group relative"
                   style={{
                     animationDelay: `${index * 100 + 600}ms`,
-                    animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
-                    opacity: isVisible ? 1 : 0
+                    animation: 'slide-up 0.8s ease-out forwards'
                   }}
                 >
                   <div className="relative overflow-hidden bg-gray-700/50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-600 backdrop-blur-sm">
