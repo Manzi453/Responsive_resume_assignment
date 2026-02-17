@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaMobile, FaGraduationCap, FaLock, FaRocket, FaLeaf, FaTerminal, FaShoppingCart, FaTasks, FaGlobe, FaUsers, FaCalendarAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaMobile, FaGraduationCap, FaLock, FaLeaf, FaTerminal, FaServer, FaGlobe, FaUsers, FaCalendarAlt , FaReact} from 'react-icons/fa';
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -81,40 +81,60 @@ const Projects = () => {
       progress: 70,
       estimatedLaunch: '2024-06-01'
     },
-    // {
-    //   title: 'Weather Dashboard',
-    //   description: 'Interactive weather application with detailed forecasts, historical data analysis, and beautiful data visualizations using modern charting libraries.',
-    //   longDescription: 'Comprehensive weather dashboard providing detailed meteorological data, predictive analytics, and beautiful interactive visualizations.',
-    //   link: null,
-    //   linkText: 'Planning Phase',
-    //   tags: ['React', 'API Integration', 'Data Visualization'],
-    //   icon: FaCloud,
-    //   color: 'from-sky-500 to-blue-500',
-    //   category: 'web',
-    //   featured: false,
-    //   status: 'planning',
-    //   technologies: ['React', 'Chart.js', 'Weather API', 'Geolocation'],
-    //   highlights: ['Interactive charts', 'Historical data', 'Predictive analytics'],
-    //   progress: 25,
-    //   estimatedLaunch: '2024-08-01'
-    // },
-    // {
-    //   title: 'Mobile Banking App',
-    //   description: 'Secure mobile banking application with biometric authentication, real-time transactions, and comprehensive financial management features.',
-    //   longDescription: 'Next-generation mobile banking solution with advanced security features, intuitive user interface, and comprehensive financial tools.',
-    //   link: null,
-    //   linkText: 'Concept Stage',
-    //   tags: ['Mobile', 'Security', 'Finance', 'React Native'],
-    //   icon: FaMobile,
-    //   color: 'from-indigo-500 to-purple-500',
-    //   category: 'mobile',
-    //   featured: false,
-    //   status: 'concept',
-    //   technologies: ['React Native', 'Biometric Auth', 'Encryption', 'API Integration'],
-    //   highlights: ['Biometric security', 'Real-time transactions', 'Financial analytics'],
-    //   progress: 10,
-    //   estimatedLaunch: '2024-12-01'
-    // }
+    {title: 'Smart RwandaBill – Frontend',
+      description: 'Modern, responsive user interface for the Smart RwandaBill digital billing platform.',
+      longDescription: 'The Smart RwandaBill Frontend is a React-based web application that provides an intuitive and responsive interface for managing bills, viewing payment statuses, and interacting with the RwandaBill backend API.',
+      link: 'https://github.com/Manzi453/Smart_RwandaBill_Frontend',
+      linkText: 'View Frontend Repo',
+      tags: ['React', 'Tailwind CSS', 'UI/UX', 'Frontend'],
+      icon: FaReact,
+      color: 'from-cyan-500 to-blue-600',
+      category: 'web',
+      featured: false,
+      status: 'active',
+      technologies: [
+        'React',
+        'Tailwind CSS',
+        'JavaScript',
+        'REST API',
+        'Responsive Design'
+      ],
+      highlights: [
+        'Clean and responsive UI',
+        'Reusable React components',
+        'API integration with backend services',
+        'Optimized user experience'
+      ],
+      progress: 85,
+      estimatedLaunch: '2024-05-15'
+     },
+    {
+      title: 'Smart RwandaBill – Backend',
+      description: 'Scalable backend service for managing digital billing, payments, and user data.',
+      longDescription: 'The Smart RwandaBill Backend is a Node.js and Express-based RESTful API that handles bill generation, payment tracking, user authentication, and secure data management for the Smart RwandaBill platform.',
+      link: 'https://github.com/Manzi453/Smart_RwandaBill_Backend',
+      linkText: 'View Backend Repository',
+      tags: ['Node.js', 'Express', 'REST API', 'Backend'],
+      icon: FaServer,
+      color: 'from-slate-700 to-gray-900',
+      category: 'backend',
+      featured: true,
+      status: 'active',
+      technologies: [
+        'Node.js',
+        'Postgresql',
+        'JWT Authentication',
+        'REST API'
+      ],
+      highlights: [
+        'Secure RESTful API',
+        'Bill and payment management logic',
+        'JWT-based authentication',
+        'Scalable backend architecture'
+      ],
+      progress: 80,
+      estimatedLaunch: '2024-06-01'
+    }
   ];
 
   const categories = [
