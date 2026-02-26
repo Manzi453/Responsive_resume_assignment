@@ -87,7 +87,7 @@ const Education = () => {
     
     return (
       <div 
-        className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100"
+        className="group relative bg-gray-800/50 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-700/30"
         style={{
           animationDelay: `${index * 200}ms`,
           animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
@@ -133,10 +133,10 @@ const Education = () => {
         <div className="p-6 relative z-10">
           {/* School and location */}
           <div className="mb-6">
-            <h4 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
+              <h4 className="text-lg font-semibold text-gray-200 mb-2 flex items-center gap-2">
               {edu.school}
             </h4>
-            <div className="flex items-center gap-4 text-sm text-gray-600">
+            <div className="flex items-center gap-4 text-sm text-gray-400">
               <div className="flex items-center gap-1">
                 <FaMapMarkerAlt className="text-blue-500" />
                 <span>{edu.location}</span>
@@ -199,22 +199,22 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="section-padding bg-gradient-to-br from-purple-50 via-white to-blue-50 relative overflow-hidden">
+    <section id="education" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-purple-200 rounded-full filter blur-3xl opacity-20"></div>
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>
+      <div className="absolute top-10 left-10 w-72 h-72 bg-purple-600 rounded-full filter blur-3xl opacity-10"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-block px-4 py-2 bg-purple-900/50 text-purple-300 rounded-full text-sm font-semibold mb-4 border border-purple-700/30">
             <FaGraduationCap className="inline mr-2" />
             Academic Journey
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text">Education Background</span>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Education Background</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
             My educational foundation from primary school through university, 
             building the knowledge and skills that drive my passion for software engineering
           </p>
@@ -229,26 +229,26 @@ const Education = () => {
         
         {/* Summary Stats */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
+            <div className="w-16 h-16 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               10+
             </div>
-            <h3 className="font-semibold text-gray-800">Years of Education</h3>
-            <p className="text-sm text-gray-600 mt-2">Continuous learning journey</p>
+            <h3 className="font-semibold text-gray-200">Years of Education</h3>
+            <p className="text-sm text-gray-400 mt-2">Continuous learning journey</p>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
+          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
             <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               3.8
             </div>
-            <h3 className="font-semibold text-gray-800">Current GPA</h3>
-            <p className="text-sm text-gray-600 mt-2">Academic excellence</p>
+            <h3 className="font-semibold text-gray-200">Current GPA</h3>
+            <p className="text-sm text-gray-400 mt-2">Academic excellence</p>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
+          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
             <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               5+
             </div>
-            <h3 className="font-semibold text-gray-800">Awards</h3>
-            <p className="text-sm text-gray-600 mt-2">Academic achievements</p>
+            <h3 className="font-semibold text-gray-200">Awards</h3>
+            <p className="text-sm text-gray-400 mt-2">Academic achievements</p>
           </div>
         </div>
       </div>

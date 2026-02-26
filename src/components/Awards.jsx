@@ -91,13 +91,13 @@ const Awards = () => {
     if (!certificate) return null;
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4" onClick={onClose}>
-        <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+      <div className="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4" onClick={onClose}>
+        <div className="bg-gray-800 border border-gray-700 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
           <div className="relative">
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white hover:text-gray-900 transition-all duration-300 z-10 shadow-lg"
+              className="absolute top-4 right-4 w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-all duration-300 z-10 shadow-lg"
             >
               <FaTimes />
             </button>
@@ -121,8 +121,8 @@ const Awards = () => {
             <div className="p-8">
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">{certificate.title}</h3>
-                  <p className="text-gray-600">{certificate.longDescription}</p>
+              <h3 className="text-2xl font-bold text-white mb-2">{certificate.title}</h3>
+              <p className="text-gray-300">{certificate.longDescription}</p>
                 </div>
                 <div className={`w-16 h-16 bg-gradient-to-br ${certificate.color} rounded-xl flex items-center justify-center text-white shadow-lg`}>
                   <certificate.icon className="text-2xl" />
@@ -136,25 +136,25 @@ const Awards = () => {
                     <span className="text-2xl">{certificate.issuerLogo}</span>
                     Issuing Organization
                   </h4>
-                  <p className="text-gray-700">{certificate.issuer}</p>
+                  <p className="text-gray-300">{certificate.issuer}</p>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-xl">
                   <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
                     <FaCalendarAlt className="text-blue-500" />
                     Completion Details
                   </h4>
-                  <p className="text-gray-700">{certificate.date} • {certificate.duration}</p>
+                  <p className="text-gray-300">{certificate.date} • {certificate.duration}</p>
                 </div>
               </div>
               
               {/* Skills */}
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-800 mb-3">Skills Acquired</h4>
+                <h4 className="font-semibold text-gray-200 mb-3">Skills Acquired</h4>
                 <div className="flex flex-wrap gap-2">
                   {certificate.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full"
+                      className="px-3 py-1 bg-cyan-900/50 text-cyan-300 text-sm font-medium rounded-full border border-cyan-700/30"
                     >
                       {skill}
                     </span>
@@ -163,17 +163,17 @@ const Awards = () => {
               </div>
               
               {/* Credential verification */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl border border-blue-200">
+              <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 p-4 rounded-xl border border-cyan-700/30">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Credential ID</h4>
-                    <p className="text-gray-700 font-mono text-sm">{certificate.credentialId}</p>
+                    <h4 className="font-semibold text-gray-200 mb-1">Credential ID</h4>
+                    <p className="text-gray-300 font-mono text-sm">{certificate.credentialId}</p>
                   </div>
                   <a
                     href={certificate.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-600 text-white font-medium rounded-lg hover:bg-cyan-700 transition-colors duration-300"
                   >
                     <FaExternalLinkAlt />
                     Verify Credential
@@ -192,7 +192,7 @@ const Awards = () => {
     
     return (
       <div 
-        className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100"
+        className="group relative bg-gray-800/50 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-700/30"
         style={{
           animationDelay: `${index * 150}ms`,
           animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
@@ -280,13 +280,13 @@ const Awards = () => {
               {award.skills.slice(0, 3).map((skill, skillIndex) => (
                 <span
                   key={skillIndex}
-                  className="px-2 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full"
+                  className="px-2 py-1 bg-cyan-900/50 text-cyan-300 text-xs font-medium rounded-full border border-cyan-700/30"
                 >
                   {skill}
                 </span>
               ))}
               {award.skills.length > 3 && (
-                <span className="px-2 py-1 bg-gray-100 text-gray-500 text-xs font-medium rounded-full">
+                <span className="px-2 py-1 bg-cyan-900/50 text-cyan-300 text-xs font-medium rounded-full border border-cyan-700/30">
                   +{award.skills.length - 3}
                 </span>
               )}
@@ -297,7 +297,7 @@ const Awards = () => {
           <div className="flex items-center justify-between">
             <button
               onClick={() => setSelectedCertificate(award)}
-              className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors duration-300"
+            className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium text-sm transition-colors duration-300"
             >
               <FaExpandAlt />
               View Details
@@ -308,7 +308,7 @@ const Awards = () => {
                 href={award.credentialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-700 transition-colors duration-300"
+                className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
                 title="Verify Credential"
               >
                 <FaExternalLinkAlt />
@@ -334,22 +334,22 @@ const Awards = () => {
   };
 
   return (
-    <section id="awards" className="section-padding bg-gradient-to-br from-yellow-50 via-white to-orange-50 relative overflow-hidden">
+    <section id="awards" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-yellow-200 rounded-full filter blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-orange-200 rounded-full filter blur-3xl opacity-20"></div>
+      <div className="absolute top-20 left-20 w-72 h-72 bg-yellow-600 rounded-full filter blur-3xl opacity-10"></div>
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-orange-600 rounded-full filter blur-3xl opacity-10"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-block px-4 py-2 bg-yellow-900/50 text-yellow-300 rounded-full text-sm font-semibold mb-4 border border-yellow-700/30">
             <FaAward className="inline mr-2" />
             Certifications & Achievements
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text">Professional Certifications</span>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Professional Certifications</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
             Recognized certifications and continuous learning achievements that validate my expertise 
             and commitment to professional development in software engineering and related technologies
           </p>
@@ -357,33 +357,33 @@ const Awards = () => {
         
         {/* Stats overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
-          <div className="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
-            <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
+            <div className="w-16 h-16 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               {awards.length}
             </div>
-            <h3 className="font-semibold text-gray-800">Total Certificates</h3>
-            <p className="text-sm text-gray-600 mt-2">Professional achievements</p>
+            <h3 className="font-semibold text-gray-200">Total Certificates</h3>
+            <p className="text-sm text-gray-400 mt-2">Professional achievements</p>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
+          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
             <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               130+
             </div>
-            <h3 className="font-semibold text-gray-800">Hours Completed</h3>
-            <p className="text-sm text-gray-600 mt-2">Learning time invested</p>
+            <h3 className="font-semibold text-gray-200">Hours Completed</h3>
+            <p className="text-sm text-gray-400 mt-2">Learning time invested</p>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
+            <div className="w-16 h-16 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               15+
             </div>
-            <h3 className="font-semibold text-gray-800">Skills Acquired</h3>
-            <p className="text-sm text-gray-600 mt-2">Technical competencies</p>
+            <h3 className="font-semibold text-gray-200">Skills Acquired</h3>
+            <p className="text-sm text-gray-400 mt-2">Technical competencies</p>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-lg text-center border border-gray-100">
+          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
             <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               100%
             </div>
-            <h3 className="font-semibold text-gray-800">Verification Rate</h3>
-            <p className="text-sm text-gray-600 mt-2">All certificates verified</p>
+            <h3 className="font-semibold text-gray-200">Verification Rate</h3>
+            <p className="text-sm text-gray-400 mt-2">All certificates verified</p>
           </div>
         </div>
         
@@ -396,7 +396,7 @@ const Awards = () => {
         
         {/* Call to action */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-yellow-600 to-orange-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <FaAward />
             <span className="font-semibold">View All Credentials</span>
             <FaExternalLinkAlt />

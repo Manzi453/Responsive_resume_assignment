@@ -154,7 +154,7 @@ const Projects = () => {
     
     return (
       <div 
-        className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-100"
+        className="group relative bg-gray-800/50 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-700/30"
         style={{
           animationDelay: `${index * 100}ms`,
           animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
@@ -311,22 +311,22 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section id="projects" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-200 rounded-full filter blur-3xl opacity-20"></div>
+      <div className="absolute top-20 right-20 w-64 h-64 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-600 rounded-full filter blur-3xl opacity-10"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-700/30">
             <FaCode className="inline mr-2" />
             Portfolio Showcase
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text">Featured Projects</span>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Featured Projects</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
             Explore my diverse portfolio of projects spanning web applications, automation tools, 
             and full-stack solutions built with modern technologies and best practices
           </p>
@@ -342,8 +342,8 @@ const Projects = () => {
                 onClick={() => setFilter(category.id)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ${
                   filter === category.id
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transform scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    ? 'bg-gradient-to-r from-cyan-600 to-blue-700 text-white shadow-lg transform scale-105'
+                    : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700/30'
                 }`}
               >
                 <Icon className="text-sm" />
@@ -363,17 +363,17 @@ const Projects = () => {
         {/* No projects message */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-16">
-            <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-              <FaCode className="text-gray-400 text-3xl" />
+            <div className="w-24 h-24 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-700/30">
+              <FaCode className="text-gray-500 text-3xl" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">No projects found</h3>
-            <p className="text-gray-600">Try selecting a different category</p>
+            <h3 className="text-xl font-semibold text-gray-300 mb-2">No projects found</h3>
+            <p className="text-gray-500">Try selecting a different category</p>
           </div>
         )}
         
         {/* Call to action */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <FaGithub />
             <span className="font-semibold">View more on GitHub</span>
             <FaExternalLinkAlt />

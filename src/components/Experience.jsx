@@ -89,7 +89,7 @@ const Experience = () => {
       >
         {/* Content */}
         <div className={`md:w-1/2 ${isLeft ? 'md:pr-8 md:text-right' : 'md:pl-8'}`}>
-          <div className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+          <div className="group relative bg-gray-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-700/30">
             {/* Gradient overlay on hover */}
             <div className={`absolute inset-0 bg-gradient-to-br ${experience.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}></div>
             
@@ -157,7 +157,7 @@ const Experience = () => {
                 {experience.technologies.map((tech, techIndex) => (
                   <span 
                     key={techIndex}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-gray-200 transition-colors duration-200"
+                    className="px-3 py-1 bg-cyan-900/50 text-cyan-300 text-xs font-medium rounded-full hover:bg-cyan-800/50 transition-colors duration-200 border border-cyan-700/30"
                   >
                     {tech}
                   </span>
@@ -170,11 +170,11 @@ const Experience = () => {
         {/* Timeline dot and line */}
         <div className="relative flex items-center justify-center">
           {/* Timeline line */}
-          <div className="absolute w-0.5 h-full bg-gradient-to-b from-blue-200 via-blue-400 to-purple-200"></div>
+          <div className="absolute w-0.5 h-full bg-gradient-to-b from-cyan-500/20 via-blue-500/20 to-purple-500/20"></div>
           
           {/* Timeline dot */}
-          <div className="relative z-10 w-6 h-6 bg-white border-4 border-blue-500 rounded-full shadow-lg hover:scale-125 transition-transform duration-300">
-            <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-20"></div>
+          <div className="relative z-10 w-6 h-6 bg-gray-900 border-4 border-cyan-500 rounded-full shadow-lg hover:scale-125 transition-transform duration-300">
+            <div className="absolute inset-0 bg-cyan-500 rounded-full animate-ping opacity-20"></div>
           </div>
         </div>
         
@@ -185,7 +185,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="section-padding bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section id="experience" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-20 right-20 w-64 h-64 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>
       <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-200 rounded-full filter blur-3xl opacity-20"></div>
@@ -193,14 +193,14 @@ const Experience = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
+          <div className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-700/30">
             <FaBriefcase className="inline mr-2" />
             Professional Journey
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text">Work Experience</span>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Work Experience</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
             My professional journey through hands-on internships and training programs, 
             building real-world software solutions and gaining valuable industry experience
           </p>
@@ -209,7 +209,7 @@ const Experience = () => {
         {/* Timeline */}
         <div className="relative max-w-6xl mx-auto">
           {/* Timeline center line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-blue-400 to-purple-200 transform -translate-x-1/2"></div>
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/20 via-blue-500/20 to-purple-500/20 transform -translate-x-1/2"></div>
           
           {/* Timeline items */}
           <div className="relative">
@@ -226,7 +226,7 @@ const Experience = () => {
         
         {/* Call to action */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <FaCode />
             <span className="font-semibold">Ready for new challenges</span>
             <FaExternalLinkAlt />
