@@ -126,7 +126,7 @@ const Contact = () => {
   const socialLinks = [
     { 
       icon: FaLinkedin, 
-      href: 'https://www.linkedin.com/in/ivan-manzi-ya-musana-8372a6313/', 
+      href: 'www.linkedin.com/in/manzi-ya-musana-ivan-327597346',
       label: 'LinkedIn', 
       color: 'from-blue-600 to-blue-700',
       description: 'Professional network'
