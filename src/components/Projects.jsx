@@ -25,7 +25,7 @@ const Projects = () => {
       title: 'Responsive Resume Portfolio',
       description: 'Dynamic, fully responsive portfolio website showcasing professional achievements with modern design, smooth animations, and optimal user experience across all devices.',
       longDescription: 'Sophisticated web application featuring responsive design principles, interactive components, and seamless performance. Built with cutting-edge frontend technologies to create an impressive digital presence.',
-      link: 'https://responsive-resume-assignment.vercel.app/',
+      link: 'https://responsive-resume-assign-git-54c6f9-manziivan453-9405s-projects.vercel.app/',
       linkText: 'Live Demo',
       tags: ['React', 'Responsive Design', 'Portfolio', 'Web Development'],
       icon: FaGlobe,
