@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaLinkedin, FaGithub, FaPaperPlane, FaUser, FaCommentDots, FaClock, FaCheckCircle, FaExclamationTriangle, FaTwitter, FaWhatsapp, FaTelegram } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaLinkedin, FaGithub, FaPaperPlane, FaUser, FaCommentDots, FaClock, FaCheckCircle, FaExclamationTriangle, FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -73,8 +73,13 @@ const Contact = () => {
     setFormErrors({});
     
     try {
-      // Simulate form submission - replace with actual implementation
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Create mailto link with form data
+      const subject = encodeURIComponent(formData.subject);
+      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+      const mailtoLink = `mailto:manziivan453@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open email client with pre-filled data
+      window.location.href = mailtoLink;
       
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -118,7 +123,7 @@ const Contact = () => {
       icon: FaMapMarkerAlt, 
       text: 'Kigali, Rwanda', 
       label: 'Location',
-      href: '#',
+      href: 'https://maps.google.com/?q=Kigali,Rwanda',
       description: 'Based in Kigali, open to remote'
     }
   ];
@@ -139,13 +144,6 @@ const Contact = () => {
       description: 'Code repositories'
     },
     { 
-      icon: FaTwitter, 
-      href: 'https://twitter.com', 
-      label: 'Twitter', 
-      color: 'from-sky-500 to-sky-600',
-      description: 'Follow me'
-    },
-    { 
       icon: FaInstagram, 
       href: 'https://www.instagram.com/__manzii/', 
       label: 'Instagram', 
@@ -158,13 +156,6 @@ const Contact = () => {
       label: 'WhatsApp', 
       color: 'from-green-500 to-green-600',
       description: 'Quick chat'
-    },
-    { 
-      icon: FaTelegram, 
-      href: 'https://t.me', 
-      label: 'Telegram', 
-      color: 'from-blue-500 to-blue-600',
-      description: 'Message me'
     }
   ];
 
@@ -223,143 +214,6 @@ const Contact = () => {
 
   return (
     <>
-      {/* Contact Form */}
-      <section id="contact-form" className="section-padding bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-        {/* Background decoration */}
-        <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-500 rounded-full filter blur-3xl opacity-10"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Header */}
-          <div 
-            className="text-center mb-16"
-            style={{
-              animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
-              opacity: isVisible ? 1 : 0
-            }}
-          >
-            <div className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-700/30">
-              <FaEnvelope className="inline mr-2" />
-              Get In Touch
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Let's Connect</span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Ready to bring your ideas to life or explore collaboration opportunities? I'm excited to discuss your project and create something extraordinary together. 
-              Reach out and let's transform your vision into reality!
-            </p>
-          </div>
-          
-          {/* Success/Error Messages */}
-          {submitStatus && (
-            <div 
-              className={`max-w-2xl mx-auto mb-8 p-4 rounded-lg flex items-center gap-3 ${
-                submitStatus === 'success' 
-                  ? 'bg-green-100 text-green-800 border border-green-200' 
-                  : 'bg-red-100 text-red-800 border border-red-200'
-              }`}
-            >
-              {submitStatus === 'success' ? (
-                <>
-                  <FaCheckCircle className="text-xl" />
-                  <div>
-                    <p className="font-semibold">Message sent successfully!</p>
-                    <p className="text-sm">Thank you for reaching out. I'll get back to you soon.</p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <FaExclamationTriangle className="text-xl" />
-                  <div>
-                    <p className="font-semibold">Something went wrong!</p>
-                    <p className="text-sm">Please try again later or contact me directly.</p>
-                  </div>
-                </>
-              )}
-            </div>
-          )}
-          
-          {/* Contact Form */}
-          <form 
-            onSubmit={handleSubmit} 
-            className="max-w-2xl mx-auto bg-gray-800/50 backdrop-blur-sm p-8 lg:p-12 rounded-2xl shadow-xl border border-gray-700"
-            style={{
-              animationDelay: '200ms',
-              animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
-              opacity: isVisible ? 1 : 0
-            }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <FormField
-                label="Your Name"
-                name="name"
-                placeholder="John Doe"
-                required
-                icon={FaUser}
-              />
-              <FormField
-                label="Your Email"
-                name="email"
-                type="email"
-                placeholder="john@example.com"
-                required
-                icon={FaEnvelope}
-              />
-            </div>
-
-            <div className="mb-6">
-              <FormField
-                label="Subject"
-                name="subject"
-                placeholder="Project inquiry, collaboration, etc."
-                required
-                icon={FaCommentDots}
-              />
-            </div>
-
-            <div className="mb-6">
-              <FormField
-                label="Your Message"
-                name="message"
-                rows="6"
-                placeholder="Tell me about your project, ask questions, or just say hello..."
-                required
-                icon={FaCommentDots}
-              />
-            </div>
-
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <FaClock />
-                <span>I typically respond within 24 hours</span>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full btn-primary flex items-center justify-center gap-2 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 relative overflow-hidden group"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    Sending Message...
-                  </>
-                ) : (
-                  <>
-                    <FaPaperPlane />
-                    Send Message
-                  </>
-                )}
-              </span>
-              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-            </button>
-          </form>
-        </div>
-      </section>
-
       {/* Contact Info & Social */}
       <section id="contact" className="section-padding bg-gray-800 relative overflow-hidden">
         {/* Background decoration */}
@@ -374,7 +228,7 @@ const Contact = () => {
               Contact Information
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              <span className="gradient-text">Reach Out Anytime</span>
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Reach Out Anytime</span>
             </h2>
             <p className="text-gray-300 text-lg max-w-3xl mx-auto">
               Multiple ways to connect - choose what works best for you. 
