@@ -23,8 +23,8 @@ const Projects = () => {
   const projects = [
     {
       title: 'Shell Scripting Project',
-      description: 'Comprehensive automation suite using Bash scripting for system management, deployment workflows, and monitoring tasks. Features include automated backups, log management, and system health checks.',
-      longDescription: 'Advanced shell scripting project that automates repetitive system administration tasks, improves efficiency, and reduces manual intervention in Linux environments.',
+      description: 'Advanced automation suite leveraging Bash scripting to streamline system administration, deployment workflows, and infrastructure monitoring. Implements intelligent backup systems, log analysis, and proactive health monitoring for Linux environments.',
+      longDescription: 'Enterprise-grade shell scripting solution that transforms manual system administration into automated workflows, significantly improving operational efficiency and reducing human error in production environments.',
       link: 'https://github.com/Manzi453/alu-shell',
       linkText: 'View on GitHub',
       tags: ['Bash', 'Automation', 'Linux', 'DevOps'],
@@ -40,8 +40,8 @@ const Projects = () => {
     },
     {
       title: 'Agri-Link App',
-      description: 'Modern web application connecting farmers with agricultural resources, markets, and expert advice. Features real-time market data, weather integration, and farmer community forums.',
-      longDescription: 'A comprehensive agricultural platform that bridges the gap between farmers and resources, providing tools for better farming decisions and market access.',
+      description: 'Revolutionary agricultural platform connecting farmers with real-time market data, weather intelligence, and expert agricultural guidance. Features comprehensive community forums, crop management tools, and direct market access for enhanced farming productivity.',
+      longDescription: 'A comprehensive digital ecosystem transforming agriculture by bridging information gaps between farmers and critical resources, enabling data-driven farming decisions and improved market access.',
       link: 'https://agri-linkk.netlify.app/',
       linkText: 'Live Demo',
       tags: ['React', 'Responsive', 'Web Design', 'Agriculture'],
@@ -57,9 +57,9 @@ const Projects = () => {
     },
     {
       title: 'Academic ALU Platform',
-      description: 'Academic management and assessment platform designed to support students and instructors with course tracking, evaluations, and academic resources.',
+      description: 'Sophisticated academic management system revolutionizing educational workflows through intelligent course tracking, automated assessments, and comprehensive student support mechanisms. Designed for scalability and seamless academic administration.',
       longDescription:
-          'Academic ALU is a web-based academic platform that streamlines course management, assessments, and student support. The system focuses on usability, scalability, and structured academic workflows.',
+          'Next-generation academic platform engineered to streamline educational processes, enhance student engagement, and provide administrators with powerful tools for effective academic management and data-driven insights.',
       link: 'https://github.com/Manzi453/academic_alu',
       linkText: 'View on GitHub',
       tags: ['Education', 'Academic', 'Web App', 'Full-Stack'],
@@ -82,8 +82,8 @@ const Projects = () => {
       estimatedLaunch: '2024-06-01'
     },
     {title: 'Smart RwandaBill – Frontend',
-      description: 'Modern, responsive user interface for the Smart RwandaBill digital billing platform.',
-      longDescription: 'The Smart RwandaBill Frontend is a React-based web application that provides an intuitive and responsive interface for managing bills, viewing payment statuses, and interacting with the RwandaBill backend API.',
+      description: 'Cutting-edge responsive interface for RwandaBill digital billing platform, delivering seamless user experience through modern React architecture and intuitive design patterns.',
+      longDescription: 'Sophisticated frontend application built with React and Tailwind CSS, providing an elegant and efficient interface for digital billing management, payment tracking, and seamless backend integration.',
       link: 'https://github.com/Manzi453/Smart_RwandaBill_Frontend',
       linkText: 'View Frontend Repo',
       tags: ['React', 'Tailwind CSS', 'UI/UX', 'Frontend'],
@@ -110,8 +110,8 @@ const Projects = () => {
      },
     {
       title: 'Smart RwandaBill – Backend',
-      description: 'Scalable backend service for managing digital billing, payments, and user data.',
-      longDescription: 'The Smart RwandaBill Backend is a Node.js and Express-based RESTful API that handles bill generation, payment tracking, user authentication, and secure data management for the Smart RwandaBill platform.',
+      description: 'Enterprise-grade backend architecture powering RwandaBill digital billing ecosystem, featuring robust API design, secure payment processing, and scalable data management solutions.',
+      longDescription: 'High-performance backend service engineered with Node.js and Express, delivering secure RESTful APIs for comprehensive billing management, payment processing, user authentication, and real-time data synchronization.',
       link: 'https://github.com/Manzi453/Smart_RwandaBill_Backend',
       linkText: 'View Backend Repository',
       tags: ['Node.js', 'Express', 'REST API', 'Backend'],
@@ -203,24 +203,24 @@ const Projects = () => {
         {/* Project content */}
         <div className="p-6 relative z-10">
           {/* Description */}
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <p className="text-gray-300 leading-relaxed mb-6">
             {project.description}
           </p>
           
           {/* Technologies */}
           <div className="mb-6">
-            <h4 className="font-semibold text-gray-800 mb-3 text-sm">Technologies Used</h4>
+            <h4 className="font-semibold text-gray-200 mb-3 text-sm">Technologies Used</h4>
             <div className="flex flex-wrap gap-2">
               {project.technologies.slice(0, 4).map((tech, techIndex) => (
                 <span 
                   key={techIndex}
-                  className="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full hover:bg-gray-200 transition-colors duration-200"
+                  className="px-2 py-1 bg-gray-700 text-gray-300 text-xs font-medium rounded-full hover:bg-gray-600 transition-colors duration-200"
                 >
                   {tech}
                 </span>
               ))}
               {project.technologies.length > 4 && (
-                <span className="px-2 py-1 bg-gray-100 text-gray-500 text-xs font-medium rounded-full">
+                <span className="px-2 py-1 bg-gray-700 text-gray-400 text-xs font-medium rounded-full">
                   +{project.technologies.length - 4} more
                 </span>
               )}
@@ -229,10 +229,10 @@ const Projects = () => {
           
           {/* Highlights */}
           <div className="mb-6">
-            <h4 className="font-semibold text-gray-800 mb-3 text-sm">Key Features</h4>
+            <h4 className="font-semibold text-gray-200 mb-3 text-sm">Key Features</h4>
             <ul className="space-y-1">
               {project.highlights.slice(0, 3).map((highlight, highlightIndex) => (
-                <li key={highlightIndex} className="flex items-center gap-2 text-sm text-gray-600">
+                <li key={highlightIndex} className="flex items-center gap-2 text-sm text-gray-400">
                   <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
                   {highlight}
                 </li>
@@ -244,10 +244,10 @@ const Projects = () => {
           {project.status === 'development' && project.progress && (
             <div className="mb-6">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-sm font-medium text-gray-700">Development Progress</span>
-                <span className="text-sm font-bold text-blue-600">{project.progress}%</span>
+                <span className="text-sm font-medium text-gray-300">Development Progress</span>
+                <span className="text-sm font-bold text-cyan-400">{project.progress}%</span>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+              <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
                 <div 
                   className="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-1000 ease-out"
                   style={{ 

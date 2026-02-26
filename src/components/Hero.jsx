@@ -76,14 +76,13 @@ const Hero = () => {
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
               <div
-                className="w-72 h-72 lg:w-96 lg:h-96 rounded-full shadow-2xl border-4 border-gray-800 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 flex items-center justify-center"
+                className="w-72 h-72 lg:w-96 lg:h-96 rounded-full shadow-2xl border-4 border-gray-800 bg-gradient-to-br from-cyan-900 via-blue-900 to-purple-900 flex items-center justify-center overflow-hidden"
               >
-                <div className="text-center">
-                  <svg className="w-24 h-24 lg:w-32 lg:h-32 text-gray-600 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                  </svg>
-                  <p className="text-gray-500 text-sm">Add your photo</p>
-                </div>
+                <img 
+                  // src="/src/images/"
+                  // alt="Manzi Ya Musana Ivan"
+                  className="w-full h-full object-cover rounded-full"
+                />
               </div>
               {/* Status indicator */}
               <motion.div
@@ -144,8 +143,9 @@ const Hero = () => {
               variants={itemVariants}
               className="text-lg lg:text-xl text-gray-300 leading-relaxed mb-8"
             >
-              Passionate software developer crafting innovative solutions that bridge technology and real-world challenges. 
-              Specialized in building scalable web applications with modern frameworks and best practices.
+              Full-stack developer passionate about creating innovative digital solutions that transform ideas into reality. 
+              I specialize in building scalable web applications with modern technologies, focusing on clean code, 
+              exceptional user experiences, and solving complex business challenges through elegant technical solutions.
             </motion.p>
             
             {/* CTA Buttons */}

@@ -110,13 +110,13 @@ const Experience = () => {
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800">{experience.title}</h3>
-                  <p className="text-lg font-semibold text-blue-600">{experience.company}</p>
+                  <h3 className="text-xl font-bold text-gray-100">{experience.title}</h3>
+                  <p className="text-lg font-semibold text-cyan-400">{experience.company}</p>
                 </div>
               </div>
               
               {/* Meta info */}
-              <div className={`flex flex-wrap gap-4 mb-4 text-sm text-gray-600 ${isLeft ? 'md:justify-end' : ''}`}>
+              <div className={`flex flex-wrap gap-4 mb-4 text-sm text-gray-400 ${isLeft ? 'md:justify-end' : ''}`}>
                 <div className="flex items-center gap-2">
                   <FaCalendarAlt className="text-blue-500" />
                   <span>{experience.period}</span>
@@ -132,13 +132,13 @@ const Experience = () => {
               </div>
               
               {/* Description */}
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-300 leading-relaxed mb-6">
                 {experience.description}
               </p>
               
               {/* Achievements */}
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                <h4 className="font-semibold text-gray-200 mb-3 flex items-center gap-2">
                   <FaChartLine className="text-blue-500" />
                   Key Achievements
                 </h4>
@@ -146,7 +146,7 @@ const Experience = () => {
                   {experience.achievements.map((achievement, achIndex) => (
                     <li key={achIndex} className="flex items-start gap-2">
                       <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-600 text-sm">{achievement}</span>
+                      <span className="text-gray-300 text-sm">{achievement}</span>
                     </li>
                   ))}
                 </ul>

@@ -243,11 +243,11 @@ const Contact = () => {
               Get In Touch
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              <span className="gradient-text">Let's Connect</span>
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Let's Connect</span>
             </h2>
             <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Have a project in mind or want to collaborate? I'd love to hear from you! 
-              Send me a message and I'll get back to you as soon as possible.
+              Ready to bring your ideas to life or explore collaboration opportunities? I'm excited to discuss your project and create something extraordinary together. 
+              Reach out and let's transform your vision into reality!
             </p>
           </div>
           

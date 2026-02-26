@@ -150,17 +150,17 @@ const Education = () => {
           
           {/* GPA */}
           {edu.gpa && (
-            <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-100">
+            <div className="mb-6 p-4 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-xl border border-cyan-700/30">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-gray-700">Academic Performance</span>
-                <span className="text-lg font-bold text-blue-600">{edu.gpa}</span>
+                <span className="text-sm font-semibold text-gray-300">Academic Performance</span>
+                <span className="text-lg font-bold text-cyan-400">{edu.gpa}</span>
               </div>
             </div>
           )}
           
           {/* Highlights */}
           <div className="mb-6">
-            <h5 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+            <h5 className="font-semibold text-gray-200 mb-3 flex items-center gap-2">
               <FaAward className="text-blue-500" />
               Key Highlights
             </h5>
@@ -168,7 +168,7 @@ const Education = () => {
               {edu.highlights.map((highlight, highlightIndex) => (
                 <li key={highlightIndex} className="flex items-start gap-2">
                   <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0"></span>
-                  <span className="text-gray-600 text-sm">{highlight}</span>
+                  <span className="text-gray-300 text-sm">{highlight}</span>
                 </li>
               ))}
             </ul>
@@ -177,7 +177,7 @@ const Education = () => {
           {/* Achievements */}
           {edu.achievements.length > 0 && (
             <div>
-              <h5 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+              <h5 className="font-semibold text-gray-200 mb-3 flex items-center gap-2">
                 <FaStar className="text-yellow-500" />
                 Achievements & Awards
               </h5>
@@ -185,7 +185,7 @@ const Education = () => {
                 {edu.achievements.map((achievement, achIndex) => (
                   <span 
                     key={achIndex}
-                    className="px-3 py-1 bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-800 text-xs font-medium rounded-full border border-orange-200"
+                    className="px-3 py-1 bg-gradient-to-r from-yellow-900/30 to-orange-900/30 text-yellow-300 text-xs font-medium rounded-full border border-yellow-700/30"
                   >
                     {achievement}
                   </span>

@@ -158,7 +158,7 @@ const Skills = () => {
   };
 
   return (
-    <Section id="skills" title="Skills & Languages" subtitle="Technical expertise and language proficiency">
+    <Section id="skills" title="Technical Expertise & Languages" subtitle="Comprehensive skill set spanning modern development technologies and multilingual capabilities">
       <div ref={ref} className="space-y-16">
         {/* Technical Skills */}
         <motion.div
@@ -168,7 +168,7 @@ const Skills = () => {
         >
           <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8 flex items-center gap-3">
             <FaCode className="text-cyan-400" />
-            Technical Expertise
+            Core Technical Competencies
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
             {technicalSkills.map((skill, index) => (
@@ -185,7 +185,7 @@ const Skills = () => {
         >
           <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8 flex items-center gap-3">
             <FaLanguage className="text-cyan-400" />
-            Languages
+            Language Proficiency
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {languages.map((language, index) => (

@@ -22,10 +22,10 @@ const Awards = () => {
 
   const awards = [
     {
-      image: '/ultimate_html_certificate.png',
+      image: '/src/images/ultimate_html_certificate.png',
       title: 'Ultimate HTML Certification',
-      description: 'Advanced HTML certification covering modern web standards, semantic markup, accessibility, and best practices for responsive web development.',
-      longDescription: 'Comprehensive HTML course covering HTML5, semantic elements, forms, multimedia, accessibility standards, and modern web development practices.',
+      description: 'Prestigious HTML certification demonstrating mastery of modern web standards, semantic markup principles, accessibility compliance, and cutting-edge responsive web development techniques.',
+      longDescription: 'Comprehensive advanced HTML curriculum encompassing HTML5 specifications, semantic web architecture, sophisticated form handling, multimedia integration, WCAG accessibility standards, and contemporary web development best practices.',
       issuer: 'HTML Academy',
       issuerLogo: '🏛️',
       date: 'December 2023',
@@ -41,10 +41,10 @@ const Awards = () => {
       verificationStatus: 'verified'
     },
     {
-      image: '/conducting_a_b_test_certificate.png',
+      image: '/src/images/conducting_a_b_test_certificate.png',
       title: 'A/B Testing Mastery',
-      description: 'Professional certification in A/B testing methodologies, statistical analysis, and data-driven optimization strategies.',
-      longDescription: 'Advanced course covering A/B testing design, statistical significance, multivariate testing, conversion optimization, and data analysis techniques.',
+      description: 'Elite professional certification in advanced A/B testing methodologies, sophisticated statistical analysis, and strategic data-driven optimization frameworks for maximizing conversion rates.',
+      longDescription: 'Intensive advanced program mastering A/B testing experimental design, statistical significance testing, multivariate analysis, conversion rate optimization, and advanced data analytics methodologies.',
       issuer: 'Analytics Institute',
       issuerLogo: '📊',
       date: 'November 2023',
@@ -60,7 +60,7 @@ const Awards = () => {
       verificationStatus: 'verified'
     },
     {
-      image: '/python_from_zero_to_hero_certificate.png',
+      image: '/src/images/python_from_zero_to_hero_certificate.png',
       title: 'Python Programming Excellence',
       description: 'Comprehensive certification in Python programming, from fundamentals to advanced concepts including data structures and algorithms.',
       longDescription: 'Complete Python development course covering syntax, data structures, OOP, web development, data analysis, and best practices.',
