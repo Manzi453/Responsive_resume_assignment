@@ -22,6 +22,23 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'Responsive Resume Portfolio',
+      description: 'Dynamic, fully responsive portfolio website showcasing professional achievements with modern design, smooth animations, and optimal user experience across all devices.',
+      longDescription: 'Sophisticated web application featuring responsive design principles, interactive components, and seamless performance. Built with cutting-edge frontend technologies to create an impressive digital presence.',
+      link: 'https://responsive-resume-assignment.vercel.app/',
+      linkText: 'Live Demo',
+      tags: ['React', 'Responsive Design', 'Portfolio', 'Web Development'],
+      icon: FaGlobe,
+      color: 'from-purple-500 to-pink-500',
+      category: 'web',
+      featured: true,
+      status: 'live',
+      technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Framer Motion', 'Responsive Design'],
+      highlights: ['Fully responsive layout', 'Smooth animations', 'Modern UI/UX', 'Cross-device compatibility'],
+      liveVisitors: '1K+',
+      lastUpdated: '2024-02-26'
+    },
+    {
       title: 'Shell Scripting Project',
       description: 'Advanced automation suite leveraging Bash scripting to streamline system administration, deployment workflows, and infrastructure monitoring. Implements intelligent backup systems, log analysis, and proactive health monitoring for Linux environments.',
       longDescription: 'Enterprise-grade shell scripting solution that transforms manual system administration into automated workflows, significantly improving operational efficiency and reducing human error in production environments.',
@@ -84,8 +101,8 @@ const Projects = () => {
     {title: 'Smart RwandaBill – Frontend',
       description: 'Cutting-edge responsive interface for RwandaBill digital billing platform, delivering seamless user experience through modern React architecture and intuitive design patterns.',
       longDescription: 'Sophisticated frontend application built with React and Tailwind CSS, providing an elegant and efficient interface for digital billing management, payment tracking, and seamless backend integration.',
-      link: 'https://github.com/Manzi453/Smart_RwandaBill_Frontend',
-      linkText: 'View Frontend Repo',
+      link: 'https://smart-rwanda-bill-frontend1-ofcv.vercel.app/',
+      linkText: 'Live Demo',
       tags: ['React', 'Tailwind CSS', 'UI/UX', 'Frontend'],
       icon: FaReact,
       color: 'from-cyan-500 to-blue-600',
