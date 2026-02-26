@@ -82,7 +82,7 @@ const Projects = () => {
       tags: ['Education', 'Academic', 'Web App', 'Full-Stack'],
       icon: FaGraduationCap,
       color: 'from-blue-500 to-indigo-600',
-      category: 'fullstack',
+      category: 'mobile',
       featured: false,
       status: 'development',
       technologies: [
@@ -106,7 +106,7 @@ const Projects = () => {
       tags: ['React', 'Tailwind CSS', 'UI/UX', 'Frontend'],
       icon: FaReact,
       color: 'from-cyan-500 to-blue-600',
-      category: 'web',
+      category: 'fullstack',
       featured: false,
       status: 'active',
       technologies: [
@@ -134,7 +134,7 @@ const Projects = () => {
       tags: ['Node.js', 'Express', 'REST API', 'Backend'],
       icon: FaServer,
       color: 'from-slate-700 to-gray-900',
-      category: 'backend',
+      category: 'fullstack',
       featured: true,
       status: 'active',
       technologies: [
