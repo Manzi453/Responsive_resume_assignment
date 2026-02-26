@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../logo.jpeg';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +11,7 @@ const Footer = () => {
           <div className="mb-6">
             <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-2 border-cyan-500/30">
               <img 
-                src="/src/images/logo.jpeg" 
+                src={logo} 
                 alt="Manzi Ya Musana Ivan Logo" 
                 className="w-full h-full object-cover"
               />

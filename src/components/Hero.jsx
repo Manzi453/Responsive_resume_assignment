@@ -79,8 +79,8 @@ const Hero = () => {
                 className="w-72 h-72 lg:w-96 lg:h-96 rounded-full shadow-2xl border-4 border-gray-800 bg-gradient-to-br from-cyan-900 via-blue-900 to-purple-900 flex items-center justify-center overflow-hidden"
               >
                 <img 
-                  // src="/src/images/"
-                  // alt="Manzi Ya Musana Ivan"
+                  src="/"
+                  alt="Manzi Ya Musana Ivan" 
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
