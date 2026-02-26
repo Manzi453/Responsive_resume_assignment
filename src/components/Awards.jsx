@@ -22,7 +22,7 @@ const Awards = () => {
 
   const awards = [
     {
-      image: '/src/images/ultimate_html_certificate.png',
+      image: '/ultimate_html_certificate.png',
       title: 'Ultimate HTML Certification',
       description: 'Prestigious HTML certification demonstrating mastery of modern web standards, semantic markup principles, accessibility compliance, and cutting-edge responsive web development techniques.',
       longDescription: 'Comprehensive advanced HTML curriculum encompassing HTML5 specifications, semantic web architecture, sophisticated form handling, multimedia integration, WCAG accessibility standards, and contemporary web development best practices.',
@@ -41,7 +41,7 @@ const Awards = () => {
       verificationStatus: 'verified'
     },
     {
-      image: '/src/images/conducting_a_b_test_certificate.png',
+      image: '/conducting_a_b_test_certificate.png',
       title: 'A/B Testing Mastery',
       description: 'Elite professional certification in advanced A/B testing methodologies, sophisticated statistical analysis, and strategic data-driven optimization frameworks for maximizing conversion rates.',
       longDescription: 'Intensive advanced program mastering A/B testing experimental design, statistical significance testing, multivariate analysis, conversion rate optimization, and advanced data analytics methodologies.',
@@ -60,7 +60,7 @@ const Awards = () => {
       verificationStatus: 'verified'
     },
     {
-      image: '/src/images/python_from_zero_to_hero_certificate.png',
+      image: '/python_from_zero_to_hero_certificate.png',
       title: 'Python Programming Excellence',
       description: 'Comprehensive certification in Python programming, from fundamentals to advanced concepts including data structures and algorithms.',
       longDescription: 'Complete Python development course covering syntax, data structures, OOP, web development, data analysis, and best practices.',
