@@ -84,7 +84,7 @@ const Projects = () => {
       color: 'from-blue-500 to-indigo-600',
       category: 'mobile',
       featured: false,
-      status: 'development',
+      status: 'completed',
       technologies: [
         'Flutter',
         'Dart',
@@ -95,8 +95,8 @@ const Projects = () => {
         'Structured course workflows',
         'Student-focused UI'
       ],
-      progress: 70,
-      estimatedLaunch: '2024-06-01'
+      // progress: 70,
+      // estimatedLaunch: '2024-06-01'
     },
     {title: 'Smart RwandaBill – Frontend',
       description: 'Cutting-edge responsive interface for RwandaBill digital billing platform, delivering seamless user experience through modern React architecture and intuitive design patterns.',

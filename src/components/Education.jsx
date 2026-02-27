@@ -24,7 +24,7 @@ const Education = () => {
       degree: "Bachelor's in Software Engineering",
       school: 'African Leadership University',
       location: 'Kigali, Rwanda',
-      period: '2023 - 2027 (Expected)',
+      period: '2024 - 2027 (Expected)',
       status: 'Current',
       gpa: '4.0/5.0',
       highlights: [

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { Button } from './shared';
+import profileImage from '../profile.jpeg';
 
 const Hero = () => {
   const containerVariants = {
@@ -48,9 +49,9 @@ const Hero = () => {
           transition={{ duration: 7, repeat: Infinity }}
         ></motion.div>
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
+        <motion.div
           className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20"
           variants={containerVariants}
           initial="hidden"
@@ -76,13 +77,27 @@ const Hero = () => {
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
             >
               <div
-                className="w-72 h-72 lg:w-96 lg:h-96 rounded-full shadow-2xl border-4 border-gray-800 bg-gradient-to-br from-cyan-900 via-blue-900 to-purple-900 flex items-center justify-center overflow-hidden"
+                className="w-80 h-96 lg:w-96 lg:h-[28rem] rounded-3xl shadow-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 flex items-center justify-center overflow-hidden backdrop-blur-md relative group"
               >
-                <img 
-                  src="/"
+                {/* Animated gradient border */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                <div className="absolute inset-[2px] rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm"></div>
+                
+                {/* Profile image with enhanced effects */}
+                <img
+                  src={profileImage}
                   alt="Manzi Ya Musana Ivan" 
-                  className="w-full h-full object-cover rounded-full"
+                  className="w-full h-full object-cover opacity-100 relative z-10 transition-transform duration-500 group-hover:scale-105"
                 />
+                
+                {/* Lighter overlay effects for clarity */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 via-transparent to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-purple-500/5 pointer-events-none"></div>
+                
+                {/* Subtle animated particles */}
+                <div className="absolute top-4 left-4 w-2 h-2 bg-cyan-400 rounded-full opacity-60 animate-pulse"></div>
+                <div className="absolute bottom-6 right-6 w-3 h-3 bg-purple-400 rounded-full opacity-40 animate-pulse delay-75"></div>
+                <div className="absolute top-1/2 right-4 w-2 h-2 bg-blue-400 rounded-full opacity-50 animate-pulse delay-150"></div>
               </div>
               {/* Status indicator */}
               <motion.div
