@@ -12,28 +12,28 @@ const Skills = () => {
       name: 'Frontend Development', 
       level: 90, 
       icon: FaCode,
-      color: 'from-blue-500 to-cyan-500',
+      color: 'from-cyan-500 to-blue-500',
       technologies: ['React', 'HTML', 'CSS', 'TypeScript', 'Tailwind CSS']
     },
     { 
       name: 'Backend Development', 
       level: 75,
       icon: FaDatabase,
-      color: 'from-green-500 to-emerald-500',
+      color: 'from-cyan-500 to-blue-500',
       technologies: ['Spring Boot', 'Java', 'Python', 'PostgreSQL']
     },
     {
       name: 'DevOps & Cloud', 
       level: 65,
       icon: FaDocker,
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-blue-500 to-cyan-500',
       technologies: ['Docker', 'CI/CD', 'Kubernetes']
     },
     { 
       name: 'Version Control', 
       level: 92, 
       icon: FaGitAlt,
-      color: 'from-orange-500 to-red-500',
+      color: 'from-cyan-500 to-blue-500',
       technologies: ['Git', 'GitHub', 'Gitflow']
     }
   ];

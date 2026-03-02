@@ -54,7 +54,7 @@ const Experience = () => {
       technologies: ['React', 'Python','Linux'],
       type: 'internship',
       icon: FaBriefcase,
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-cyan-500 to-blue-500'
     },
     {
       title: 'Software Development Training',
@@ -71,7 +71,7 @@ const Experience = () => {
       technologies: ['JavaScript', 'PHP', 'HTML','CSS', 'Git'],
       type: 'training',
       icon: FaGraduationCap,
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-blue-500 to-cyan-500'
     }
   ];
 
@@ -105,7 +105,7 @@ const Experience = () => {
                       {experience.type === 'internship' ? 'Internship' : 'Training'}
                     </span>
                     {experience.type === 'internship' && (
-                      <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-cyan-100 text-cyan-800 text-xs font-semibold rounded-full">
                         Professional Experience
                       </span>
                     )}
@@ -118,15 +118,15 @@ const Experience = () => {
               {/* Meta info */}
               <div className={`flex flex-wrap gap-4 mb-4 text-sm text-gray-400 ${isLeft ? 'md:justify-end' : ''}`}>
                 <div className="flex items-center gap-2">
-                  <FaCalendarAlt className="text-blue-500" />
+                  <FaCalendarAlt className="text-cyan-500" />
                   <span>{experience.period}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <FaClock className="text-green-500" />
+                  <FaClock className="text-blue-500" />
                   <span>{experience.duration}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <FaMapMarkerAlt className="text-red-500" />
+                  <FaMapMarkerAlt className="text-cyan-500" />
                   <span>{experience.location}</span>
                 </div>
               </div>
@@ -139,13 +139,13 @@ const Experience = () => {
               {/* Achievements */}
               <div className="mb-6">
                 <h4 className="font-semibold text-gray-200 mb-3 flex items-center gap-2">
-                  <FaChartLine className="text-blue-500" />
+                  <FaChartLine className="text-cyan-500" />
                   Key Achievements
                 </h4>
                 <ul className="space-y-2">
                   {experience.achievements.map((achievement, achIndex) => (
                     <li key={achIndex} className="flex items-start gap-2">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></span>
                       <span className="text-gray-300 text-sm">{achievement}</span>
                     </li>
                   ))}
@@ -170,7 +170,7 @@ const Experience = () => {
         {/* Timeline dot and line */}
         <div className="relative flex items-center justify-center">
           {/* Timeline line */}
-          <div className="absolute w-0.5 h-full bg-gradient-to-b from-cyan-500/20 via-blue-500/20 to-purple-500/20"></div>
+          <div className="absolute w-0.5 h-full bg-gradient-to-b from-cyan-500/20 via-blue-500/20 to-cyan-500/20"></div>
           
           {/* Timeline dot */}
           <div className="relative z-10 w-6 h-6 bg-gray-900 border-4 border-cyan-500 rounded-full shadow-lg hover:scale-125 transition-transform duration-300">
@@ -187,8 +187,8 @@ const Experience = () => {
   return (
     <section id="experience" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-200 rounded-full filter blur-3xl opacity-20"></div>
+      <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-200 rounded-full filter blur-3xl opacity-20"></div>
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
@@ -209,7 +209,7 @@ const Experience = () => {
         {/* Timeline */}
         <div className="relative max-w-6xl mx-auto">
           {/* Timeline center line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/20 via-blue-500/20 to-purple-500/20 transform -translate-x-1/2"></div>
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/20 via-blue-500/20 to-cyan-500/20 transform -translate-x-1/2"></div>
           
           {/* Timeline items */}
           <div className="relative">

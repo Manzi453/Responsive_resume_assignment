@@ -38,7 +38,7 @@ const Awards = () => {
       skills: ['HTML5', 'Semantic Markup', 'Accessibility', 'Forms', 'Multimedia'],
       level: 'Advanced',
       icon: FaCertificate,
-      color: 'from-orange-500 to-red-500',
+      color: 'from-cyan-500 to-blue-500',
       category: 'web-development',
       featured: true,
       verificationStatus: 'verified'
@@ -57,7 +57,7 @@ const Awards = () => {
       skills: ['A/B Testing', 'Statistical Analysis', 'Conversion Optimization', 'Data Analysis', 'User Research'],
       level: 'Professional',
       icon: FaTrophy,
-      color: 'from-blue-500 to-purple-500',
+      color: 'from-blue-500 to-cyan-500',
       category: 'analytics',
       featured: true,
       verificationStatus: 'verified'
@@ -76,7 +76,7 @@ const Awards = () => {
       skills: ['Python', 'Data Structures', 'OOP', 'Web Development', 'Data Analysis'],
       level: 'Intermediate',
       icon: FaAward,
-      color: 'from-green-500 to-emerald-500',
+      color: 'from-cyan-500 to-blue-500',
       category: 'programming',
       featured: false,
       verificationStatus: 'verified'
@@ -113,7 +113,7 @@ const Awards = () => {
                 className="w-full h-auto rounded-t-2xl"
               />
               <div className="absolute bottom-4 right-4">
-                <span className={`px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full flex items-center gap-1`}>
+                <span className={`px-3 py-1 bg-cyan-600 text-white text-xs font-semibold rounded-full flex items-center gap-1`}>
                   <FaCheckCircle />
                   {certificate.verificationStatus === 'verified' ? 'Verified' : 'Pending'}
                 </span>
@@ -143,7 +143,7 @@ const Awards = () => {
                 </div>
                 <div className="bg-gray-50 p-4 rounded-xl">
                   <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
-                    <FaCalendarAlt className="text-blue-500" />
+                    <FaCalendarAlt className="text-cyan-600" />
                     Completion Details
                   </h4>
                   <p className="text-gray-300">{certificate.date} • {certificate.duration}</p>
@@ -205,7 +205,7 @@ const Awards = () => {
         {/* Featured badge */}
         {award.featured && (
           <div className="absolute top-4 right-4 z-20">
-            <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg">
+            <span className="px-3 py-1 bg-gradient-to-r from-cyan-400 to-blue-500 text-white text-xs font-bold rounded-full shadow-lg">
               ⭐ Featured
             </span>
           </div>
@@ -215,8 +215,8 @@ const Awards = () => {
         <div className="absolute top-4 left-4 z-20">
           <span className={`px-3 py-1 text-xs font-semibold rounded-full shadow-lg ${
             award.verificationStatus === 'verified' 
-              ? 'bg-green-500 text-white' 
-              : 'bg-yellow-500 text-white'
+              ? 'bg-cyan-500 text-white' 
+              : 'bg-blue-500 text-white'
           }`}>
             <FaCheckCircle className="inline mr-1" />
             {award.verificationStatus === 'verified' ? 'Verified' : 'Pending'}
@@ -339,13 +339,13 @@ const Awards = () => {
   return (
     <section id="awards" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-yellow-600 rounded-full filter blur-3xl opacity-10"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-orange-600 rounded-full filter blur-3xl opacity-10"></div>
+      <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-600 rounded-full filter blur-3xl opacity-10"></div>
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-yellow-900/50 text-yellow-300 rounded-full text-sm font-semibold mb-4 border border-yellow-700/30">
+          <div className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-700/30">
             <FaAward className="inline mr-2" />
             Certifications & Achievements
           </div>
@@ -361,14 +361,14 @@ const Awards = () => {
         {/* Stats overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
           <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
-            <div className="w-16 h-16 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               {awards.length}
             </div>
             <h3 className="font-semibold text-gray-200">Total Certificates</h3>
             <p className="text-sm text-gray-400 mt-2">Professional achievements</p>
           </div>
           <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
-            <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               130+
             </div>
             <h3 className="font-semibold text-gray-200">Hours Completed</h3>
@@ -382,7 +382,7 @@ const Awards = () => {
             <p className="text-sm text-gray-400 mt-2">Technical competencies</p>
           </div>
           <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
-            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               100%
             </div>
             <h3 className="font-semibold text-gray-200">Verification Rate</h3>
@@ -399,7 +399,7 @@ const Awards = () => {
         
         {/* Call to action */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-yellow-600 to-orange-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             <FaAward />
             <span className="font-semibold">View All Credentials</span>
             <FaExternalLinkAlt />

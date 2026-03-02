@@ -37,49 +37,10 @@ const Education = () => {
         'Student Government Technical Lead'
       ],
       icon: FaGraduationCap,
-      color: 'from-blue-500 to-purple-500',
+      color: 'from-cyan-500 to-blue-500',
       level: 'university'
     },
-    {
-      degree: 'High School Diploma - Mathematics, Physics & Computer Science',
-      school: 'Group Scolaire Mater Dei Nyanza',
-      location: 'Nyanza, Rwanda',
-      period: '2020 - 2023',
-      status: 'Completed',
-      gpa: '85/100',
-      highlights: [
-        'Advanced Mathematics and Physics Track',
-        'Computer Science Club President',
-        'National Science Competition Finalist'
-      ],
-      achievements: [
-        'Best in Computer Science Award',
-        'Mathematics Olympiad Participant'
-      ],
-      icon: FaSchool,
-      color: 'from-green-500 to-emerald-500',
-      level: 'high-school'
-    },
-    {
-      degree: 'Primary School Diploma',
-      school: 'Ecole Privee Marie Auxiliatrice',
-      location: 'Nyanza, Rwanda',
-      period: '2010 - 2016',
-      status: 'Completed',
-      gpa: '92/100',
-      highlights: [
-        'Excellence in Mathematics and Science',
-        'Student Class Representative',
-        'Sports Team Captain'
-      ],
-      achievements: [
-        'Academic Excellence Award',
-        'Leadership Recognition'
-      ],
-      icon: FaBook,
-      color: 'from-orange-500 to-red-500',
-      level: 'primary'
-    }
+    
   ];
 
   const EducationCard = ({ edu, index }) => {
@@ -108,7 +69,7 @@ const Education = () => {
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   {edu.status === 'Current' && (
-                    <span className="px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full flex items-center gap-1">
+                    <span className="px-3 py-1 bg-cyan-600 text-white text-xs font-semibold rounded-full flex items-center gap-1">
                       <FaCheckCircle className="text-xs" />
                       Currently Studying
                     </span>
@@ -142,7 +103,7 @@ const Education = () => {
                 <span>{edu.location}</span>
               </div>
               <div className="flex items-center gap-1">
-                <FaCalendarAlt className="text-green-500" />
+                <FaCalendarAlt className="text-cyan-500" />
                 <span>{edu.period}</span>
               </div>
             </div>
@@ -167,7 +128,7 @@ const Education = () => {
             <ul className="space-y-2">
               {edu.highlights.map((highlight, highlightIndex) => (
                 <li key={highlightIndex} className="flex items-start gap-2">
-                  <span className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                  <span className="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mt-2 flex-shrink-0"></span>
                   <span className="text-gray-300 text-sm">{highlight}</span>
                 </li>
               ))}
@@ -178,14 +139,14 @@ const Education = () => {
           {edu.achievements.length > 0 && (
             <div>
               <h5 className="font-semibold text-gray-200 mb-3 flex items-center gap-2">
-                <FaStar className="text-yellow-500" />
+                <FaStar />
                 Achievements & Awards
               </h5>
               <div className="flex flex-wrap gap-2">
                 {edu.achievements.map((achievement, achIndex) => (
                   <span 
                     key={achIndex}
-                    className="px-3 py-1 bg-gradient-to-r from-yellow-900/30 to-orange-900/30 text-yellow-300 text-xs font-medium rounded-full border border-yellow-700/30"
+                    className="px-3 py-1 bg-gradient-to-r from-cyan-900/30 to-blue-900/30 text-cyan-300 text-xs font-medium rounded-full border border-cyan-700/30"
                   >
                     {achievement}
                   </span>
@@ -201,13 +162,13 @@ const Education = () => {
   return (
     <section id="education" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-purple-600 rounded-full filter blur-3xl opacity-10"></div>
+      <div className="absolute top-10 left-10 w-72 h-72 bg-cyan-600 rounded-full filter blur-3xl opacity-10"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-purple-900/50 text-purple-300 rounded-full text-sm font-semibold mb-4 border border-purple-700/30">
+          <div className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-700/30">
             <FaGraduationCap className="inline mr-2" />
             Academic Journey
           </div>
@@ -237,14 +198,14 @@ const Education = () => {
             <p className="text-sm text-gray-400 mt-2">Continuous learning journey</p>
           </div>
           <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
-            <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               3.8
             </div>
             <h3 className="font-semibold text-gray-200">Current GPA</h3>
             <p className="text-sm text-gray-400 mt-2">Academic excellence</p>
           </div>
           <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
-            <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
               5+
             </div>
             <h3 className="font-semibold text-gray-200">Awards</h3>

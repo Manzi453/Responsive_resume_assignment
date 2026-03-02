@@ -22,10 +22,10 @@ const Hero = () => {
   };
 
   const socialIcons = [
-    { Icon: FaGithub, url: 'https://github.com/Manzi453', label: 'GitHub', color: 'hover:text-gray-300 hover:bg-gray-800' },
+    { Icon: FaGithub, url: 'https://github.com/Manzi453', label: 'GitHub', color: 'hover:text-cyan-400 hover:bg-cyan-900/20' },
     { Icon: FaLinkedin, url: 'https://linkedin.com', label: 'LinkedIn', color: 'hover:text-blue-400 hover:bg-blue-900/20' },
-    { Icon: FaTwitter, url: 'https://twitter.com', label: 'Twitter', color: 'hover:text-sky-400 hover:bg-sky-900/20' },
-    { Icon: FaEnvelope, url: 'mailto:manziivan453@gmail.com', label: 'Email', color: 'hover:text-red-400 hover:bg-red-900/20' },
+    { Icon: FaTwitter, url: 'https://twitter.com', label: 'Twitter', color: 'hover:text-cyan-400 hover:bg-cyan-900/20' },
+    { Icon: FaEnvelope, url: 'mailto:manziivan453@gmail.com', label: 'Email', color: 'hover:text-blue-400 hover:bg-blue-900/20' },
   ];
 
   return (
@@ -61,7 +61,7 @@ const Hero = () => {
           <motion.div variants={itemVariants} className="flex-shrink-0 relative group">
             {/* Animated gradient border */}
             <motion.div
-              className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 rounded-full blur-lg opacity-75 group-hover:opacity-100"
+              className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-blue-600 rounded-full blur-lg opacity-75 group-hover:opacity-100"
               animate={{
                 boxShadow: [
                   '0 0 20px rgba(6, 182, 212, 0.3)',
@@ -80,7 +80,7 @@ const Hero = () => {
                 className="w-80 h-96 lg:w-96 lg:h-[28rem] rounded-3xl shadow-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 flex items-center justify-center overflow-hidden backdrop-blur-md relative group"
               >
                 {/* Animated gradient border */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500 via-blue-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
                 <div className="absolute inset-[2px] rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm"></div>
                 
                 {/* Profile image with enhanced effects */}
@@ -92,16 +92,16 @@ const Hero = () => {
                 
                 {/* Lighter overlay effects for clarity */}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 via-transparent to-transparent pointer-events-none"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-purple-500/5 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-500/5 pointer-events-none"></div>
                 
                 {/* Subtle animated particles */}
                 <div className="absolute top-4 left-4 w-2 h-2 bg-cyan-400 rounded-full opacity-60 animate-pulse"></div>
-                <div className="absolute bottom-6 right-6 w-3 h-3 bg-purple-400 rounded-full opacity-40 animate-pulse delay-75"></div>
-                <div className="absolute top-1/2 right-4 w-2 h-2 bg-blue-400 rounded-full opacity-50 animate-pulse delay-150"></div>
+                <div className="absolute bottom-6 right-6 w-3 h-3 bg-blue-400 rounded-full opacity-40 animate-pulse delay-75"></div>
+                <div className="absolute top-1/2 right-4 w-2 h-2 bg-cyan-400 rounded-full opacity-50 animate-pulse delay-150"></div>
               </div>
               {/* Status indicator */}
               <motion.div
-                className="absolute bottom-8 right-8 w-8 h-8 bg-green-500 rounded-full border-4 border-gray-800 shadow-lg"
+                className="absolute bottom-8 right-8 w-8 h-8 bg-cyan-500 rounded-full border-4 border-gray-800 shadow-lg"
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               ></motion.div>
@@ -148,7 +148,7 @@ const Hero = () => {
                 animate={{ opacity: [0.6, 1, 0.6] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <span className="inline-block w-3 h-3 bg-green-500 rounded-full"></span>
+                <span className="inline-block w-3 h-3 bg-cyan-500 rounded-full"></span>
                 <span className="text-gray-400">Available for opportunities</span>
               </motion.div>
             </motion.div>

@@ -95,7 +95,7 @@ export const Card = ({
       viewport={{ once: true }}
       whileHover={hover ? { y: -10 } : {}}
       className={`bg-gray-800/50 backdrop-blur-lg border border-gray-700/30 rounded-2xl p-6 transition-all duration-300 ${
-        hover ? 'hover:shadow-2xl hover:shadow-blue-500/20' : ''
+        hover ? 'hover:shadow-2xl hover:shadow-cyan-500/20' : ''
       } ${className}`}
       {...props}
     >
@@ -104,7 +104,7 @@ export const Card = ({
   ) : (
     <div
       className={`bg-gray-800/50 backdrop-blur-lg border border-gray-700/30 rounded-2xl p-6 transition-all duration-300 ${
-        hover ? 'hover:shadow-2xl hover:shadow-blue-500/20' : ''
+        hover ? 'hover:shadow-2xl hover:shadow-cyan-500/20' : ''
       } ${className}`}
       {...props}
     >
@@ -123,9 +123,9 @@ export const Badge = ({
 }) => {
   const variants = {
     primary: 'bg-cyan-900/50 text-cyan-300 border border-cyan-700/30',
-    success: 'bg-green-900/50 text-green-300 border border-green-700/30',
-    warning: 'bg-yellow-900/50 text-yellow-300 border border-yellow-700/30',
-    danger: 'bg-red-900/50 text-red-300 border border-red-700/30',
+    success: 'bg-blue-900/50 text-blue-300 border border-blue-700/30',
+    warning: 'bg-cyan-800/50 text-cyan-300 border border-cyan-700/30',
+    danger: 'bg-blue-900/50 text-blue-300 border border-blue-700/30',
   };
 
   return (

@@ -29,7 +29,7 @@ const Projects = () => {
       linkText: 'Live Demo',
       tags: ['React', 'Responsive Design', 'Portfolio', 'Web Development'],
       icon: FaGlobe,
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-cyan-500 to-blue-500',
       category: 'web',
       featured: true,
       status: 'live',
@@ -46,7 +46,7 @@ const Projects = () => {
       linkText: 'View on GitHub',
       tags: ['Bash', 'Automation', 'Linux', 'DevOps'],
       icon: FaTerminal,
-      color: 'from-green-500 to-emerald-500',
+      color: 'from-blue-500 to-cyan-500',
       category: 'automation',
       featured: true,
       status: 'completed',
@@ -63,7 +63,7 @@ const Projects = () => {
       linkText: 'Live Demo',
       tags: ['React', 'Responsive', 'Web Design', 'Agriculture'],
       icon: FaLeaf,
-      color: 'from-green-600 to-lime-500',
+      color: 'from-cyan-600 to-blue-500',
       category: 'web',
       featured: true,
       status: 'live',
@@ -81,7 +81,7 @@ const Projects = () => {
       linkText: 'View on GitHub',
       tags: ['Education', 'Academic', 'Web App', 'Full-Stack'],
       icon: FaGraduationCap,
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-blue-500 to-cyan-500',
       category: 'mobile',
       featured: false,
       status: 'completed',
@@ -181,7 +181,7 @@ const Projects = () => {
         {/* Featured badge */}
         {project.featured && (
           <div className="absolute top-4 right-4 z-20">
-            <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg">
+            <span className="px-3 py-1 bg-gradient-to-r from-cyan-400 to-blue-500 text-white text-xs font-bold rounded-full shadow-lg">
               ⭐ Featured
             </span>
           </div>
@@ -190,9 +190,9 @@ const Projects = () => {
         {/* Status indicator */}
         <div className="absolute top-4 left-4 z-20">
           <span className={`px-3 py-1 text-xs font-semibold rounded-full shadow-lg ${
-            project.status === 'live' ? 'bg-green-500 text-white' :
+            project.status === 'live' ? 'bg-cyan-500 text-white' :
             project.status === 'completed' ? 'bg-blue-500 text-white' :
-            project.status === 'development' ? 'bg-yellow-500 text-white' :
+            project.status === 'development' ? 'bg-cyan-600 text-white' :
             'bg-gray-500 text-white'
           }`}>
             {project.status === 'live' ? '🔴 Live' :
@@ -250,7 +250,7 @@ const Projects = () => {
             <ul className="space-y-1">
               {project.highlights.slice(0, 3).map((highlight, highlightIndex) => (
                 <li key={highlightIndex} className="flex items-center gap-2 text-sm text-gray-400">
-                  <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
+                  <span className="w-1.5 h-1.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></span>
                   {highlight}
                 </li>
               ))}
@@ -266,7 +266,7 @@ const Projects = () => {
               </div>
               <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
                 <div 
-                  className="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-1000 ease-out"
+                  className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 transition-all duration-1000 ease-out"
                   style={{ 
                     width: isVisible ? `${project.progress}%` : '0%',
                     transitionDelay: `${index * 100 + 500}ms`
@@ -331,7 +331,7 @@ const Projects = () => {
     <section id="projects" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-20 right-20 w-64 h-64 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-600 rounded-full filter blur-3xl opacity-10"></div>
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}

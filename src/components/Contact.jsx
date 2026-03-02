@@ -133,30 +133,17 @@ const Contact = () => {
       icon: FaLinkedin, 
       href: 'https://www.linkedin.com/in/manzi-ya-musana-ivan-327597346/?isSelfProfile=true',
       label: 'LinkedIn', 
-      color: 'from-blue-600 to-blue-700',
+      color: 'from-blue-600 to-cyan-600',
       description: 'Professional network'
     },
     { 
       icon: FaGithub, 
       href: 'https://github.com/Manzi453?tab=repositories', 
       label: 'GitHub', 
-      color: 'from-gray-700 to-gray-900',
+      color: 'from-cyan-600 to-blue-600',
       description: 'Code repositories'
     },
-    { 
-      icon: FaInstagram, 
-      href: 'https://www.instagram.com/__manzii/', 
-      label: 'Instagram', 
-      color: 'from-pink-500 to-purple-600',
-      description: 'Personal updates'
-    },
-    { 
-      icon: FaWhatsapp, 
-      href: 'https://wa.me/250787734901', 
-      label: 'WhatsApp', 
-      color: 'from-green-500 to-green-600',
-      description: 'Quick chat'
-    }
+   
   ];
 
   const FormField = ({ label, name, type = 'text', placeholder, required = false, rows = null, icon: Icon }) => (
@@ -170,7 +157,7 @@ const Contact = () => {
         htmlFor={name} 
         className="block text-gray-200 font-semibold mb-2 text-sm"
       >
-        {label} {required && <span className="text-red-400">*</span>}
+        {label} {required && <span className="text-cyan-400">*</span>}
       </label>
       {rows ? (
         <textarea
@@ -182,7 +169,7 @@ const Contact = () => {
           required={required}
           className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none bg-gray-700/50 text-white placeholder-gray-400 ${
             formErrors[name] 
-              ? 'border-red-500 focus:ring-red-500' 
+              ? 'border-cyan-500 focus:ring-cyan-500' 
               : 'border-gray-600 focus:ring-cyan-500'
           } ${Icon ? 'pl-12' : ''}`}
           placeholder={placeholder}
@@ -197,14 +184,14 @@ const Contact = () => {
           required={required}
           className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 bg-gray-700/50 text-white placeholder-gray-400 ${
             formErrors[name] 
-              ? 'border-red-500 focus:ring-red-500' 
+              ? 'border-cyan-500 focus:ring-cyan-500' 
               : 'border-gray-600 focus:ring-cyan-500'
           } ${Icon ? 'pl-12' : ''}`}
           placeholder={placeholder}
         />
       )}
       {formErrors[name] && (
-        <div className="mt-1 text-sm text-red-500 flex items-center gap-1">
+        <div className="mt-1 text-sm text-cyan-400 flex items-center gap-1">
           <FaExclamationTriangle className="text-xs" />
           {formErrors[name]}
         </div>
@@ -266,7 +253,7 @@ const Contact = () => {
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Follow me on social media for updates, insights, and professional networking
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-3xl mx-auto">
+            <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto justify-center">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
