@@ -8,30 +8,26 @@ const Skills = () => {
   const { ref, isInView } = useScrollInView();
 
   const technicalSkills = [
-    { 
-      name: 'Frontend Development', 
-      level: 90, 
+    {
+      name: 'Frontend Development',
       icon: FaCode,
       color: 'from-cyan-500 to-blue-500',
       technologies: ['React', 'HTML', 'CSS', 'TypeScript', 'Tailwind CSS']
     },
-    { 
-      name: 'Backend Development', 
-      level: 75,
+    {
+      name: 'Backend Development',
       icon: FaDatabase,
       color: 'from-cyan-500 to-blue-500',
       technologies: ['Spring Boot', 'Java', 'Python', 'PostgreSQL']
     },
     {
-      name: 'DevOps & Cloud', 
-      level: 65,
+      name: 'DevOps & Cloud',
       icon: FaDocker,
       color: 'from-blue-500 to-cyan-500',
       technologies: ['Docker', 'CI/CD', 'Kubernetes']
     },
-    { 
-      name: 'Version Control', 
-      level: 92, 
+    {
+      name: 'Version Control',
       icon: FaGitAlt,
       color: 'from-cyan-500 to-blue-500',
       technologies: ['Git', 'GitHub', 'Gitflow']
@@ -96,23 +92,10 @@ const Skills = () => {
               </motion.div>
               <div>
                 <h3 className="font-bold text-gray-100 text-lg">{skill.name}</h3>
-                <p className="text-sm text-cyan-400">{skill.level}% Expertise</p>
               </div>
             </div>
           </div>
-          
-          {/* Progress bar */}
-          <div className="mb-4">
-            <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
-              <motion.div
-                className={`h-full rounded-full bg-gradient-to-r ${skill.color}`}
-                initial={{ width: 0 }}
-                animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-                transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-              />
-            </div>
-          </div>
-          
+
           {/* Technologies */}
           <div className="flex flex-wrap gap-2">
             {skill.technologies.map((tech, idx) => (

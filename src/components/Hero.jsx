@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
-import { Button } from './shared';
-import profileImage from '../profile.jpeg';
+import { Link } from 'react-router-dom';
+import { FaEnvelope } from 'react-icons/fa';
+import { SOCIAL_LINKS } from '../constants';
+import { CircuitBackground } from './shared';
+import profileImage from '../Profile/Profile.jpeg';
+
+const MotionLink = motion(Link);
 
 const Hero = () => {
   const containerVariants = {
@@ -21,17 +25,11 @@ const Hero = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
-  const socialIcons = [
-    { Icon: FaGithub, url: 'https://github.com/Manzi453', label: 'GitHub', color: 'hover:text-cyan-400 hover:bg-cyan-900/20' },
-    { Icon: FaLinkedin, url: 'https://linkedin.com', label: 'LinkedIn', color: 'hover:text-blue-400 hover:bg-blue-900/20' },
-    { Icon: FaTwitter, url: 'https://twitter.com', label: 'Twitter', color: 'hover:text-cyan-400 hover:bg-cyan-900/20' },
-    { Icon: FaEnvelope, url: 'mailto:manziivan453@gmail.com', label: 'Email', color: 'hover:text-blue-400 hover:bg-blue-900/20' },
-  ];
-
   return (
     <section id="about" className="min-h-screen pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
+        <CircuitBackground />
         <motion.div
           className="absolute top-20 right-10 w-72 h-72 bg-cyan-500 rounded-full filter blur-3xl opacity-10"
           animate={{
@@ -116,7 +114,7 @@ const Hero = () => {
                 className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold border border-cyan-700/30"
                 whileHover={{ scale: 1.05 }}
               >
-                👋 Hello, I'm
+                👋 Hello, I&apos;m
               </motion.span>
             </motion.div>
             
@@ -168,23 +166,23 @@ const Hero = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
             >
-              <motion.a
-                href="#contact"
+              <MotionLink
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 bg-gradient-to-r from-cyan-600 to-blue-700 text-white hover:from-cyan-700 hover:to-blue-800 shadow-lg shadow-cyan-500/25"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <FaEnvelope />
                 Get In Touch
-              </motion.a>
-              <motion.a
-                href="#projects"
+              </MotionLink>
+              <MotionLink
+                to="/projects"
                 className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 View Projects
-              </motion.a>
+              </MotionLink>
             </motion.div>
             
             {/* Social Links */}
@@ -192,9 +190,9 @@ const Hero = () => {
               variants={itemVariants}
               className="flex items-center justify-center lg:justify-start gap-4"
             >
-              {socialIcons.map(({ Icon, url, label, color }, index) => (
+              {SOCIAL_LINKS.map(({ icon: Icon, url, name, color }, index) => (
                 <motion.a
-                  key={label}
+                  key={name}
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -204,7 +202,7 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 + index * 0.1 }}
-                  title={label}
+                  title={name}
                 >
                   <Icon className="text-xl" />
                 </motion.a>

@@ -1,25 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { FaBriefcase, FaGraduationCap, FaBuilding, FaCalendarAlt, FaExternalLinkAlt, FaCode, FaUsers, FaChartLine, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+import React from 'react';
+import { FaBriefcase, FaGraduationCap, FaBuilding, FaCalendarAlt, FaExternalLinkAlt, FaCode, FaChartLine, FaClock, FaMapMarkerAlt, FaBullhorn } from 'react-icons/fa';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Experience = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const experienceSection = document.getElementById('experience');
-      if (experienceSection) {
-        const rect = experienceSection.getBoundingClientRect();
-        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-        setIsVisible(isInView);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const { ref, isVisible } = useScrollReveal();
 
   const experiences = [
+    {
+      title: 'Digital Marketing & Technology Associate',
+      company: 'RG Partners',
+      period: 'May 2026 – Present',
+      duration: 'Ongoing',
+      location: 'Kigali, Rwanda',
+      description: 'Building and maintaining the web presence for RG Partners, a full-service financial advisory group in East Africa, and its affiliated companies AAA Corporate Trustees and AAA Financiers, while supporting the group\'s digital marketing and brand consistency across all three sites.',
+      achievements: [
+        'Developed the AAA Group company portal with React, Next.js, TypeScript, and Tailwind CSS',
+        'Built the AAA Corporate Trustees and AAA Financiers advisory websites with React, TypeScript, React Router, and Tailwind CSS',
+        'Maintain consistent branding and content across the group\'s digital presence to support marketing and investor-facing communications'
+      ],
+      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+      typeLabel: 'Current Role',
+      current: true,
+      icon: FaBullhorn,
+      color: 'from-cyan-500 to-blue-500'
+    },
     {
       title: 'Software Engineer Intern',
       company: 'Banque Populaire du Rwanda Plc (BPR)',
@@ -34,7 +38,7 @@ const Experience = () => {
       ],
 
       technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
-      type: 'internship',
+      typeLabel: 'Internship',
       icon: FaBuilding,
       color: 'from-blue-500 to-cyan-500'
     },
@@ -52,7 +56,7 @@ const Experience = () => {
       ],
 
       technologies: ['React', 'Python','Linux'],
-      type: 'internship',
+      typeLabel: 'Internship',
       icon: FaBriefcase,
       color: 'from-cyan-500 to-blue-500'
     },
@@ -69,7 +73,7 @@ const Experience = () => {
         'Received certification of excellence'
       ],
       technologies: ['JavaScript', 'PHP', 'HTML','CSS', 'Git'],
-      type: 'training',
+      typeLabel: 'Training',
       icon: FaGraduationCap,
       color: 'from-blue-500 to-cyan-500'
     }
@@ -102,11 +106,11 @@ const Experience = () => {
                 <div className={`flex-1 ${isLeft ? 'md:text-right' : ''}`}>
                   <div className="flex items-center gap-2 mb-1">
                     <span className={`px-3 py-1 bg-gradient-to-r ${experience.color} text-white text-xs font-semibold rounded-full`}>
-                      {experience.type === 'internship' ? 'Internship' : 'Training'}
+                      {experience.typeLabel}
                     </span>
-                    {experience.type === 'internship' && (
-                    <span className="px-3 py-1 bg-cyan-100 text-cyan-800 text-xs font-semibold rounded-full">
-                        Professional Experience
+                    {experience.current && (
+                      <span className="px-3 py-1 bg-cyan-900/50 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/30">
+                        Current
                       </span>
                     )}
                   </div>
@@ -185,7 +189,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
+    <section id="experience" ref={ref} className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-200 rounded-full filter blur-3xl opacity-20"></div>
       <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>

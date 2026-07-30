@@ -1,24 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaMobile, FaGraduationCap, FaLock, FaLeaf, FaTerminal, FaServer, FaGlobe, FaUsers, FaCalendarAlt , FaReact} from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaMobile, FaGraduationCap, FaLock, FaLeaf, FaTerminal, FaServer, FaGlobe, FaReact, FaLandmark, FaCoins, FaGlassCheers, FaRobot, FaSchool, FaMapMarkedAlt, FaPiggyBank, FaTasks, FaChartLine } from 'react-icons/fa';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Projects = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const { ref, isVisible } = useScrollReveal();
   const [filter, setFilter] = useState('all');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const projectsSection = document.getElementById('projects');
-      if (projectsSection) {
-        const rect = projectsSection.getBoundingClientRect();
-        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-        setIsVisible(isInView);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const projects = [
     {
@@ -33,72 +19,56 @@ const Projects = () => {
       category: 'web',
       featured: true,
       status: 'live',
-      technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Framer Motion', 'Responsive Design'],
-      highlights: ['Fully responsive layout', 'Smooth animations', 'Modern UI/UX', 'Cross-device compatibility'],
-      liveVisitors: '1K+',
-      lastUpdated: '2024-02-26'
+      technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Framer Motion', 'React Router'],
+      highlights: ['Fully responsive layout', 'Smooth animations', 'Modern UI/UX', 'Cross-device compatibility']
     },
     {
-      title: 'Shell Scripting Project',
-      description: 'Advanced automation suite leveraging Bash scripting to streamline system administration, deployment workflows, and infrastructure monitoring. Implements intelligent backup systems, log analysis, and proactive health monitoring for Linux environments.',
-      longDescription: 'Enterprise-grade shell scripting solution that transforms manual system administration into automated workflows, significantly improving operational efficiency and reducing human error in production environments.',
-      link: 'https://github.com/Manzi453/alu-shell',
-      linkText: 'View on GitHub',
-      tags: ['Bash', 'Automation', 'Linux', 'DevOps'],
-      icon: FaTerminal,
-      color: 'from-blue-500 to-cyan-500',
-      category: 'automation',
-      featured: true,
-      status: 'completed',
-      technologies: ['Bash', 'Shell Scripting', 'Linux', 'Cron Jobs', 'System Administration'],
-      highlights: ['Automated system monitoring', 'Backup management', 'Performance optimization'],
-      githubStars: 15,
-      lastUpdated: '2024-01-15'
-    },
-    {
-      title: 'Agri-Link App',
-      description: 'Revolutionary agricultural platform connecting farmers with real-time market data, weather intelligence, and expert agricultural guidance. Features comprehensive community forums, crop management tools, and direct market access for enhanced farming productivity.',
-      longDescription: 'A comprehensive digital ecosystem transforming agriculture by bridging information gaps between farmers and critical resources, enabling data-driven farming decisions and improved market access.',
-      link: 'https://agri-linkk.netlify.app/',
+      title: 'AAA Corporate Trustees',
+      description: 'Corporate secretarial, trustee, and governance advisory website for AAA Corporate Trustees, part of the RG Partners financial advisory group in East Africa.',
+      longDescription: 'Client website built for RG Partners\' corporate trustee and governance advisory arm, presenting trust administration, regulatory compliance, and board governance services to institutional clients.',
+      link: 'https://aaatrustees.rw',
       linkText: 'Live Demo',
-      tags: ['React', 'Responsive', 'Web Design', 'Agriculture'],
-      icon: FaLeaf,
-      color: 'from-cyan-600 to-blue-500',
+      tags: ['React', 'TypeScript', 'Client Work', 'Advisory'],
+      icon: FaLandmark,
+      color: 'from-cyan-500 to-blue-500',
       category: 'web',
       featured: true,
       status: 'live',
-      technologies: ['React', 'Tailwind CSS', 'REST API', ],
-      highlights: ['Real-time market data', 'Weather integration', 'Community forums'],
-      liveVisitors: '500+',
-      lastUpdated: '2024-02-01'
+      technologies: ['React', 'TypeScript', 'React Router', 'Tailwind CSS', 'Framer Motion'],
+      highlights: ['Corporate governance & trustee services showcase', 'Built for RG Partners group', 'Animated, map-driven UI']
     },
     {
-      title: 'Academic ALU Platform',
-      description: 'Sophisticated academic management system revolutionizing educational workflows through intelligent course tracking, automated assessments, and comprehensive student support mechanisms. Designed for scalability and seamless academic administration.',
-      longDescription:
-          'Next-generation academic platform engineered to streamline educational processes, enhance student engagement, and provide administrators with powerful tools for effective academic management and data-driven insights.',
-      link: 'https://github.com/Manzi453/academic_alu',
-      linkText: 'View on GitHub',
-      tags: ['Education', 'Academic', 'Web App', 'Full-Stack'],
-      icon: FaGraduationCap,
+      title: 'AAA Financiers',
+      description: 'Investment advisory website for AAA Financiers, specialising in capital raising and financial structuring for growth-stage businesses across African markets.',
+      longDescription: 'Client website built for RG Partners\' investment advisory arm, presenting capital raising, investment advisory, and financial structuring services with a professional, accessible interface.',
+      link: 'https://aaafinanciers.rw/',
+      linkText: 'Live Demo',
+      tags: ['React', 'TypeScript', 'Client Work', 'Finance'],
+      icon: FaCoins,
       color: 'from-blue-500 to-cyan-500',
-      category: 'mobile',
-      featured: false,
-      status: 'completed',
-      technologies: [
-        'Flutter',
-        'Dart',
-
-      ],
-      highlights: [
-        'Academic assessment management',
-        'Structured course workflows',
-        'Student-focused UI'
-      ],
-      // progress: 70,
-      // estimatedLaunch: '2024-06-01'
+      category: 'web',
+      featured: true,
+      status: 'live',
+      technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Radix UI'],
+      highlights: ['Investment advisory & capital raising showcase', 'Built for RG Partners group', 'Accessible, component-driven UI']
     },
-    {title: 'Smart RwandaBill – Frontend',
+    {
+      title: 'Nziza Memorable Event',
+      description: 'Production website for a corporate events and conferences studio in Kigali, covering award nights, product launches, summits, and hybrid sessions.',
+      longDescription: 'Freelance client site built with Next.js 14 and Tailwind CSS, with dedicated pages for services, portfolio, about, and contact to support a corporate events and conferences business.',
+      link: 'https://event-plan-vert.vercel.app',
+      linkText: 'Live Demo',
+      tags: ['Next.js', 'Tailwind CSS', 'Client Work', 'Events'],
+      icon: FaGlassCheers,
+      color: 'from-cyan-600 to-blue-600',
+      category: 'web',
+      featured: false,
+      status: 'live',
+      technologies: ['Next.js', 'React', 'Tailwind CSS'],
+      highlights: ['Multi-page site with App Router', 'Services & portfolio showcase', 'Static export for fast delivery']
+    },
+    {
+      title: 'Smart RwandaBill – Frontend',
       description: 'Cutting-edge responsive interface for RwandaBill digital billing platform, delivering seamless user experience through modern React architecture and intuitive design patterns.',
       longDescription: 'Sophisticated frontend application built with React and Tailwind CSS, providing an elegant and efficient interface for digital billing management, payment tracking, and seamless backend integration.',
       link: 'https://smart-rwanda-bill-frontend1-ofcv.vercel.app/',
@@ -109,22 +79,9 @@ const Projects = () => {
       category: 'fullstack',
       featured: false,
       status: 'active',
-      technologies: [
-        'React',
-        'Tailwind CSS',
-        'JavaScript',
-        'REST API',
-        'Responsive Design'
-      ],
-      highlights: [
-        'Clean and responsive UI',
-        'Reusable React components',
-        'API integration with backend services',
-        'Optimized user experience'
-      ],
-      progress: 85,
-      estimatedLaunch: '2024-05-15'
-     },
+      technologies: ['React', 'Tailwind CSS', 'JavaScript', 'REST API', 'Responsive Design'],
+      highlights: ['Clean and responsive UI', 'Reusable React components', 'API integration with backend services']
+    },
     {
       title: 'Smart RwandaBill – Backend',
       description: 'Enterprise-grade backend architecture powering RwandaBill digital billing ecosystem, featuring robust API design, secure payment processing, and scalable data management solutions.',
@@ -137,20 +94,128 @@ const Projects = () => {
       category: 'fullstack',
       featured: true,
       status: 'active',
-      technologies: [
-        'Node.js',
-        'Postgresql',
-        'JWT Authentication',
-        'REST API'
-      ],
-      highlights: [
-        'Secure RESTful API',
-        'Bill and payment management logic',
-        'JWT-based authentication',
-        'Scalable backend architecture'
-      ],
-      progress: 80,
-      estimatedLaunch: '2024-06-01'
+      technologies: ['Node.js', 'PostgreSQL', 'JWT Authentication', 'REST API'],
+      highlights: ['Secure RESTful API', 'Bill and payment management logic', 'JWT-based authentication']
+    },
+    {
+      title: 'Agri-Link App',
+      description: 'Agricultural platform concept connecting farmers with market data, weather intelligence, and community forums for improved farming productivity.',
+      longDescription: 'A digital ecosystem aimed at bridging information gaps between farmers and critical resources, enabling data-driven farming decisions and improved market access.',
+      link: 'https://agri-linkk.netlify.app/',
+      linkText: 'Live Demo',
+      tags: ['React', 'Responsive', 'Web Design', 'Agriculture'],
+      icon: FaLeaf,
+      color: 'from-cyan-600 to-blue-500',
+      category: 'web',
+      featured: false,
+      status: 'live',
+      technologies: ['React', 'Tailwind CSS', 'REST API'],
+      highlights: ['Market data & weather integration concept', 'Community forums', 'Responsive design']
+    },
+    {
+      title: 'Butterfly & Moth Classifier — MLOps Pipeline',
+      description: '100-species image classifier with a full predict → upload → retrain loop, built as an end-to-end MLOps pipeline rather than a notebook-only model.',
+      longDescription: 'EfficientNetB0 transfer-learning classifier served through a FastAPI backend and Streamlit UI, containerized with Docker, and load-tested with Locust to compare single vs. multi-container throughput.',
+      link: 'https://github.com/Manzi453/Summative_ML_Pipelin_butterfly-mlops',
+      linkText: 'View on GitHub',
+      tags: ['Machine Learning', 'MLOps', 'FastAPI', 'Docker'],
+      icon: FaRobot,
+      color: 'from-blue-600 to-cyan-600',
+      category: 'data-ai',
+      featured: true,
+      status: 'completed',
+      technologies: ['Python', 'TensorFlow/Keras', 'FastAPI', 'Streamlit', 'Docker', 'Locust'],
+      highlights: ['EfficientNetB0 transfer learning on 100 species', 'Predict/upload/retrain loop via API + UI', 'Load-tested single vs. multi-container scaling']
+    },
+    {
+      title: 'School Management System',
+      description: 'Comprehensive school management system centralizing administrative, academic, and communication workflows for Admin, Teacher, Student, and Parent roles.',
+      longDescription: 'Full-featured platform covering enrollment, class scheduling, attendance tracking, grading, fee management, assignment sharing, and library management for a school environment.',
+      link: 'https://github.com/Manzi453/School_System',
+      linkText: 'View on GitHub',
+      tags: ['Education', 'Full-Stack', 'Management System'],
+      icon: FaSchool,
+      color: 'from-cyan-500 to-blue-500',
+      category: 'fullstack',
+      featured: false,
+      status: 'completed',
+      technologies: ['JavaScript', 'Node.js'],
+      highlights: ['Role-based access for 4 user types', 'Attendance, grading & fee management', 'Library and resource sharing']
+    },
+    {
+      title: 'Kigali Directory',
+      description: 'Flutter mobile app for discovering and managing local businesses, services, and points of interest across Kigali, Rwanda.',
+      longDescription: 'Cross-platform directory app with category filtering, an interactive OpenStreetMap view, user-submitted listings, and email/password authentication with verification.',
+      link: 'https://github.com/Manzi453/Kigali_Directory',
+      linkText: 'View on GitHub',
+      tags: ['Flutter', 'Dart', 'Mobile', 'Maps'],
+      icon: FaMapMarkedAlt,
+      color: 'from-blue-500 to-cyan-500',
+      category: 'mobile',
+      featured: false,
+      status: 'completed',
+      technologies: ['Flutter', 'Dart', 'OpenStreetMap', 'Firebase Auth'],
+      highlights: ['Category-filtered local business directory', 'Interactive map view', 'User-submitted listings with sharing']
+    },
+    {
+      title: 'Community Savings Groups (CSG-DMS)',
+      description: 'Digital management system replacing paper-based community savings group records — the informal savings model relied on across Rwanda and wider Africa.',
+      longDescription: 'A digital transformation concept for community savings groups (tontines/stokvels), aimed at reducing disputes over contributions and loan repayments through transparent, shared digital records.',
+      link: null,
+      linkText: 'Private Repository',
+      tags: ['Fintech', 'Social Impact', 'TypeScript'],
+      icon: FaPiggyBank,
+      color: 'from-cyan-600 to-blue-600',
+      category: 'fullstack',
+      featured: false,
+      status: 'completed',
+      technologies: ['TypeScript', 'React'],
+      highlights: ['Digitizes informal savings group record-keeping', 'Targets 30 districts of Rwanda', 'Transparent contribution & repayment tracking']
+    },
+    {
+      title: 'Habitat App',
+      description: 'Cross-platform habit and goal tracking app with a Firebase backend and real-time sync across devices.',
+      longDescription: 'Flutter habit/goal tracker refactored with Riverpod state management, supporting habit and goal CRUD, light/dark themes, and real-time Firestore sync across Android, iOS, and web.',
+      link: null,
+      linkText: 'Private Repository',
+      tags: ['Flutter', 'Firebase', 'Mobile'],
+      icon: FaTasks,
+      color: 'from-blue-500 to-cyan-600',
+      category: 'mobile',
+      featured: false,
+      status: 'completed',
+      technologies: ['Flutter', 'Dart', 'Riverpod', 'Firebase'],
+      highlights: ['Real-time habit & goal sync via Firestore', 'Riverpod state management', 'Cross-platform: Android, iOS, web, desktop']
+    },
+    {
+      title: 'Academic ALU Platform',
+      description: 'Academic management app concept for course tracking, assessments, and student support, built with Flutter.',
+      longDescription: 'A mobile academic platform prototype aimed at streamlining educational processes and giving administrators tools for academic management.',
+      link: 'https://github.com/Manzi453/academic_alu',
+      linkText: 'View on GitHub',
+      tags: ['Education', 'Academic', 'Mobile'],
+      icon: FaGraduationCap,
+      color: 'from-blue-500 to-cyan-500',
+      category: 'mobile',
+      featured: false,
+      status: 'completed',
+      technologies: ['Flutter', 'Dart'],
+      highlights: ['Academic assessment management', 'Structured course workflows', 'Student-focused UI']
+    },
+    {
+      title: 'Shell Scripting Project',
+      description: 'Automation suite leveraging Bash scripting to streamline system administration, deployment workflows, and infrastructure monitoring for Linux environments.',
+      longDescription: 'Shell scripting exercises covering automated backups, log analysis, and health monitoring, aimed at reducing manual system administration work.',
+      link: 'https://github.com/Manzi453/alu-shell',
+      linkText: 'View on GitHub',
+      tags: ['Bash', 'Automation', 'Linux', 'DevOps'],
+      icon: FaTerminal,
+      color: 'from-blue-500 to-cyan-500',
+      category: 'automation',
+      featured: false,
+      status: 'completed',
+      technologies: ['Bash', 'Shell Scripting', 'Linux', 'Cron Jobs'],
+      highlights: ['Automated system monitoring', 'Backup management', 'Performance optimization']
     }
   ];
 
@@ -159,6 +224,7 @@ const Projects = () => {
     { id: 'web', name: 'Web Apps', icon: FaGlobe },
     { id: 'fullstack', name: 'Full-Stack', icon: FaDatabase },
     { id: 'mobile', name: 'Mobile', icon: FaMobile },
+    { id: 'data-ai', name: 'Data & AI', icon: FaChartLine },
     { id: 'automation', name: 'Automation', icon: FaTerminal }
   ];
 
@@ -275,29 +341,6 @@ const Projects = () => {
               </div>
             </div>
           )}
-          
-          {/* Stats */}
-          <div className="flex items-center justify-between mb-6 text-sm text-gray-500">
-            {project.githubStars && (
-              <div className="flex items-center gap-1">
-                <FaGithub className="text-gray-400" />
-                <span>{project.githubStars} stars</span>
-              </div>
-            )}
-            {project.liveVisitors && (
-              <div className="flex items-center gap-1">
-                <FaUsers className="text-gray-400" />
-                <span>{project.liveVisitors} visitors</span>
-              </div>
-            )}
-            {project.lastUpdated && (
-              <div className="flex items-center gap-1">
-                <FaCalendarAlt className="text-gray-400" />
-                <span>Updated {project.lastUpdated}</span>
-              </div>
-            )}
-          </div>
-          
           {/* Action buttons */}
           <div className="flex items-center justify-between">
             {project.link ? (
@@ -316,11 +359,6 @@ const Projects = () => {
                 {project.linkText}
               </span>
             )}
-            
-            {/* View details button */}
-            <button className="text-blue-600 hover:text-blue-800 font-medium text-sm transition-colors duration-300">
-              View Details →
-            </button>
           </div>
         </div>
       </div>
@@ -328,7 +366,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
+    <section id="projects" ref={ref} className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-20 right-20 w-64 h-64 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
       <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>

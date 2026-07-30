@@ -146,6 +146,8 @@ export const Container = ({ children, className = '' }) => {
   );
 };
 
+export { default as CircuitBackground } from './CircuitBackground';
+
 export default {
   Button,
   Section,

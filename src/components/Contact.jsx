@@ -1,36 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaLinkedin, FaGithub, FaPaperPlane, FaUser, FaCommentDots, FaClock, FaCheckCircle, FaExclamationTriangle, FaWhatsapp } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane, FaUser, FaCommentDots, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Contact = () => {
+  const location = useLocation();
+  // Populated when arriving via a "Request This Service" link from /services
+  const prefilledSubject = location.state?.subject || '';
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    subject: prefilledSubject,
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [isMounted, setIsMounted] = useState(false);
-
   const [formErrors, setFormErrors] = useState({});
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => setIsMounted(true), []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const contactSection = document.getElementById('contact-form');
-      if (contactSection) {
-        const rect = contactSection.getBoundingClientRect();
-        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-        setIsVisible(isInView);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const { ref, isVisible } = useScrollReveal();
 
   const validateForm = () => {
     const errors = {};
@@ -62,31 +49,29 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const errors = validateForm();
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
       return;
     }
-    
+
     setIsSubmitting(true);
     setFormErrors({});
-    
+
     try {
-      // Create mailto link with form data
-      const subject = encodeURIComponent(formData.subject);
-      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
-      const mailtoLink = `mailto:manziivan453@gmail.com?subject=${subject}&body=${body}`;
-      
-      // Open email client with pre-filled data
-      window.location.href = mailtoLink;
-      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error('Submission failed');
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000);
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus(null), 5000);
     } finally {
@@ -168,8 +153,8 @@ const Contact = () => {
           rows={rows}
           required={required}
           className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-300 resize-none bg-gray-700/50 text-white placeholder-gray-400 ${
-            formErrors[name] 
-              ? 'border-cyan-500 focus:ring-cyan-500' 
+            formErrors[name]
+              ? 'border-red-500 focus:ring-red-500'
               : 'border-gray-600 focus:ring-cyan-500'
           } ${Icon ? 'pl-12' : ''}`}
           placeholder={placeholder}
@@ -191,7 +176,7 @@ const Contact = () => {
         />
       )}
       {formErrors[name] && (
-        <div className="mt-1 text-sm text-cyan-400 flex items-center gap-1">
+        <div className="mt-1 text-sm text-red-400 flex items-center gap-1">
           <FaExclamationTriangle className="text-xs" />
           {formErrors[name]}
         </div>
@@ -218,8 +203,8 @@ const Contact = () => {
               <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Reach Out Anytime</span>
             </h2>
             <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Multiple ways to connect - choose what works best for you. 
-              I'm always open to discussing new projects, creative ideas, or opportunities.
+              Multiple ways to connect - choose what works best for you.
+              I&apos;m always open to discussing new projects, creative ideas, or opportunities.
             </p>
           </div>
           
@@ -284,6 +269,90 @@ const Contact = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Request a Service / Send a Message */}
+      <section id="contact-form" ref={ref} className="section-padding bg-gray-900 relative overflow-hidden">
+        <div className="absolute top-1/3 right-0 w-96 h-96 bg-cyan-600 rounded-full filter blur-3xl opacity-5"></div>
+
+        <div className="container mx-auto px-4 relative z-10 max-w-3xl">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+                Request a Service
+              </span>
+            </h3>
+            <p className="text-gray-400 text-lg">
+              Tell me about your project and I&apos;ll get back to you within 24-48 hours.
+            </p>
+          </div>
+
+          <form
+            onSubmit={handleSubmit}
+            className="bg-gray-800/50 backdrop-blur-lg border border-gray-700/30 rounded-2xl p-6 lg:p-10 space-y-6"
+            style={{
+              animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
+              opacity: isVisible ? 1 : 0
+            }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <FormField
+                label="Name"
+                name="name"
+                placeholder="Your full name"
+                required
+                icon={FaUser}
+              />
+              <FormField
+                label="Email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+                icon={FaEnvelope}
+              />
+            </div>
+
+            <FormField
+              label="Subject"
+              name="subject"
+              placeholder="What's this about? (e.g. Website project, Consultation)"
+              required
+              icon={FaCommentDots}
+            />
+
+            <FormField
+              label="Message"
+              name="message"
+              placeholder="Describe your project, timeline, and budget..."
+              required
+              rows={5}
+              icon={FaCommentDots}
+            />
+
+            {submitStatus === 'success' && (
+              <div className="flex items-center gap-2 text-cyan-400 bg-cyan-900/20 border border-cyan-700/30 rounded-lg px-4 py-3">
+                <FaCheckCircle />
+                Thanks! Your message has been sent — I&apos;ll be in touch soon.
+              </div>
+            )}
+            {submitStatus === 'error' && (
+              <div className="flex items-center gap-2 text-red-400 bg-red-900/20 border border-red-700/30 rounded-lg px-4 py-3">
+                <FaExclamationTriangle />
+                Something went wrong. Please try again or email me directly.
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 bg-gradient-to-r from-cyan-600 to-blue-700 text-white hover:from-cyan-700 hover:to-blue-800 shadow-lg shadow-cyan-500/25 disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              <FaPaperPlane />
+              {isSubmitting ? 'Sending...' : 'Send Request'}
+            </button>
+          </form>
         </div>
       </section>
     </>

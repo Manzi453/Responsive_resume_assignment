@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { NAV_LINKS } from '../constants';
 
@@ -15,20 +16,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    const targetId = href.substring(1);
-    const targetSection = document.getElementById(targetId);
-    
-    if (targetSection) {
-      window.scrollTo({
-        top: targetSection.offsetTop - 80,
-        behavior: 'smooth'
-      });
-    }
-    setIsOpen(false);
-  };
-
   const navVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: {
@@ -43,13 +30,29 @@ const Navbar = () => {
     visible: { opacity: 1, y: 0 }
   };
 
+  const linkClasses = ({ isActive }) =>
+    `text-gray-300 font-medium hover:text-cyan-400 transition-all duration-300 relative group px-4 py-2 ${
+      isActive ? 'text-cyan-400' : ''
+    }`;
+
+  const mobileLinkClasses = ({ isActive }) =>
+    `text-gray-300 font-medium hover:text-cyan-400 transition-all duration-300 block py-3 px-4 rounded-lg hover:bg-gray-800/50 ${
+      isActive ? 'text-cyan-400 bg-gray-800/50' : ''
+    }`;
+
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-800/50 shadow-2xl shadow-black/50' 
+      scrolled
+        ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-800/50 shadow-2xl shadow-black/50'
         : 'bg-gray-900/50 backdrop-blur-sm'
     }`}>
-      <motion.nav 
+      {/* Identity strip */}
+      <div className="hidden lg:flex justify-between items-center container mx-auto px-4 py-1.5 text-[11px] tracking-widest uppercase text-gray-500 border-b border-gray-800/50">
+        <span>Full-Stack Developer &amp; Technology Associate</span>
+        <span>Based in Kigali, Rwanda</span>
+      </div>
+
+      <motion.nav
         className="container mx-auto px-4 py-4 flex justify-between items-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -59,14 +62,16 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           className="relative group"
         >
-          <h2 className="text-white text-xl lg:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
-            Manzi Ivan
-          </h2>
+          <NavLink to="/">
+            <h2 className="text-white text-xl lg:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
+              Manzi Ivan
+            </h2>
+          </NavLink>
           <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
         </motion.div>
-        
+
         {/* Desktop Navigation */}
-        <motion.ul 
+        <motion.ul
           className="hidden md:flex space-x-2"
           variants={navVariants}
           initial="hidden"
@@ -74,14 +79,10 @@ const Navbar = () => {
         >
           {NAV_LINKS.map((link) => (
             <motion.li key={link.href} variants={itemVariants}>
-              <a
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-gray-300 font-medium hover:text-cyan-400 transition-all duration-300 relative group px-4 py-2"
-              >
+              <NavLink to={link.href} end={link.href === '/'} className={linkClasses}>
                 {link.text}
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-              </a>
+              </NavLink>
             </motion.li>
           ))}
         </motion.ul>
@@ -126,7 +127,7 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-gray-900/95 backdrop-blur-md border-b border-gray-800/50"
           >
-            <motion.ul 
+            <motion.ul
               className="px-4 py-6 space-y-3"
               variants={navVariants}
               initial="hidden"
@@ -134,13 +135,14 @@ const Navbar = () => {
             >
               {NAV_LINKS.map((link) => (
                 <motion.li key={link.href} variants={itemVariants}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-gray-300 font-medium hover:text-cyan-400 transition-all duration-300 block py-3 px-4 rounded-lg hover:bg-gray-800/50"
+                  <NavLink
+                    to={link.href}
+                    end={link.href === '/'}
+                    onClick={() => setIsOpen(false)}
+                    className={mobileLinkClasses}
                   >
                     {link.text}
-                  </a>
+                  </NavLink>
                 </motion.li>
               ))}
             </motion.ul>
