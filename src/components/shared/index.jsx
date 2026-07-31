@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import CircuitBackground from './CircuitBackground';
 
 const MotionLink = motion(Link);
 
@@ -88,6 +89,7 @@ export const Section = ({
   children,
   className = '',
   variant = 'default',
+  circuit = false,
 }) => {
   const bgVariants = {
     default: 'bg-ink',
@@ -96,8 +98,13 @@ export const Section = ({
   };
 
   return (
-    <section id={id} className={`${bgVariants[variant]} py-20 lg:py-32 relative ${className}`}>
-      <div className="container mx-auto px-4">
+    <section id={id} className={`${bgVariants[variant]} py-20 lg:py-32 relative overflow-hidden ${className}`}>
+      {circuit && (
+        <div className="absolute inset-0 overflow-hidden">
+          <CircuitBackground />
+        </div>
+      )}
+      <div className="container mx-auto px-4 relative z-10">
         {title && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -28,6 +28,20 @@ import tostSoftwareDev from '../Manzi_Certificates_Portfolio_Ready/Certificate_S
 import abTestCert from '../Manzi_Certificates_Portfolio_Ready/conducting_a_b_test_certificate.png';
 import pythonZeroToHero from '../Manzi_Certificates_Portfolio_Ready/python_from_zero_to_hero_certificate.png';
 
+const AwardStatTile = ({ target, label, sub, isVisible }) => {
+  const count = useCountUp(target, isVisible);
+
+  return (
+    <div className="notch-card bg-charcoal p-6 shadow-lg text-center border border-ivory/10">
+      <div className="w-16 h-16 bg-ochre notch-btn flex items-center justify-center text-ink text-2xl font-bold font-display mx-auto mb-4">
+        {count}
+      </div>
+      <h3 className="font-semibold text-ivory/90 font-body">{label}</h3>
+      <p className="text-sm text-ivory/60 mt-2 font-body">{sub}</p>
+    </div>
+  );
+};
+
 const Awards = () => {
   const { ref, isVisible } = useScrollReveal();
   const [selectedCertificate, setSelectedCertificate] = useState(null);

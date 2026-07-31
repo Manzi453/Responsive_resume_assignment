@@ -1,6 +1,21 @@
 import React from 'react';
 import { FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaAward, FaStar, FaCheckCircle } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useCountUp } from '../hooks/useCountUp';
+
+const EduStatTile = ({ target, suffix, decimals, color, label, sub, isVisible }) => {
+  const count = useCountUp(target, isVisible, { decimals });
+
+  return (
+    <div className="notch-card bg-charcoal p-6 shadow-lg text-center border border-ivory/10">
+      <div className={`w-16 h-16 ${color} notch-btn flex items-center justify-center text-ink text-2xl font-bold font-display mx-auto mb-4`}>
+        {count}{suffix}
+      </div>
+      <h3 className="font-semibold text-ivory/90 font-body">{label}</h3>
+      <p className="text-sm text-ivory/60 mt-2 font-body">{sub}</p>
+    </div>
+  );
+};
 
 const Education = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -151,27 +166,13 @@ const Education = () => {
         </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="notch-card bg-charcoal p-6 shadow-lg text-center border border-ivory/10">
-            <div className="w-16 h-16 bg-ochre notch-btn flex items-center justify-center text-ink text-2xl font-bold font-display mx-auto mb-4">
-              10+
-            </div>
-            <h3 className="font-semibold text-ivory/90 font-body">Years of Education</h3>
-            <p className="text-sm text-ivory/60 mt-2 font-body">Continuous learning journey</p>
-          </div>
-          <div className="notch-card bg-charcoal p-6 shadow-lg text-center border border-ivory/10">
-            <div className="w-16 h-16 bg-sage notch-btn flex items-center justify-center text-ink text-2xl font-bold font-display mx-auto mb-4">
-              4.0
-            </div>
-            <h3 className="font-semibold text-ivory/90 font-body">Current GPA</h3>
-            <p className="text-sm text-ivory/60 mt-2 font-body">Academic excellence</p>
-          </div>
-          <div className="notch-card bg-charcoal p-6 shadow-lg text-center border border-ivory/10">
-            <div className="w-16 h-16 bg-ochre notch-btn flex items-center justify-center text-ink text-2xl font-bold font-display mx-auto mb-4">
-              5+
-            </div>
-            <h3 className="font-semibold text-ivory/90 font-body">Awards</h3>
-            <p className="text-sm text-ivory/60 mt-2 font-body">Academic achievements</p>
-          </div>
+          {[
+            { target: 10, suffix: '+', decimals: 0, color: 'bg-ochre', label: 'Years of Education', sub: 'Continuous learning journey' },
+            { target: 4.0, suffix: '', decimals: 1, color: 'bg-sage', label: 'Current GPA', sub: 'Academic excellence' },
+            { target: 5, suffix: '+', decimals: 0, color: 'bg-ochre', label: 'Awards', sub: 'Academic achievements' },
+          ].map((stat) => (
+            <EduStatTile key={stat.label} {...stat} isVisible={isVisible} />
+          ))}
         </div>
       </div>
     </section>

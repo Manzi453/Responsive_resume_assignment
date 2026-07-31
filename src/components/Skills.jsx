@@ -117,7 +117,7 @@ const Skills = () => {
   };
 
   return (
-    <Section id="skills" title="Technical Expertise & Languages" subtitle="Comprehensive skill set spanning modern development technologies and multilingual capabilities">
+    <Section id="skills" circuit title="Technical Expertise & Languages" subtitle="Comprehensive skill set spanning modern development technologies and multilingual capabilities">
       <div ref={ref} className="space-y-16">
         <motion.div
           variants={containerVariants}
