@@ -4,6 +4,57 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Button, CircuitBackground } from './shared';
 
+const FOCUS_RING = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal';
+
+const FormField = ({ label, name, type = 'text', placeholder, required = false, rows = null, icon: Icon, value, onChange, error }) => (
+  <div className="relative">
+    {Icon && (
+      <div className="absolute left-4 top-11 text-ivory/40">
+        <Icon className="text-lg" />
+      </div>
+    )}
+    <label
+      htmlFor={name}
+      className="block text-ivory/90 font-semibold mb-2 text-sm font-body"
+    >
+      {label} {required && <span className="text-gold">*</span>}
+    </label>
+    {rows ? (
+      <textarea
+        id={name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        rows={rows}
+        required={required}
+        className={`w-full px-4 py-3 border transition-all duration-300 resize-none bg-ink/50 text-ivory placeholder-ivory/40 font-body ${FOCUS_RING} ${
+          error ? 'border-red-500' : 'border-ivory/15'
+        } ${Icon ? 'pl-12' : ''}`}
+        placeholder={placeholder}
+      />
+    ) : (
+      <input
+        type={type}
+        id={name}
+        name={name}
+        value={value}
+        onChange={onChange}
+        required={required}
+        className={`w-full px-4 py-3 border transition-all duration-300 bg-ink/50 text-ivory placeholder-ivory/40 font-body ${FOCUS_RING} ${
+          error ? 'border-red-500' : 'border-ivory/15'
+        } ${Icon ? 'pl-12' : ''}`}
+        placeholder={placeholder}
+      />
+    )}
+    {error && (
+      <div className="mt-1 text-sm text-red-400 flex items-center gap-1 font-body">
+        <FaExclamationTriangle className="text-xs" />
+        {error}
+      </div>
+    )}
+  </div>
+);
+
 const Contact = () => {
   const location = useLocation();
   // Populated when arriving via a "Request This Service" link from /services
@@ -128,57 +179,6 @@ const Contact = () => {
     },
   ];
 
-  const FOCUS_RING = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal';
-
-  const FormField = ({ label, name, type = 'text', placeholder, required = false, rows = null, icon: Icon }) => (
-    <div className="relative">
-      {Icon && (
-        <div className="absolute left-4 top-11 text-ivory/40">
-          <Icon className="text-lg" />
-        </div>
-      )}
-      <label
-        htmlFor={name}
-        className="block text-ivory/90 font-semibold mb-2 text-sm font-body"
-      >
-        {label} {required && <span className="text-gold">*</span>}
-      </label>
-      {rows ? (
-        <textarea
-          id={name}
-          name={name}
-          value={formData[name]}
-          onChange={handleChange}
-          rows={rows}
-          required={required}
-          className={`w-full px-4 py-3 border transition-all duration-300 resize-none bg-ink/50 text-ivory placeholder-ivory/40 font-body ${FOCUS_RING} ${
-            formErrors[name] ? 'border-red-500' : 'border-ivory/15'
-          } ${Icon ? 'pl-12' : ''}`}
-          placeholder={placeholder}
-        />
-      ) : (
-        <input
-          type={type}
-          id={name}
-          name={name}
-          value={formData[name]}
-          onChange={handleChange}
-          required={required}
-          className={`w-full px-4 py-3 border transition-all duration-300 bg-ink/50 text-ivory placeholder-ivory/40 font-body ${FOCUS_RING} ${
-            formErrors[name] ? 'border-red-500' : 'border-ivory/15'
-          } ${Icon ? 'pl-12' : ''}`}
-          placeholder={placeholder}
-        />
-      )}
-      {formErrors[name] && (
-        <div className="mt-1 text-sm text-red-400 flex items-center gap-1 font-body">
-          <FaExclamationTriangle className="text-xs" />
-          {formErrors[name]}
-        </div>
-      )}
-    </div>
-  );
-
   return (
     <>
       <section id="contact-form" ref={ref} className="section-padding bg-ink relative overflow-hidden">
@@ -210,6 +210,9 @@ const Contact = () => {
                 placeholder="Your full name"
                 required
                 icon={FaUser}
+                value={formData.name}
+                onChange={handleChange}
+                error={formErrors.name}
               />
               <FormField
                 label="Email"
@@ -218,6 +221,9 @@ const Contact = () => {
                 placeholder="you@example.com"
                 required
                 icon={FaEnvelope}
+                value={formData.email}
+                onChange={handleChange}
+                error={formErrors.email}
               />
             </div>
 
@@ -227,6 +233,9 @@ const Contact = () => {
               placeholder="What's this about? (e.g. Website project, Consultation)"
               required
               icon={FaCommentDots}
+              value={formData.subject}
+              onChange={handleChange}
+              error={formErrors.subject}
             />
 
             <FormField
@@ -236,6 +245,9 @@ const Contact = () => {
               required
               rows={5}
               icon={FaCommentDots}
+              value={formData.message}
+              onChange={handleChange}
+              error={formErrors.message}
             />
 
             {submitStatus === 'success' && (
