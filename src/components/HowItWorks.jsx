@@ -35,11 +35,11 @@ const HowItWorks = () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {STEPS.map(({ icon: Icon, title, description }, index) => (
         <Card key={title} className="text-center">
-          <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white shadow-lg">
+          <div className="w-14 h-14 mx-auto mb-4 notch-btn bg-ochre text-ink flex items-center justify-center shadow-lg">
             <Icon className="text-2xl" />
           </div>
-          <h3 className="font-bold text-gray-100 text-lg mb-2">{index + 1}. {title}</h3>
-          <p className="text-sm text-gray-400 leading-relaxed">{description}</p>
+          <h3 className="font-display font-bold text-ivory text-lg mb-2">{index + 1}. {title}</h3>
+          <p className="text-sm text-ivory/60 leading-relaxed font-body">{description}</p>
         </Card>
       ))}
     </div>

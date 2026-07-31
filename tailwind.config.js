@@ -7,77 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          900: '#082f49',
-        },
-        accent: {
-          400: '#06b6d4',
-          500: '#06b6d4',
-          600: '#0891b2',
-        },
-        dark: {
-          bg: '#0f172a',
-          card: '#1e293b',
-          border: '#334155',
-        }
+        // Token names (ochre/gold/sage/ivory) are historical from an earlier
+        // warm palette; values below are the cooler cyan/blue direction.
+        // Kept the names to avoid a 20-file rename — see project notes.
+        ink: '#10141C',
+        charcoal: '#1B2530',
+        ochre: '#2D8FD1',
+        gold: '#7DCFE0',
+        sage: '#5FB0A8',
+        ivory: '#EDF2F5',
       },
-      animation: {
-        'fade-in': 'fadeIn 0.6s ease-out forwards',
-        'slide-up': 'slideUp 0.7s ease-out forwards',
-        'slide-in-left': 'slideInLeft 0.7s ease-out forwards',
-        'slide-in-right': 'slideInRight 0.7s ease-out forwards',
-        'bounce-slow': 'bounce 2s infinite',
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'shimmer': 'shimmer 2s infinite',
-        'glow': 'glow 2s ease-in-out infinite',
-        'float': 'float 6s ease-in-out infinite',
+      fontFamily: {
+        display: ['"Bricolage Grotesque"', 'sans-serif'],
+        body: ['"Work Sans"', 'sans-serif'],
       },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        slideInLeft: {
-          '0%': { opacity: '0', transform: 'translateX(-20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        slideInRight: {
-          '0%': { opacity: '0', transform: 'translateX(20px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-1000px 0' },
-          '100%': { backgroundPosition: '1000px 0' },
-        },
-        glow: {
-          '0%, 100%': { boxShadow: '0 0 5px #06b6d4, 0 0 10px #0284c7' },
-          '50%': { boxShadow: '0 0 20px #06b6d4, 0 0 30px #0284c7' },
-        },
-      },
-      backdropBlur: {
-        xs: '2px',
-      },
-      boxShadow: {
-        'glow-sm': '0 0 10px rgba(6, 182, 212, 0.3)',
-        'glow': '0 0 20px rgba(6, 182, 212, 0.5)',
-        'glow-lg': '0 0 30px rgba(6, 182, 212, 0.7)',
-      },
-      transitionDuration: {
-        '400': '400ms',
-      }
     },
   },
   plugins: [],

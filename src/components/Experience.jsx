@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaBriefcase, FaGraduationCap, FaBuilding, FaCalendarAlt, FaExternalLinkAlt, FaCode, FaChartLine, FaClock, FaMapMarkerAlt, FaBullhorn } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { Button } from './shared';
 
 const Experience = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -22,7 +23,7 @@ const Experience = () => {
       typeLabel: 'Current Role',
       current: true,
       icon: FaBullhorn,
-      color: 'from-cyan-500 to-blue-500'
+      register: 'business',
     },
     {
       title: 'Software Engineer Intern',
@@ -36,11 +37,10 @@ const Experience = () => {
         'Developed backend services and database interactions using PostgreSQL for a school-based billing system',
         'Applied containerization and deployment concepts learned during training to understand application deployment workflows'
       ],
-
       technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
       typeLabel: 'Internship',
       icon: FaBuilding,
-      color: 'from-blue-500 to-cyan-500'
+      register: 'technical',
     },
     {
       title: 'Software Engineer Intern',
@@ -54,11 +54,10 @@ const Experience = () => {
         'Observed and supported ongoing development of risk assessment features',
         'Provided general IT support and maintenance assistance to the development team'
       ],
-
-      technologies: ['React', 'Python','Linux'],
+      technologies: ['React', 'Python', 'Linux'],
       typeLabel: 'Internship',
       icon: FaBriefcase,
-      color: 'from-cyan-500 to-blue-500'
+      register: 'technical',
     },
     {
       title: 'Software Development Training',
@@ -72,18 +71,19 @@ const Experience = () => {
         'Completed 10+ hands-on projects',
         'Received certification of excellence'
       ],
-      technologies: ['JavaScript', 'PHP', 'HTML','CSS', 'Git'],
+      technologies: ['JavaScript', 'PHP', 'HTML', 'CSS', 'Git'],
       typeLabel: 'Training',
       icon: FaGraduationCap,
-      color: 'from-blue-500 to-cyan-500'
+      register: 'technical',
     }
   ];
 
   const TimelineItem = ({ experience, index, isLeft }) => {
     const Icon = experience.icon;
-    
+    const isBusiness = experience.register === 'business';
+
     return (
-      <div 
+      <div
         className={`flex items-center mb-12 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8`}
         style={{
           animationDelay: `${index * 200}ms`,
@@ -91,77 +91,68 @@ const Experience = () => {
           opacity: isVisible ? 1 : 0
         }}
       >
-        {/* Content */}
         <div className={`md:w-1/2 ${isLeft ? 'md:pr-8 md:text-right' : 'md:pl-8'}`}>
-          <div className="group relative bg-gray-800/50 backdrop-blur-lg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-700/30">
-            {/* Gradient overlay on hover */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${experience.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}></div>
-            
-            {/* Header */}
+          <div className="group relative notch-card bg-charcoal p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-ivory/10 hover:border-ochre/30">
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-4">
-                <div className={`w-12 h-12 bg-gradient-to-br ${experience.color} rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-12 h-12 notch-btn flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 ${isBusiness ? 'bg-ochre text-ink' : 'bg-sage text-ink'}`}>
                   <Icon className="text-xl" />
                 </div>
                 <div className={`flex-1 ${isLeft ? 'md:text-right' : ''}`}>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className={`px-3 py-1 bg-gradient-to-r ${experience.color} text-white text-xs font-semibold rounded-full`}>
+                    <span className={`px-3 py-1 text-xs font-semibold ${isBusiness ? 'bg-ochre text-ink' : 'bg-sage text-ink'}`}>
                       {experience.typeLabel}
                     </span>
                     {experience.current && (
-                      <span className="px-3 py-1 bg-cyan-900/50 text-cyan-300 text-xs font-semibold rounded-full border border-cyan-700/30">
+                      <span className="px-3 py-1 bg-gold/15 text-gold text-xs font-semibold border border-gold/30">
                         Current
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-100">{experience.title}</h3>
-                  <p className="text-lg font-semibold text-cyan-400">{experience.company}</p>
+                  <h3 className="font-display text-xl font-bold text-ivory">{experience.title}</h3>
+                  <p className="text-lg font-semibold text-gold font-body">{experience.company}</p>
                 </div>
               </div>
-              
-              {/* Meta info */}
-              <div className={`flex flex-wrap gap-4 mb-4 text-sm text-gray-400 ${isLeft ? 'md:justify-end' : ''}`}>
+
+              <div className={`flex flex-wrap gap-4 mb-4 text-sm text-ivory/60 font-body ${isLeft ? 'md:justify-end' : ''}`}>
                 <div className="flex items-center gap-2">
-                  <FaCalendarAlt className="text-cyan-500" />
+                  <FaCalendarAlt className="text-ochre" />
                   <span>{experience.period}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <FaClock className="text-blue-500" />
+                  <FaClock className="text-ochre" />
                   <span>{experience.duration}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <FaMapMarkerAlt className="text-cyan-500" />
+                  <FaMapMarkerAlt className="text-ochre" />
                   <span>{experience.location}</span>
                 </div>
               </div>
-              
-              {/* Description */}
-              <p className="text-gray-300 leading-relaxed mb-6">
+
+              <p className="text-ivory/70 leading-relaxed mb-6 font-body">
                 {experience.description}
               </p>
-              
-              {/* Achievements */}
+
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-200 mb-3 flex items-center gap-2">
-                  <FaChartLine className="text-cyan-500" />
+                <h4 className="font-semibold text-ivory/90 mb-3 flex items-center gap-2 font-body">
+                  <FaChartLine className="text-ochre" />
                   Key Achievements
                 </h4>
                 <ul className="space-y-2">
-                  {experience.achievements.map((achievement, achIndex) => (
-                    <li key={achIndex} className="flex items-start gap-2">
-                      <span className="w-2 h-2 bg-cyan-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-300 text-sm">{achievement}</span>
+                  {experience.achievements.map((achievement) => (
+                    <li key={achievement} className="flex items-start gap-2">
+                      <span className="w-2 h-2 bg-ochre rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="text-ivory/70 text-sm font-body">{achievement}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              
-              {/* Technologies */}
+
               <div className="flex flex-wrap gap-2">
-                {experience.technologies.map((tech, techIndex) => (
-                  <span 
-                    key={techIndex}
-                    className="px-3 py-1 bg-cyan-900/50 text-cyan-300 text-xs font-medium rounded-full hover:bg-cyan-800/50 transition-colors duration-200 border border-cyan-700/30"
+                {experience.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 bg-ochre/15 text-gold text-xs font-medium border border-ochre/30 font-body"
                   >
                     {tech}
                   </span>
@@ -170,71 +161,57 @@ const Experience = () => {
             </div>
           </div>
         </div>
-        
-        {/* Timeline dot and line */}
+
         <div className="relative flex items-center justify-center">
-          {/* Timeline line */}
-          <div className="absolute w-0.5 h-full bg-gradient-to-b from-cyan-500/20 via-blue-500/20 to-cyan-500/20"></div>
-          
-          {/* Timeline dot */}
-          <div className="relative z-10 w-6 h-6 bg-gray-900 border-4 border-cyan-500 rounded-full shadow-lg hover:scale-125 transition-transform duration-300">
-            <div className="absolute inset-0 bg-cyan-500 rounded-full animate-ping opacity-20"></div>
+          <div className="absolute w-0.5 h-full bg-ochre/20"></div>
+          <div className="relative z-10 w-6 h-6 bg-ink border-4 border-ochre rounded-full shadow-lg hover:scale-125 transition-transform duration-300">
+            <div className="absolute inset-0 bg-ochre rounded-full animate-ping opacity-20"></div>
           </div>
         </div>
-        
-        {/* Empty space for alternating layout */}
+
         <div className="hidden md:block md:w-1/2"></div>
       </div>
     );
   };
 
   return (
-    <section id="experience" ref={ref} className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-cyan-200 rounded-full filter blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-200 rounded-full filter blur-3xl opacity-20"></div>
-      
+    <section id="experience" ref={ref} className="section-padding bg-gradient-to-b from-ink via-charcoal to-ink relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-700/30">
+          <div className="inline-block px-4 py-2 bg-ochre/15 text-gold text-sm font-semibold mb-4 border border-ochre/30">
             <FaBriefcase className="inline mr-2" />
             Professional Journey
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Work Experience</span>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold mb-4 text-ivory">
+            Work Experience
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            My professional journey through hands-on internships and training programs, 
+          <p className="text-ivory/60 text-lg max-w-3xl mx-auto font-body">
+            My professional journey through hands-on internships and training programs,
             building real-world software solutions and gaining valuable industry experience
           </p>
         </div>
-        
-        {/* Timeline */}
+
         <div className="relative max-w-6xl mx-auto">
-          {/* Timeline center line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500/20 via-blue-500/20 to-cyan-500/20 transform -translate-x-1/2"></div>
-          
-          {/* Timeline items */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-ochre/20 transform -translate-x-1/2"></div>
+
           <div className="relative">
             {experiences.map((experience, index) => (
-              <TimelineItem 
-                key={experience.title} 
-                experience={experience} 
-                index={index} 
+              <TimelineItem
+                key={experience.title}
+                experience={experience}
+                index={index}
                 isLeft={index % 2 === 0}
               />
             ))}
           </div>
         </div>
-        
-        {/* Call to action */}
+
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <Button to="/contact" size="none" className="px-6 py-3">
             <FaCode />
-            <span className="font-semibold">Ready for new challenges</span>
+            Ready for New Challenges
             <FaExternalLinkAlt />
-          </div>
+          </Button>
         </div>
       </div>
     </section>

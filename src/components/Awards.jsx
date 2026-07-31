@@ -306,59 +306,55 @@ const Awards = () => {
     const Icon = categoryIcons[certificate.category] || FaCertificate;
 
     return (
-      <div className="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4" onClick={onClose}>
-        <div className="bg-gray-800 border border-gray-700 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+      <div className="fixed inset-0 bg-ink/80 z-50 flex items-center justify-center p-4" onClick={onClose}>
+        <div className="notch-card bg-charcoal border border-ivory/10 max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
           <div className="relative">
-            {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 w-10 h-10 bg-gray-700 hover:bg-gray-600 rounded-full flex items-center justify-center text-gray-300 hover:text-white transition-all duration-300 z-10 shadow-lg"
+              className="absolute top-4 right-4 w-10 h-10 bg-ink/70 hover:bg-ink notch-btn flex items-center justify-center text-ivory/70 hover:text-ivory transition-all duration-300 z-10 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
+              aria-label="Close"
             >
               <FaTimes />
             </button>
 
-            {/* Certificate image */}
             <img
               src={certificate.image}
               alt={certificate.title}
-              className="w-full h-auto rounded-t-2xl"
+              className="w-full h-auto"
             />
 
-            {/* Certificate details */}
             <div className="p-8">
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{certificate.title}</h3>
-                  {certificate.level && <p className="text-cyan-400 text-sm font-medium">{certificate.level} Level</p>}
+                  <h3 className="font-display text-2xl font-bold text-ivory mb-2">{certificate.title}</h3>
+                  {certificate.level && <p className="text-gold text-sm font-medium font-body">{certificate.level} Level</p>}
                 </div>
-                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                <div className="w-16 h-16 bg-ochre notch-btn flex items-center justify-center text-ink shadow-lg flex-shrink-0">
                   <Icon className="text-2xl" />
                 </div>
               </div>
 
-              {/* Issuer info */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-gray-700/50 p-4 rounded-xl">
-                  <h4 className="font-semibold text-gray-100 mb-2">Issuing Organization</h4>
-                  <p className="text-gray-300">{certificate.issuer}</p>
+                <div className="bg-ink/50 p-4">
+                  <h4 className="font-semibold text-ivory/90 mb-2 font-body">Issuing Organization</h4>
+                  <p className="text-ivory/70 font-body">{certificate.issuer}</p>
                 </div>
-                <div className="bg-gray-700/50 p-4 rounded-xl">
-                  <h4 className="font-semibold text-gray-100 mb-2 flex items-center gap-2">
-                    <FaCalendarAlt className="text-cyan-400" />
+                <div className="bg-ink/50 p-4">
+                  <h4 className="font-semibold text-ivory/90 mb-2 flex items-center gap-2 font-body">
+                    <FaCalendarAlt className="text-ochre" />
                     Completed
                   </h4>
-                  <p className="text-gray-300">{certificate.date}</p>
+                  <p className="text-ivory/70 font-body">{certificate.date}</p>
                 </div>
               </div>
 
-              {/* Skills */}
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-200 mb-3">Skills Covered</h4>
+                <h4 className="font-semibold text-ivory/90 mb-3 font-body">Skills Covered</h4>
                 <div className="flex flex-wrap gap-2">
                   {certificate.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-cyan-900/50 text-cyan-300 text-sm font-medium rounded-full border border-cyan-700/30"
+                      className="px-3 py-1 bg-ochre/15 text-gold text-sm font-medium border border-ochre/30 font-body"
                     >
                       {skill}
                     </span>
@@ -366,17 +362,16 @@ const Awards = () => {
                 </div>
               </div>
 
-              {/* Credential proof */}
               {(certificate.verifyUrl || certificate.certificateId) && (
-                <div className="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 p-4 rounded-xl border border-cyan-700/30">
+                <div className="bg-ochre/10 p-4 border border-ochre/30">
                   {certificate.verifyUrl ? (
-                    <div className="flex items-center justify-between">
-                      <h4 className="font-semibold text-gray-200">Verifiable Credential</h4>
+                    <div className="flex items-center justify-between flex-wrap gap-3">
+                      <h4 className="font-semibold text-ivory/90 font-body">Verifiable Credential</h4>
                       <a
                         href={certificate.verifyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-600 text-white font-medium rounded-lg hover:bg-cyan-700 transition-colors duration-300"
+                        className="inline-flex items-center gap-2 px-4 py-2 notch-btn bg-ochre text-ink font-medium hover:bg-[#2578b3] transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal"
                       >
                         <FaExternalLinkAlt />
                         Verify on Coursera
@@ -384,8 +379,8 @@ const Awards = () => {
                     </div>
                   ) : (
                     <div>
-                      <h4 className="font-semibold text-gray-200 mb-1">Certificate ID</h4>
-                      <p className="text-gray-300 font-mono text-sm">{certificate.certificateId}</p>
+                      <h4 className="font-semibold text-ivory/90 mb-1 font-body">Certificate ID</h4>
+                      <p className="text-ivory/70 font-mono text-sm">{certificate.certificateId}</p>
                     </div>
                   )}
                 </div>
@@ -402,23 +397,21 @@ const Awards = () => {
 
     return (
       <div
-        className="group relative bg-gray-800/50 backdrop-blur-lg rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-gray-700/30"
+        className="group relative notch-card bg-charcoal shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden border border-ivory/10 hover:border-ochre/30"
         style={{
           animationDelay: `${index * 80}ms`,
           animation: isVisible ? 'slide-up 0.8s ease-out forwards' : 'none',
           opacity: isVisible ? 1 : 0
         }}
       >
-        {/* Featured badge */}
         {award.featured && (
           <div className="absolute top-4 right-4 z-20">
-            <span className="px-3 py-1 bg-gradient-to-r from-cyan-400 to-blue-500 text-white text-xs font-bold rounded-full shadow-lg">
+            <span className="px-3 py-1 bg-gold text-ink text-xs font-bold shadow-lg">
               ⭐ Featured
             </span>
           </div>
         )}
 
-        {/* Certificate image with overlay */}
         <div className="relative overflow-hidden h-48">
           <img
             src={award.image}
@@ -426,52 +419,50 @@ const Awards = () => {
             loading="lazy"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
           <button
             onClick={() => setSelectedCertificate(award)}
-            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus-visible:opacity-100 focus-visible:outline-none"
           >
-            <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg flex items-center gap-2 text-gray-800 font-medium">
+            <div className="bg-ivory px-4 py-2 flex items-center gap-2 text-ink font-medium">
               <FaExpandAlt />
               View Certificate
             </div>
           </button>
         </div>
 
-        {/* Content */}
         <div className="p-6">
           <div className="flex items-start justify-between mb-4 gap-3">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center text-white shadow-md flex-shrink-0">
+                <div className="w-10 h-10 bg-ochre notch-btn flex items-center justify-center text-ink shadow-md flex-shrink-0">
                   <Icon className="text-sm" />
                 </div>
                 {award.level && (
-                  <span className="px-2 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-xs font-semibold rounded-full">
+                  <span className="px-2 py-1 bg-ochre/15 text-gold text-xs font-semibold border border-ochre/30">
                     {award.level}
                   </span>
                 )}
               </div>
-              <h3 className="text-lg font-bold text-gray-100 mb-1">{award.title}</h3>
-              <p className="text-gray-400 text-sm">{award.issuer}</p>
+              <h3 className="font-display text-lg font-bold text-ivory mb-1">{award.title}</h3>
+              <p className="text-ivory/60 text-sm font-body">{award.issuer}</p>
             </div>
           </div>
 
-          <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-700/50">
-            <span className="text-sm text-gray-400 flex items-center gap-2">
-              <FaCalendarAlt className="text-cyan-500" />
+          <div className="flex items-center justify-between mb-4 pb-4 border-b border-ivory/10">
+            <span className="text-sm text-ivory/60 flex items-center gap-2 font-body">
+              <FaCalendarAlt className="text-ochre" />
               {award.date}
             </span>
           </div>
 
-          {/* Skills preview */}
           <div className="mb-4">
             <div className="flex flex-wrap gap-1">
               {award.skills.slice(0, 3).map((skill) => (
                 <span
                   key={skill}
-                  className="px-2 py-1 bg-cyan-900/50 text-cyan-300 text-xs font-medium rounded-full border border-cyan-700/30"
+                  className="px-2 py-1 bg-ochre/15 text-gold text-xs font-medium border border-ochre/30 font-body"
                 >
                   {skill}
                 </span>
@@ -479,30 +470,29 @@ const Awards = () => {
             </div>
           </div>
 
-          {/* Action buttons */}
           <div className="flex items-center justify-between">
             <button
               onClick={() => setSelectedCertificate(award)}
-              className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium text-sm transition-colors duration-300"
+              className="flex items-center gap-2 text-gold hover:text-ivory font-medium text-sm transition-colors duration-300 font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal rounded-sm"
             >
               <FaExpandAlt />
               View Details
             </button>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               {award.verifyUrl && (
                 <a
                   href={award.verifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300"
+                  className="text-gold hover:text-ivory transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal rounded-sm"
                   title="Verify Credential"
                 >
                   <FaExternalLinkAlt />
                 </a>
               )}
               <button
-                className="text-gray-400 hover:text-gray-200 transition-colors duration-300"
+                className="text-ivory/60 hover:text-ivory transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal rounded-sm"
                 title="Download Certificate"
                 onClick={() => {
                   const extension = award.image.split('.').pop().split('?')[0];
@@ -522,60 +512,39 @@ const Awards = () => {
   };
 
   return (
-    <section id="awards" ref={ref} className="section-padding bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-cyan-600 rounded-full filter blur-3xl opacity-10"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10"></div>
-
+    <section id="awards" ref={ref} className="section-padding bg-gradient-to-b from-ink via-charcoal to-ink relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold mb-4 border border-cyan-700/30">
+          <div className="inline-block px-4 py-2 bg-ochre/15 text-gold text-sm font-semibold mb-4 border border-ochre/30">
             <FaAward className="inline mr-2" />
             Certifications & Achievements
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-white">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">Professional Certifications</span>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold mb-4 text-ivory">
+            Professional Certifications
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-ivory/60 text-lg max-w-3xl mx-auto font-body">
             A growing collection of certifications spanning web development, programming fundamentals,
             data & AI, mobile development, and professional training.
           </p>
         </div>
 
-        {/* Stats overview */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
-          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
-            <div className="w-16 h-16 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-              {awards.length}
+          {[
+            { value: awards.length, label: 'Total Certificates', sub: 'Professional achievements' },
+            { value: issuerCount, label: 'Issuing Organizations', sub: 'Codefinity, Coursera & more' },
+            { value: skillCount, label: 'Skills Covered', sub: 'Technical competencies' },
+            { value: courseraVerifiedCount, label: 'Verified via Coursera', sub: 'Independently checkable' },
+          ].map((stat) => (
+            <div key={stat.label} className="notch-card bg-charcoal p-6 shadow-lg text-center border border-ivory/10">
+              <div className="w-16 h-16 bg-ochre notch-btn flex items-center justify-center text-ink text-2xl font-bold font-display mx-auto mb-4">
+                {stat.value}
+              </div>
+              <h3 className="font-semibold text-ivory/90 font-body">{stat.label}</h3>
+              <p className="text-sm text-ivory/60 mt-2 font-body">{stat.sub}</p>
             </div>
-            <h3 className="font-semibold text-gray-200">Total Certificates</h3>
-            <p className="text-sm text-gray-400 mt-2">Professional achievements</p>
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-              {issuerCount}
-            </div>
-            <h3 className="font-semibold text-gray-200">Issuing Organizations</h3>
-            <p className="text-sm text-gray-400 mt-2">Codefinity, Coursera & more</p>
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
-            <div className="w-16 h-16 bg-gradient-to-r from-cyan-600 to-blue-700 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-              {skillCount}
-            </div>
-            <h3 className="font-semibold text-gray-200">Skills Covered</h3>
-            <p className="text-sm text-gray-400 mt-2">Technical competencies</p>
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-lg p-6 rounded-2xl shadow-lg text-center border border-gray-700/30">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-              {courseraVerifiedCount}
-            </div>
-            <h3 className="font-semibold text-gray-200">Verified via Coursera</h3>
-            <p className="text-sm text-gray-400 mt-2">Independently checkable</p>
-          </div>
+          ))}
         </div>
 
-        {/* Category filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {categories.map((category) => {
             const Icon = category.icon;
@@ -583,10 +552,10 @@ const Awards = () => {
               <button
                 key={category.id}
                 onClick={() => setFilter(category.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+                className={`flex items-center gap-2 px-4 py-2 notch-btn font-medium transition-all duration-300 font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-ink ${
                   filter === category.id
-                    ? 'bg-gradient-to-r from-cyan-600 to-blue-700 text-white shadow-lg transform scale-105'
-                    : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700/30'
+                    ? 'bg-ochre text-ink shadow-lg transform scale-105'
+                    : 'bg-charcoal text-ivory/70 hover:bg-charcoal/70 border border-ivory/10'
                 }`}
               >
                 <Icon className="text-sm" />
@@ -596,7 +565,6 @@ const Awards = () => {
           })}
         </div>
 
-        {/* Certificates grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredAwards.map((award, index) => (
             <CertificateCard key={award.title} award={award} index={index} />
@@ -605,16 +573,15 @@ const Awards = () => {
 
         {filteredAwards.length === 0 && (
           <div className="text-center py-16">
-            <div className="w-24 h-24 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-700/30">
-              <FaTrophy className="text-gray-400 text-3xl" />
+            <div className="w-24 h-24 bg-charcoal notch-btn flex items-center justify-center mx-auto mb-4 border border-ivory/10">
+              <FaTrophy className="text-ivory/40 text-3xl" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-300 mb-2">No certificates found</h3>
-            <p className="text-gray-400">Try selecting a different category</p>
+            <h3 className="font-display text-xl font-semibold text-ivory/80 mb-2">No certificates found</h3>
+            <p className="text-ivory/60 font-body">Try selecting a different category</p>
           </div>
         )}
       </div>
 
-      {/* Certificate Modal */}
       <CertificateModal
         certificate={selectedCertificate}
         onClose={() => setSelectedCertificate(null)}

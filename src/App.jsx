@@ -3,7 +3,13 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import FloatingCTA from './components/FloatingCTA';
 import Hero from './components/Hero';
-import LandingOverview from './components/LandingOverview';
+import TrustBar from './components/TrustBar';
+import WhatIBuild from './components/WhatIBuild';
+import SelectedWork from './components/SelectedWork';
+import HowItWorks from './components/HowItWorks';
+import Stats from './components/Stats';
+import AboutSnippet from './components/AboutSnippet';
+import ContactCTA from './components/ContactCTA';
 import Footer from './components/Footer';
 
 // Lazy-loaded: keeps the homepage bundle light (fast first paint) while
@@ -20,7 +26,7 @@ const NotFound = lazy(() => import('./components/NotFound'));
 // Loading fallback component
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center h-screen">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400"></div>
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-ochre"></div>
   </div>
 );
 
@@ -37,12 +43,12 @@ const ScrollToTop = () => {
 };
 
 const PAGE_TITLES = {
-  '/': 'Manzi Ya Musana Ivan - Full Stack Developer',
+  '/': 'Manzi Ivan - Web & AI Systems for East African Businesses',
   '/skills': 'Skills - Manzi Ya Musana Ivan',
   '/services': 'Services - Manzi Ya Musana Ivan',
-  '/experience': 'Experience - Manzi Ya Musana Ivan',
+  '/experience': 'About & Experience - Manzi Ya Musana Ivan',
   '/education': 'Education - Manzi Ya Musana Ivan',
-  '/projects': 'Projects - Manzi Ya Musana Ivan',
+  '/projects': 'Work - Manzi Ya Musana Ivan',
   '/awards': 'Awards & Certifications - Manzi Ya Musana Ivan',
   '/contact': 'Contact - Manzi Ya Musana Ivan',
 };
@@ -62,14 +68,14 @@ const DocumentTitle = () => {
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-900 text-white">
+      <div className="min-h-screen bg-ink text-ivory">
         <Navbar />
         <ScrollToTop />
         <DocumentTitle />
         <Suspense fallback={<LoadingSpinner />}>
           <main>
             <Routes>
-              <Route path="/" element={<><Hero /><LandingOverview /></>} />
+              <Route path="/" element={<><Hero /><TrustBar /><WhatIBuild /><SelectedWork /><HowItWorks /><Stats /><AboutSnippet /><ContactCTA /></>} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/services" element={<Services />} />
               <Route path="/experience" element={<Experience />} />

@@ -4,10 +4,16 @@ import { Link } from 'react-router-dom';
 
 const MotionLink = motion(Link);
 
+const FOCUS_RING = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-ink';
+
 /**
  * Button component with consistent styling. Renders as a router Link when
  * given a `to` prop, a plain anchor when given `href`, or a native button
  * otherwise.
+ *
+ * Text/fill pairings are fixed per variant to hold WCAG AA contrast:
+ * ochre and sage fills use different text colors (ivory vs ink) because
+ * white text fails against a filled sage or gold-dust surface.
  */
 export const Button = ({
   children,
@@ -19,12 +25,15 @@ export const Button = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = 'font-semibold rounded-full transition-all duration-300 transform flex items-center justify-center gap-2';
+  const baseClasses = `notch-btn font-semibold transition-all duration-300 transform flex items-center justify-center gap-2 ${FOCUS_RING}`;
 
   const variants = {
-    primary: 'bg-gradient-to-r from-cyan-600 to-blue-700 text-white hover:from-cyan-700 hover:to-blue-800 shadow-lg shadow-cyan-500/25',
-    secondary: 'border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white',
-    ghost: 'text-gray-300 hover:text-white hover:bg-gray-700/20',
+    // Solid fills use ink text: azure/teal/ice are all bright enough that
+    // light text fails contrast on them (verified — see project notes).
+    primary: 'bg-ochre text-ink hover:bg-[#2578b3]',
+    sage: 'bg-sage text-ink hover:bg-[#4d948d]',
+    secondary: 'border-2 border-ochre text-ivory hover:bg-ochre hover:text-ink',
+    ghost: 'text-ivory/80 hover:text-ivory hover:bg-charcoal',
   };
 
   const sizes = {
@@ -81,9 +90,9 @@ export const Section = ({
   variant = 'default',
 }) => {
   const bgVariants = {
-    default: 'bg-gray-900',
-    dark: 'bg-gray-950',
-    gradient: 'bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900',
+    default: 'bg-ink',
+    dark: 'bg-charcoal',
+    gradient: 'bg-gradient-to-b from-ink via-charcoal to-ink',
   };
 
   return (
@@ -96,11 +105,11 @@ export const Section = ({
             viewport={{ once: true }}
             className="mb-12 lg:mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl lg:text-5xl font-bold text-ivory mb-4">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-xl text-gray-400 max-w-2xl">{subtitle}</p>
+              <p className="text-xl text-ivory/60 max-w-2xl font-body">{subtitle}</p>
             )}
           </motion.div>
         )}
@@ -111,7 +120,7 @@ export const Section = ({
 };
 
 /**
- * Card component with hover effects
+ * Card component with hover effects and the signature notched corner
  */
 export const Card = ({
   children,
@@ -120,33 +129,31 @@ export const Card = ({
   animated = true,
   ...props
 }) => {
+  const cardClasses = `notch-card bg-charcoal border border-ivory/10 p-6 transition-all duration-300 ${
+    hover ? 'hover:border-ochre/40 hover:shadow-xl hover:shadow-ochre/10' : ''
+  } ${className}`;
+
   return animated ? (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={hover ? { y: -10 } : {}}
-      className={`bg-gray-800/50 backdrop-blur-lg border border-gray-700/30 rounded-2xl p-6 transition-all duration-300 ${
-        hover ? 'hover:shadow-2xl hover:shadow-cyan-500/20' : ''
-      } ${className}`}
+      whileHover={hover ? { y: -8 } : {}}
+      className={cardClasses}
       {...props}
     >
       {children}
     </motion.div>
   ) : (
-    <div
-      className={`bg-gray-800/50 backdrop-blur-lg border border-gray-700/30 rounded-2xl p-6 transition-all duration-300 ${
-        hover ? 'hover:shadow-2xl hover:shadow-cyan-500/20' : ''
-      } ${className}`}
-      {...props}
-    >
+    <div className={cardClasses} {...props}>
       {children}
     </div>
   );
 };
 
 /**
- * Badge component
+ * Badge component. Small text uses gold-dust rather than ochre — ochre
+ * only holds AA contrast at large/bold sizes.
  */
 export const Badge = ({
   children,
@@ -154,15 +161,13 @@ export const Badge = ({
   className = '',
 }) => {
   const variants = {
-    primary: 'bg-cyan-900/50 text-cyan-300 border border-cyan-700/30',
-    success: 'bg-blue-900/50 text-blue-300 border border-blue-700/30',
-    warning: 'bg-cyan-800/50 text-cyan-300 border border-cyan-700/30',
-    danger: 'bg-blue-900/50 text-blue-300 border border-blue-700/30',
+    primary: 'bg-ochre/15 text-gold border border-ochre/30',
+    sage: 'bg-sage/15 text-gold border border-sage/30',
   };
 
   return (
     <span
-      className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${variants[variant]} ${className}`}
+      className={`inline-block px-4 py-2 text-sm font-semibold ${variants[variant]} ${className}`}
     >
       {children}
     </span>
@@ -179,6 +184,7 @@ export const Container = ({ children, className = '' }) => {
 };
 
 export { default as CircuitBackground } from './CircuitBackground';
+export { default as LedgerLine } from './LedgerLine';
 
 export default {
   Button,

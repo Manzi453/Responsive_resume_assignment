@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { NAV_LINKS } from '../constants';
 
+const FOCUS_RING = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-ink rounded-sm';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -31,44 +33,32 @@ const Navbar = () => {
   };
 
   const linkClasses = ({ isActive }) =>
-    `text-gray-300 font-medium hover:text-cyan-400 transition-all duration-300 relative group px-4 py-2 ${
-      isActive ? 'text-cyan-400' : ''
+    `font-body font-medium transition-all duration-300 px-4 py-2 ${FOCUS_RING} ${
+      isActive ? 'text-ochre' : 'text-ivory/80 hover:text-ivory'
     }`;
 
   const mobileLinkClasses = ({ isActive }) =>
-    `text-gray-300 font-medium hover:text-cyan-400 transition-all duration-300 block py-3 px-4 rounded-lg hover:bg-gray-800/50 ${
-      isActive ? 'text-cyan-400 bg-gray-800/50' : ''
+    `font-body font-medium transition-all duration-300 block py-3 px-4 ${FOCUS_RING} ${
+      isActive ? 'text-ochre bg-charcoal' : 'text-ivory/80 hover:text-ivory hover:bg-charcoal'
     }`;
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-800/50 shadow-2xl shadow-black/50'
-        : 'bg-gray-900/50 backdrop-blur-sm'
+        ? 'bg-ink/95 backdrop-blur-md border-b border-ivory/10 shadow-2xl shadow-black/50'
+        : 'bg-ink/50 backdrop-blur-sm'
     }`}>
-      {/* Identity strip */}
-      <div className="hidden lg:flex justify-between items-center container mx-auto px-4 py-1.5 text-[11px] tracking-widest uppercase text-gray-400 border-b border-gray-800/50">
-        <span>Full-Stack Developer &amp; Technology Associate</span>
-        <span>Based in Kigali, Rwanda</span>
-      </div>
-
       <motion.nav
         className="container mx-auto px-4 py-4 flex justify-between items-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
         {/* Logo */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="relative group"
-        >
-          <NavLink to="/">
-            <h2 className="text-white text-xl lg:text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
-              Manzi Ivan
-            </h2>
-          </NavLink>
-          <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-        </motion.div>
+        <NavLink to="/" className={`relative group ${FOCUS_RING}`}>
+          <h2 className="font-display text-xl lg:text-2xl font-bold text-ochre">
+            Manzi Ivan
+          </h2>
+        </NavLink>
 
         {/* Desktop Navigation */}
         <motion.ul
@@ -81,17 +71,17 @@ const Navbar = () => {
             <motion.li key={link.href} variants={itemVariants}>
               <NavLink to={link.href} end={link.href === '/'} className={linkClasses}>
                 {link.text}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
               </NavLink>
             </motion.li>
           ))}
         </motion.ul>
 
         {/* Mobile Menu Button */}
-        <motion.button
-          whileTap={{ scale: 0.95 }}
-          className="md:hidden text-white text-2xl hover:text-cyan-400 transition-colors duration-300 relative z-20"
+        <button
+          className={`md:hidden text-ivory text-2xl hover:text-ochre transition-colors duration-300 relative z-20 p-1 ${FOCUS_RING}`}
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
         >
           <AnimatePresence mode="wait">
             {isOpen ? (
@@ -114,7 +104,7 @@ const Navbar = () => {
               </motion.div>
             )}
           </AnimatePresence>
-        </motion.button>
+        </button>
       </motion.nav>
 
       {/* Mobile Menu */}
@@ -125,7 +115,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-gray-900/95 backdrop-blur-md border-b border-gray-800/50"
+            className="md:hidden bg-ink/95 backdrop-blur-md border-b border-ivory/10"
           >
             <motion.ul
               className="px-4 py-6 space-y-3"

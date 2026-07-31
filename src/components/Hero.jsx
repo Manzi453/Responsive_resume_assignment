@@ -1,216 +1,123 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FaEnvelope } from 'react-icons/fa';
+import { motion, useReducedMotion } from 'framer-motion';
+import { FaEnvelope, FaArrowRight } from 'react-icons/fa';
 import { SOCIAL_LINKS } from '../constants';
-import { CircuitBackground, Button } from './shared';
+import { CircuitBackground, Button, LedgerLine } from './shared';
 import profileImage from '../Profile/Profile.jpeg';
 
 const Hero = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: shouldReduceMotion ? 0 : 0.2,
+        delayChildren: shouldReduceMotion ? 0 : 0.3,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: shouldReduceMotion ? 0 : 0.8 } },
   };
 
   return (
-    <section id="about" className="min-h-screen pt-32 pb-20 relative overflow-hidden bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900">
-      {/* Animated background elements */}
+    <section id="about" className="min-h-screen pt-32 pb-16 relative overflow-hidden bg-gradient-to-b from-ink via-charcoal to-ink">
       <div className="absolute inset-0 overflow-hidden">
         <CircuitBackground />
-        <motion.div
-          className="absolute top-20 right-10 w-72 h-72 bg-cyan-500 rounded-full filter blur-3xl opacity-10"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.15, 0.1]
-          }}
-          transition={{ duration: 5, repeat: Infinity }}
-        ></motion.div>
-        <motion.div
-          className="absolute bottom-20 left-10 w-96 h-96 bg-blue-600 rounded-full filter blur-3xl opacity-10"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.1, 0.12, 0.1]
-          }}
-          transition={{ duration: 7, repeat: Infinity }}
-        ></motion.div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20"
+          className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Profile Picture */}
-          <motion.div variants={itemVariants} className="flex-shrink-0 relative group">
-            {/* Animated gradient border */}
-            <motion.div
-              className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-blue-600 rounded-full blur-lg opacity-75 group-hover:opacity-100"
-              animate={{
-                boxShadow: [
-                  '0 0 20px rgba(6, 182, 212, 0.3)',
-                  '0 0 40px rgba(2, 132, 199, 0.5)',
-                  '0 0 20px rgba(6, 182, 212, 0.3)',
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            ></motion.div>
-            <motion.div
-              className="relative"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            >
-              <div
-                className="w-80 h-96 lg:w-96 lg:h-[28rem] rounded-3xl shadow-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 flex items-center justify-center overflow-hidden backdrop-blur-md relative group"
-              >
-                {/* Animated gradient border */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500 via-blue-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
-                <div className="absolute inset-[2px] rounded-3xl bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm"></div>
-                
-                {/* Profile image with enhanced effects */}
-                <img
-                  src={profileImage}
-                  alt="Manzi Ya Musana Ivan" 
-                  className="w-full h-full object-cover opacity-100 relative z-10 transition-transform duration-500 group-hover:scale-105"
-                />
-                
-                {/* Lighter overlay effects for clarity */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 via-transparent to-transparent pointer-events-none"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-blue-500/5 pointer-events-none"></div>
-                
-                {/* Subtle animated particles */}
-                <div className="absolute top-4 left-4 w-2 h-2 bg-cyan-400 rounded-full opacity-60 animate-pulse"></div>
-                <div className="absolute bottom-6 right-6 w-3 h-3 bg-blue-400 rounded-full opacity-40 animate-pulse delay-75"></div>
-                <div className="absolute top-1/2 right-4 w-2 h-2 bg-cyan-400 rounded-full opacity-50 animate-pulse delay-150"></div>
-              </div>
-              {/* Status indicator */}
-              <motion.div
-                className="absolute bottom-8 right-8 w-8 h-8 bg-cyan-500 rounded-full border-4 border-gray-800 shadow-lg"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              ></motion.div>
-            </motion.div>
-          </motion.div>
-          
-          {/* Content */}
+          {/* Content leads — message before face */}
           <motion.aside className="max-w-2xl text-center lg:text-left">
-            {/* Greeting Badge */}
             <motion.div variants={itemVariants} className="mb-6">
-              <motion.span
-                className="inline-block px-4 py-2 bg-cyan-900/50 text-cyan-300 rounded-full text-sm font-semibold border border-cyan-700/30"
-                whileHover={{ scale: 1.05 }}
-              >
-                👋 Hello, I&apos;m
-              </motion.span>
+              <span className="font-body text-sm font-bold uppercase tracking-widest text-ochre">
+                Manzi Ya Musana Ivan &middot; Kigali, Rwanda
+              </span>
             </motion.div>
-            
-            {/* Name */}
-            <motion.h1 variants={itemVariants} className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              <motion.span 
-                className="block text-white"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-              >
-                Manzi Ya Musana
-              </motion.span>
-              <motion.span 
-                className="block text-4xl lg:text-6xl bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-              >
-                Ivan
-              </motion.span>
-            </motion.h1>
-            
-            {/* Title */}
-            <motion.div variants={itemVariants} className="mb-6">
-              <h2 className="text-2xl lg:text-3xl font-semibold text-gray-200 mb-3">Full Stack Developer</h2>
-              <motion.div
-                className="flex items-center justify-center lg:justify-start gap-2"
-                animate={{ opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <span className="inline-block w-3 h-3 bg-cyan-500 rounded-full"></span>
-                <span className="text-gray-400">Available for opportunities</span>
-              </motion.div>
-            </motion.div>
-            
-            {/* Description */}
-            <motion.p 
+
+            <motion.h1
               variants={itemVariants}
-              className="text-lg lg:text-xl text-gray-300 leading-relaxed mb-8"
+              className="font-display text-5xl lg:text-6xl font-bold mb-6 leading-tight text-ivory"
             >
-              Full-stack developer passionate about creating innovative digital solutions that transform ideas into reality. 
-              I specialize in building scalable web applications with modern technologies, focusing on clean code, 
-              exceptional user experiences, and solving complex business challenges through elegant technical solutions.
+              Websites and AI tools built for businesses that can&apos;t afford to look unfinished.
+            </motion.h1>
+
+            <div className="mb-6 max-w-xs mx-auto lg:mx-0">
+              <LedgerLine />
+            </div>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-lg text-ivory/70 leading-relaxed mb-4 font-body"
+            >
+              I design and build production websites, backend systems, and AI
+              automation for advisory firms, startups, and growing teams across
+              East Africa.
             </motion.p>
-            
-            {/* CTA Buttons */}
-            <motion.div 
+
+            <motion.div variants={itemVariants} className="mb-8">
+              <span className="inline-flex items-center gap-2 text-sm text-ivory/60 font-body">
+                <span className="inline-block w-2.5 h-2.5 bg-sage rounded-full"></span>
+                Available for freelance and contract work
+              </span>
+            </motion.div>
+
+            <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
             >
               <Button to="/contact">
                 <FaEnvelope />
-                Get In Touch
+                Start a Project
               </Button>
               <Button to="/projects" variant="secondary">
-                View Projects
+                See the Work
+                <FaArrowRight className="text-sm" />
               </Button>
             </motion.div>
-            
-            {/* Social Links */}
-            <motion.div 
+
+            <motion.div
               variants={itemVariants}
               className="flex items-center justify-center lg:justify-start gap-4"
             >
-              {SOCIAL_LINKS.map(({ icon: Icon, url, name, color }, index) => (
-                <motion.a
+              {SOCIAL_LINKS.map(({ icon: Icon, url, name, color }) => (
+                <a
                   key={name}
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-12 h-12 bg-gray-800 text-gray-300 rounded-full flex items-center justify-center transition-all duration-300 border border-gray-700 hover:border-gray-500 ${color}`}
-                  whileHover={{ scale: 1.1, rotate: 12 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + index * 0.1 }}
+                  className={`w-11 h-11 bg-charcoal text-ivory/70 flex items-center justify-center transition-all duration-300 border border-ivory/10 hover:border-ochre/40 notch-btn focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ochre focus-visible:ring-offset-2 focus-visible:ring-offset-ink ${color}`}
                   title={name}
                 >
-                  <Icon className="text-xl" />
-                </motion.a>
+                  <Icon className="text-lg" />
+                </a>
               ))}
             </motion.div>
           </motion.aside>
+
+          {/* Photo — supporting proof, not the lead */}
+          <motion.div variants={itemVariants} className="flex-shrink-0 relative">
+            <div className="w-64 h-80 lg:w-72 lg:h-96 notch-card bg-charcoal border border-ochre/30 overflow-hidden relative">
+              <img
+                src={profileImage}
+                alt="Manzi Ya Musana Ivan"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="text-gray-400 text-center">
-          <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
-      </motion.div>
     </section>
   );
 };
