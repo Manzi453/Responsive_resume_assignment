@@ -81,7 +81,7 @@ const Hero = () => {
                 Start a Project
               </Button>
               <Button to="/projects" variant="secondary">
-                See the Work
+                See the Projects
                 <FaArrowRight className="text-sm" />
               </Button>
             </motion.div>

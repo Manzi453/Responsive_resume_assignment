@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 export const NAV_LINKS = [
   { href: '/', text: 'Home' },
   { href: '/services', text: 'Services' },
-  { href: '/projects', text: 'Work' },
+  { href: '/projects', text: 'Projects' },
   { href: '/experience', text: 'About' },
   { href: '/contact', text: 'Contact' },
 ];
@@ -16,8 +16,8 @@ export const NAV_LINKS = [
 export const FOOTER_LINKS = [
   { href: '/', text: 'Home' },
   { href: '/services', text: 'Services' },
-  { href: '/projects', text: 'Work' },
-  { href: '/experience', text: 'Experience' },
+  { href: '/projects', text: 'Projects' },
+  { href: '/experience', text: 'About' },
   { href: '/education', text: 'Education' },
   { href: '/skills', text: 'Skills' },
   { href: '/awards', text: 'Awards' },

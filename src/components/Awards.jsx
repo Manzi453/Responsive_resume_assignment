@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaAward, FaTrophy, FaExternalLinkAlt, FaCalendarAlt, FaExpandAlt, FaTimes, FaDownload, FaCode, FaLaptopCode, FaChartLine, FaMobileAlt, FaShieldAlt, FaBriefcase, FaCertificate } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useCountUp } from '../hooks/useCountUp';
 
 import backendNodeExpress from '../Manzi_Certificates_Portfolio_Ready/Certificate_Backend_Development_NodeJS_ExpressJS.jpg';
 import cssFundamentals from '../Manzi_Certificates_Portfolio_Ready/Certificate_CSS_Fundamentals.jpg';
@@ -530,18 +531,12 @@ const Awards = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto">
           {[
-            { value: awards.length, label: 'Total Certificates', sub: 'Professional achievements' },
-            { value: issuerCount, label: 'Issuing Organizations', sub: 'Codefinity, Coursera & more' },
-            { value: skillCount, label: 'Skills Covered', sub: 'Technical competencies' },
-            { value: courseraVerifiedCount, label: 'Verified via Coursera', sub: 'Independently checkable' },
+            { target: awards.length, label: 'Total Certificates', sub: 'Professional achievements' },
+            { target: issuerCount, label: 'Issuing Organizations', sub: 'Codefinity, Coursera & more' },
+            { target: skillCount, label: 'Skills Covered', sub: 'Technical competencies' },
+            { target: courseraVerifiedCount, label: 'Verified via Coursera', sub: 'Independently checkable' },
           ].map((stat) => (
-            <div key={stat.label} className="notch-card bg-charcoal p-6 shadow-lg text-center border border-ivory/10">
-              <div className="w-16 h-16 bg-ochre notch-btn flex items-center justify-center text-ink text-2xl font-bold font-display mx-auto mb-4">
-                {stat.value}
-              </div>
-              <h3 className="font-semibold text-ivory/90 font-body">{stat.label}</h3>
-              <p className="text-sm text-ivory/60 mt-2 font-body">{stat.sub}</p>
-            </div>
+            <AwardStatTile key={stat.label} {...stat} isVisible={isVisible} />
           ))}
         </div>
 

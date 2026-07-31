@@ -8,6 +8,7 @@ import WhatIBuild from './components/WhatIBuild';
 import SelectedWork from './components/SelectedWork';
 import HowItWorks from './components/HowItWorks';
 import Stats from './components/Stats';
+import Testimonials from './components/Testimonials';
 import AboutSnippet from './components/AboutSnippet';
 import ContactCTA from './components/ContactCTA';
 import Footer from './components/Footer';
@@ -48,7 +49,7 @@ const PAGE_TITLES = {
   '/services': 'Services - Manzi Ya Musana Ivan',
   '/experience': 'About & Experience - Manzi Ya Musana Ivan',
   '/education': 'Education - Manzi Ya Musana Ivan',
-  '/projects': 'Work - Manzi Ya Musana Ivan',
+  '/projects': 'Projects - Manzi Ya Musana Ivan',
   '/awards': 'Awards & Certifications - Manzi Ya Musana Ivan',
   '/contact': 'Contact - Manzi Ya Musana Ivan',
 };
@@ -75,7 +76,7 @@ function App() {
         <Suspense fallback={<LoadingSpinner />}>
           <main>
             <Routes>
-              <Route path="/" element={<><Hero /><TrustBar /><WhatIBuild /><SelectedWork /><HowItWorks /><Stats /><AboutSnippet /><ContactCTA /></>} />
+              <Route path="/" element={<><Hero /><TrustBar /><WhatIBuild /><SelectedWork /><HowItWorks /><Stats /><Testimonials /><AboutSnippet /><ContactCTA /></>} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/services" element={<Services />} />
               <Route path="/experience" element={<Experience />} />

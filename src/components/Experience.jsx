@@ -1,7 +1,14 @@
 import React from 'react';
-import { FaBriefcase, FaGraduationCap, FaBuilding, FaCalendarAlt, FaExternalLinkAlt, FaCode, FaChartLine, FaClock, FaMapMarkerAlt, FaBullhorn } from 'react-icons/fa';
+import { FaBriefcase, FaGraduationCap, FaBuilding, FaCalendarAlt, FaExternalLinkAlt, FaCode, FaChartLine, FaClock, FaMapMarkerAlt, FaBullhorn, FaCertificate, FaArrowRight, FaDatabase, FaGitAlt, FaDocker } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Button } from './shared';
+import { Button, Card } from './shared';
+
+const CORE_SKILLS = [
+  { name: 'Frontend Development', icon: FaCode, technologies: 'React, TypeScript, Tailwind CSS' },
+  { name: 'Backend Development', icon: FaDatabase, technologies: 'Spring Boot, Java, Python, PostgreSQL' },
+  { name: 'DevOps & Cloud', icon: FaDocker, technologies: 'Docker, CI/CD, Kubernetes' },
+  { name: 'Version Control', icon: FaGitAlt, technologies: 'Git, GitHub, Gitflow' },
+];
 
 const Experience = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -204,6 +211,68 @@ const Experience = () => {
               />
             ))}
           </div>
+        </div>
+
+        {/* Core Skills (brief — full breakdown on /skills) */}
+        <div className="max-w-6xl mx-auto mt-24">
+          <h3 className="font-display text-2xl lg:text-3xl font-bold text-ivory mb-8 flex items-center gap-3">
+            <FaCode className="text-ochre" />
+            Core Skills
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            {CORE_SKILLS.map(({ name, icon: Icon, technologies }) => (
+              <Card key={name} hover={false}>
+                <div className="w-12 h-12 notch-btn bg-sage text-ink flex items-center justify-center mb-3">
+                  <Icon className="text-xl" />
+                </div>
+                <h4 className="font-display font-bold text-ivory mb-1">{name}</h4>
+                <p className="text-sm text-ivory/60 font-body">{technologies}</p>
+              </Card>
+            ))}
+          </div>
+          <Button to="/skills" variant="ghost" size="none" className="py-2 px-0 text-sm">
+            Full Skills Breakdown &amp; Languages <FaArrowRight className="text-xs" />
+          </Button>
+        </div>
+
+        {/* Education (brief — full detail on /education) */}
+        <div className="max-w-6xl mx-auto mt-16">
+          <h3 className="font-display text-2xl lg:text-3xl font-bold text-ivory mb-8 flex items-center gap-3">
+            <FaGraduationCap className="text-ochre" />
+            Education
+          </h3>
+          <Card hover={false} className="md:flex md:items-center md:gap-6">
+            <div className="w-14 h-14 notch-btn bg-ochre text-ink flex items-center justify-center mb-4 md:mb-0 shrink-0">
+              <FaGraduationCap className="text-2xl" />
+            </div>
+            <div className="flex-1">
+              <h4 className="font-display font-bold text-ivory text-lg">Bachelor&apos;s in Software Engineering</h4>
+              <p className="text-gold font-body mb-1">African Leadership University &middot; Kigali, Rwanda</p>
+              <p className="text-sm text-ivory/60 font-body">2024 &ndash; 2027 (Expected) &middot; GPA 4.0/5.0 &middot; Currently studying</p>
+            </div>
+          </Card>
+          <Button to="/education" variant="ghost" size="none" className="py-2 px-0 text-sm mt-4">
+            Full Education Details <FaArrowRight className="text-xs" />
+          </Button>
+        </div>
+
+        {/* Awards (brief — full gallery on /awards) */}
+        <div className="max-w-6xl mx-auto mt-16 mb-8">
+          <h3 className="font-display text-2xl lg:text-3xl font-bold text-ivory mb-8 flex items-center gap-3">
+            <FaCertificate className="text-ochre" />
+            Certifications
+          </h3>
+          <Card hover={false} className="flex items-center gap-6">
+            <div className="w-14 h-14 notch-btn bg-sage text-ink flex items-center justify-center text-2xl font-bold font-display shrink-0">
+              24
+            </div>
+            <p className="text-ivory/70 font-body">
+              24 certifications spanning web development, programming, data &amp; AI, mobile, and security &mdash; from Codefinity, Coursera (DeepLearning.AI, Google, IBM), and professional training programs.
+            </p>
+          </Card>
+          <Button to="/awards" variant="ghost" size="none" className="py-2 px-0 text-sm mt-4">
+            View All Certifications <FaArrowRight className="text-xs" />
+          </Button>
         </div>
 
         <div className="text-center mt-16">

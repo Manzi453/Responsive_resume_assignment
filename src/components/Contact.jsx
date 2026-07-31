@@ -181,76 +181,6 @@ const Contact = () => {
 
   return (
     <>
-      <section id="contact" className="section-padding bg-charcoal relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-ochre/15 text-gold text-sm font-semibold mb-4 border border-ochre/30">
-              <FaPhone className="inline mr-2" />
-              Contact Information
-            </div>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold mb-4 text-ivory">
-              Reach Out Anytime
-            </h2>
-            <p className="text-ivory/70 text-lg max-w-3xl mx-auto font-body">
-              Multiple ways to connect - choose what works best for you.
-              I&apos;m always open to discussing new projects, creative ideas, or opportunities.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {contactInfo.map((info, index) => (
-              <a
-                key={info.label}
-                href={info.href}
-                className={`group notch-card bg-ink/40 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center border border-ivory/10 hover:border-ochre/30 ${FOCUS_RING}`}
-                style={{
-                  animationDelay: `${index * 150}ms`,
-                  animation: 'slide-up 0.8s ease-out forwards'
-                }}
-              >
-                <div className="w-16 h-16 bg-ochre notch-btn flex items-center justify-center text-ink text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <info.icon />
-                </div>
-                <h3 className="font-display font-bold text-ivory text-lg mb-2">{info.label}</h3>
-                <p className="text-ivory/80 font-medium mb-2 font-body">{info.text}</p>
-                <p className="text-sm text-ivory/60 font-body">{info.description}</p>
-              </a>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <h3 className="font-display text-2xl font-bold text-ivory mb-4">Connect With Me</h3>
-            <p className="text-ivory/70 mb-8 max-w-2xl mx-auto font-body">
-              Follow me on social media for updates, insights, and professional networking
-            </p>
-            <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto justify-center">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group relative ${FOCUS_RING}`}
-                  style={{
-                    animationDelay: `${index * 100 + 600}ms`,
-                    animation: 'slide-up 0.8s ease-out forwards'
-                  }}
-                >
-                  <div className="relative overflow-hidden notch-card bg-ink/40 p-6 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border border-ivory/10 hover:border-ochre/30">
-                    <div className="w-12 h-12 bg-sage notch-btn flex items-center justify-center text-ink mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                      <social.icon className="text-xl" />
-                    </div>
-                    <p className="text-sm font-medium text-ivory/70 group-hover:text-ivory transition-colors duration-300 font-body">
-                      {social.label}
-                    </p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="contact-form" ref={ref} className="section-padding bg-ink relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 max-w-3xl">
           <div className="text-center mb-12">
@@ -323,6 +253,76 @@ const Contact = () => {
               {isSubmitting ? 'Sending...' : 'Send Request'}
             </Button>
           </form>
+        </div>
+      </section>
+
+      <section id="contact" className="section-padding bg-charcoal relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-2 bg-ochre/15 text-gold text-sm font-semibold mb-4 border border-ochre/30">
+              <FaPhone className="inline mr-2" />
+              Contact Information
+            </div>
+            <h2 className="font-display text-4xl lg:text-5xl font-bold mb-4 text-ivory">
+              Reach Out Anytime
+            </h2>
+            <p className="text-ivory/70 text-lg max-w-3xl mx-auto font-body">
+              Multiple ways to connect - choose what works best for you.
+              I&apos;m always open to discussing new projects, creative ideas, or opportunities.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {contactInfo.map((info, index) => (
+              <a
+                key={info.label}
+                href={info.href}
+                className={`group notch-card bg-ink/40 p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center border border-ivory/10 hover:border-ochre/30 ${FOCUS_RING}`}
+                style={{
+                  animationDelay: `${index * 150}ms`,
+                  animation: 'slide-up 0.8s ease-out forwards'
+                }}
+              >
+                <div className="w-16 h-16 bg-ochre notch-btn flex items-center justify-center text-ink text-2xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <info.icon />
+                </div>
+                <h3 className="font-display font-bold text-ivory text-lg mb-2">{info.label}</h3>
+                <p className="text-ivory/80 font-medium mb-2 font-body">{info.text}</p>
+                <p className="text-sm text-ivory/60 font-body">{info.description}</p>
+              </a>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <h3 className="font-display text-2xl font-bold text-ivory mb-4">Connect With Me</h3>
+            <p className="text-ivory/70 mb-8 max-w-2xl mx-auto font-body">
+              Follow me on social media for updates, insights, and professional networking
+            </p>
+            <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto justify-center">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group relative ${FOCUS_RING}`}
+                  style={{
+                    animationDelay: `${index * 100 + 600}ms`,
+                    animation: 'slide-up 0.8s ease-out forwards'
+                  }}
+                >
+                  <div className="relative overflow-hidden notch-card bg-ink/40 p-6 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border border-ivory/10 hover:border-ochre/30">
+                    <div className="w-12 h-12 bg-sage notch-btn flex items-center justify-center text-ink mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                      <social.icon className="text-xl" />
+                    </div>
+                    <p className="text-sm font-medium text-ivory/70 group-hover:text-ivory transition-colors duration-300 font-body">
+                      {social.label}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </>

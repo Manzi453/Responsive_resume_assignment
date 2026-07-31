@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaMobile, FaGraduationCap, FaLock, FaLeaf, FaTerminal, FaServer, FaGlobe, FaReact, FaLandmark, FaCoins, FaGlassCheers, FaRobot, FaSchool, FaMapMarkedAlt, FaPiggyBank, FaTasks, FaChartLine } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaDatabase, FaMobile, FaGraduationCap, FaLock, FaLeaf, FaTerminal, FaServer, FaGlobe, FaReact, FaLandmark, FaCoins, FaGlassCheers, FaRobot, FaSchool, FaMapMarkedAlt, FaPiggyBank, FaTasks, FaChartLine, FaSitemap } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Button } from './shared';
 
@@ -9,17 +9,17 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Responsive Resume Portfolio',
-      description: 'Dynamic, fully responsive portfolio website showcasing professional achievements with modern design, smooth animations, and optimal user experience across all devices.',
-      longDescription: 'Sophisticated web application featuring responsive design principles, interactive components, and seamless performance. Built with cutting-edge frontend technologies to create an impressive digital presence.',
-      link: 'https://responsive-resume-assign-git-54c6f9-manziivan453-9405s-projects.vercel.app/',
+      title: 'AAA Group',
+      description: 'Company portal for RG Partners\' AAA Group, the central hub tying together AAA Corporate Trustees and AAA Financiers under one consistent brand.',
+      longDescription: 'Group-level portal built with React, Next.js, and TypeScript, presenting RG Partners\' affiliated advisory companies and maintaining consistent branding across the group\'s digital presence.',
+      link: 'https://www.aafricaa.com',
       linkText: 'Live Demo',
-      icon: FaGlobe,
+      icon: FaSitemap,
       category: 'web',
       featured: true,
       status: 'live',
-      technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Framer Motion', 'React Router'],
-      highlights: ['Fully responsive layout', 'Smooth animations', 'Modern UI/UX', 'Cross-device compatibility']
+      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+      highlights: ['Central hub for the RG Partners group', 'Links AAA Corporate Trustees & AAA Financiers', 'Consistent branding across group sites']
     },
     {
       title: 'AAA Corporate Trustees',

@@ -44,7 +44,7 @@ const SelectedWork = () => (
     id="selected-work"
     variant="dark"
     title="Selected Work"
-    subtitle="A few projects worth a closer look. The full portfolio, including client and personal builds, is on the Work page."
+    subtitle="A few projects worth a closer look. The full portfolio, including client and personal builds, is on the Projects page."
   >
     <div className="space-y-6">
       {CASE_STUDIES.map(({ icon: Icon, title, problem, build, tech, link, linkText, register }) => {
