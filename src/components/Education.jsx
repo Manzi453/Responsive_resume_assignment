@@ -2,6 +2,7 @@ import React from 'react';
 import { FaGraduationCap, FaCalendarAlt, FaMapMarkerAlt, FaAward, FaStar, FaCheckCircle } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useCountUp } from '../hooks/useCountUp';
+import { CircuitBackground } from './shared';
 
 const EduStatTile = ({ target, suffix, decimals, color, label, sub, isVisible }) => {
   const count = useCountUp(target, isVisible, { decimals });
