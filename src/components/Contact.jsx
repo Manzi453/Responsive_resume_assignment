@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane, FaUser, FaCommentDots, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { Button } from './shared';
 
 const Contact = () => {
   const location = useLocation();
@@ -344,14 +345,10 @@ const Contact = () => {
               </div>
             )}
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 bg-gradient-to-r from-cyan-600 to-blue-700 text-white hover:from-cyan-700 hover:to-blue-800 shadow-lg shadow-cyan-500/25 disabled:opacity-60 disabled:cursor-not-allowed"
-            >
+            <Button type="submit" disabled={isSubmitting} className="w-full">
               <FaPaperPlane />
               {isSubmitting ? 'Sending...' : 'Send Request'}
-            </button>
+            </Button>
           </form>
         </div>
       </section>

@@ -274,6 +274,7 @@ const Projects = () => {
         {/* Project header */}
         <div className={`bg-gradient-to-r ${project.color} p-6 relative overflow-hidden`}>
           <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16"></div>
+          <div className="absolute inset-0 bg-black/35"></div>
           <div className="relative z-10">
             <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 mb-4">
               <Icon className="text-2xl" />
@@ -348,13 +349,13 @@ const Projects = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${project.color} text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
+                className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${project.color} brightness-50 text-white font-semibold rounded-lg hover:shadow-lg hover:brightness-[0.6] transition-all duration-300 transform hover:scale-105`}
               >
                 {project.link.includes('github') ? <FaGithub /> : <FaExternalLinkAlt />}
                 {project.linkText}
               </a>
             ) : (
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-500 font-medium rounded-lg">
+              <span className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-gray-400 font-medium rounded-lg border border-gray-700/50">
                 <FaLock />
                 {project.linkText}
               </span>
@@ -419,10 +420,10 @@ const Projects = () => {
         {filteredProjects.length === 0 && (
           <div className="text-center py-16">
             <div className="w-24 h-24 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-700/30">
-              <FaCode className="text-gray-500 text-3xl" />
+              <FaCode className="text-gray-400 text-3xl" />
             </div>
             <h3 className="text-xl font-semibold text-gray-300 mb-2">No projects found</h3>
-            <p className="text-gray-500">Try selecting a different category</p>
+            <p className="text-gray-400">Try selecting a different category</p>
           </div>
         )}
         

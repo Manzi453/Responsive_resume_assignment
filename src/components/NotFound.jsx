@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
+import { Button } from './shared';
 
 const NotFound = () => {
   return (
@@ -10,13 +10,10 @@ const NotFound = () => {
           404
         </h1>
         <p className="text-xl text-gray-300 mb-8">This page doesn&apos;t exist.</p>
-        <Link
-          to="/"
-          className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 bg-gradient-to-r from-cyan-600 to-blue-700 text-white hover:from-cyan-700 hover:to-blue-800 shadow-lg shadow-cyan-500/25"
-        >
+        <Button to="/">
           <FaHome />
           Back Home
-        </Link>
+        </Button>
       </div>
     </section>
   );

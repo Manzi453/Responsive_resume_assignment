@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { NAV_LINKS, SOCIAL_LINKS } from '../constants';
+import { Button } from './shared';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -55,12 +56,9 @@ const Footer = () => {
             <p className="text-gray-400 text-sm mb-4">
               Have a project in mind? I&apos;m open to freelance work and full-time opportunities.
             </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 font-semibold rounded-full transition-all duration-300 py-2.5 px-6 bg-gradient-to-r from-cyan-600 to-blue-700 text-white hover:from-cyan-700 hover:to-blue-800 shadow-lg shadow-cyan-500/25 text-sm mb-5"
-            >
+            <Button to="/contact" size="none" className="py-2.5 px-6 text-sm mb-5">
               Request a Service
-            </Link>
+            </Button>
             <div className="flex items-center gap-3">
               {SOCIAL_LINKS.map(({ icon: Icon, url, name, color }) => (
                 <a
@@ -79,10 +77,10 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             &copy; {currentYear} Manzi Ya Musana Ivan. All rights reserved.
           </p>
-          <p className="text-gray-600 text-sm">Built with React &amp; Tailwind CSS</p>
+          <p className="text-gray-400 text-sm">Built with React &amp; Tailwind CSS</p>
         </div>
       </div>
     </footer>

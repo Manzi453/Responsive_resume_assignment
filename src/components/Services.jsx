@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaGlobe, FaLandmark, FaServer, FaMobile, FaRobot, FaTerminal, FaArrowRight, FaBriefcase } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { Button } from './shared';
 
 const services = [
   {
@@ -62,6 +63,7 @@ const ServiceCard = ({ service, index, isVisible }) => {
     >
       <div className={`bg-gradient-to-r ${service.color} p-6 relative overflow-hidden`}>
         <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16"></div>
+        <div className="absolute inset-0 bg-black/35"></div>
         <div className="relative z-10">
           <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 mb-4">
             <Icon className="text-2xl" />
@@ -85,7 +87,7 @@ const ServiceCard = ({ service, index, isVisible }) => {
         <Link
           to="/contact"
           state={{ subject: `${service.title} Inquiry` }}
-          className={`inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r ${service.color} text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
+          className={`inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r ${service.color} brightness-50 text-white font-semibold rounded-lg hover:shadow-lg hover:brightness-[0.6] transition-all duration-300 transform hover:scale-105`}
         >
           Request This Service
           <FaArrowRight className="text-sm" />
@@ -126,13 +128,10 @@ const Services = () => {
 
         <div className="text-center mt-16">
           <p className="text-gray-400 mb-4">Not sure which category fits? Tell me about the project and I&apos;ll help scope it.</p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-semibold"
-          >
+          <Button to="/contact" size="none" className="px-6 py-3">
             Get In Touch
             <FaArrowRight />
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

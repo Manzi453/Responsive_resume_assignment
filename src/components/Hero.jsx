@@ -1,12 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { FaEnvelope } from 'react-icons/fa';
 import { SOCIAL_LINKS } from '../constants';
-import { CircuitBackground } from './shared';
+import { CircuitBackground, Button } from './shared';
 import profileImage from '../Profile/Profile.jpeg';
-
-const MotionLink = motion(Link);
 
 const Hero = () => {
   const containerVariants = {
@@ -166,23 +163,13 @@ const Hero = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
             >
-              <MotionLink
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 bg-gradient-to-r from-cyan-600 to-blue-700 text-white hover:from-cyan-700 hover:to-blue-800 shadow-lg shadow-cyan-500/25"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <Button to="/contact">
                 <FaEnvelope />
                 Get In Touch
-              </MotionLink>
-              <MotionLink
-                to="/projects"
-                className="inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 py-3 px-8 border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              </Button>
+              <Button to="/projects" variant="secondary">
                 View Projects
-              </MotionLink>
+              </Button>
             </motion.div>
             
             {/* Social Links */}

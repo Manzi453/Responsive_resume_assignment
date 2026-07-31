@@ -47,7 +47,7 @@ const Navbar = () => {
         : 'bg-gray-900/50 backdrop-blur-sm'
     }`}>
       {/* Identity strip */}
-      <div className="hidden lg:flex justify-between items-center container mx-auto px-4 py-1.5 text-[11px] tracking-widest uppercase text-gray-500 border-b border-gray-800/50">
+      <div className="hidden lg:flex justify-between items-center container mx-auto px-4 py-1.5 text-[11px] tracking-widest uppercase text-gray-400 border-b border-gray-800/50">
         <span>Full-Stack Developer &amp; Technology Associate</span>
         <span>Based in Kigali, Rwanda</span>
       </div>

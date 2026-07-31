@@ -1,18 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+
+const MotionLink = motion(Link);
 
 /**
- * Button component with consistent styling
+ * Button component with consistent styling. Renders as a router Link when
+ * given a `to` prop, a plain anchor when given `href`, or a native button
+ * otherwise.
  */
 export const Button = ({
   children,
   variant = 'primary',
   size = 'md',
+  to,
+  href,
+  disabled = false,
   className = '',
   ...props
 }) => {
-  const baseClasses = 'font-semibold rounded-full transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2';
-  
+  const baseClasses = 'font-semibold rounded-full transition-all duration-300 transform flex items-center justify-center gap-2';
+
   const variants = {
     primary: 'bg-gradient-to-r from-cyan-600 to-blue-700 text-white hover:from-cyan-700 hover:to-blue-800 shadow-lg shadow-cyan-500/25',
     secondary: 'border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white',
@@ -23,13 +31,37 @@ export const Button = ({
     sm: 'py-2 px-4 text-sm',
     md: 'py-3 px-8 text-base',
     lg: 'py-4 px-10 text-lg',
+    none: '',
   };
+
+  const stateClasses = disabled
+    ? 'opacity-60 cursor-not-allowed'
+    : 'hover:scale-105';
+
+  const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${stateClasses} ${className}`;
+  const motionHoverProps = disabled ? {} : { whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 } };
+
+  if (to) {
+    return (
+      <MotionLink to={to} className={classes} {...motionHoverProps} {...props}>
+        {children}
+      </MotionLink>
+    );
+  }
+
+  if (href) {
+    return (
+      <motion.a href={href} className={classes} {...motionHoverProps} {...props}>
+        {children}
+      </motion.a>
+    );
+  }
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
+      disabled={disabled}
+      className={classes}
+      {...motionHoverProps}
       {...props}
     >
       {children}

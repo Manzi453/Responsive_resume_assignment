@@ -52,7 +52,7 @@ const LandingOverview = () => (
   <section className="pb-20 lg:pb-32 relative bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900">
     <div className="container mx-auto px-4">
       <div className="text-center mb-12">
-        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">Explore the Site</h2>
+        <h2 className="text-4xl lg:text-5xl font-bold text-white mb-3">Explore the Site</h2>
         <p className="text-gray-400 max-w-2xl mx-auto">A quick look at what&apos;s on each page.</p>
       </div>
 

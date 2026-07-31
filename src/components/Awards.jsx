@@ -606,10 +606,10 @@ const Awards = () => {
         {filteredAwards.length === 0 && (
           <div className="text-center py-16">
             <div className="w-24 h-24 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-700/30">
-              <FaTrophy className="text-gray-500 text-3xl" />
+              <FaTrophy className="text-gray-400 text-3xl" />
             </div>
             <h3 className="text-xl font-semibold text-gray-300 mb-2">No certificates found</h3>
-            <p className="text-gray-500">Try selecting a different category</p>
+            <p className="text-gray-400">Try selecting a different category</p>
           </div>
         )}
       </div>
