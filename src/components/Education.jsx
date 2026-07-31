@@ -145,6 +145,9 @@ const Education = () => {
 
   return (
     <section id="education" ref={ref} className="section-padding bg-gradient-to-b from-ink via-charcoal to-ink relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden">
+        <CircuitBackground />
+      </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-ochre/15 text-gold text-sm font-semibold mb-4 border border-ochre/30">

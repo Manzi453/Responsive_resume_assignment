@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane, FaUser, FaCommentDots, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Button } from './shared';
+import { Button, CircuitBackground } from './shared';
 
 const Contact = () => {
   const location = useLocation();
@@ -182,6 +182,9 @@ const Contact = () => {
   return (
     <>
       <section id="contact-form" ref={ref} className="section-padding bg-ink relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <CircuitBackground />
+        </div>
         <div className="container mx-auto px-4 relative z-10 max-w-3xl">
           <div className="text-center mb-12">
             <h3 className="font-display text-3xl lg:text-4xl font-bold mb-4 text-ivory">

@@ -76,7 +76,7 @@ function App() {
         <Suspense fallback={<LoadingSpinner />}>
           <main>
             <Routes>
-              <Route path="/" element={<><Hero /><TrustBar /><WhatIBuild /><SelectedWork /><HowItWorks /><Stats /><Testimonials /><AboutSnippet /><ContactCTA /></>} />
+              <Route path="/" element={<><Hero /><WhatIBuild /><SelectedWork /><HowItWorks /><Stats /><Testimonials /><AboutSnippet /><ContactCTA /></>} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/services" element={<Services />} />
               <Route path="/experience" element={<Experience />} />
